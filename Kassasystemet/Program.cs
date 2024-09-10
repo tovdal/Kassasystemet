@@ -30,15 +30,15 @@
                     // här kommer det att vara de produkter som skrivs in och sparas.
 
                     Console.WriteLine("comands: ");
-                    Console.WriteLine("<product id> <amount> \n PAY");
+                    Console.WriteLine("<PLU code> <amount> \n PAY");
                     Console.Write("comand:");
                     // Varor skrivs in och splitras i artikel och antal
                     string userComand = Console.ReadLine();
                     string[] comands = userComand.Split(' ');
                     Console.WriteLine(comands[0]);
                     Console.WriteLine(comands[1]);
-
-                    //PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
+                    
+                    // PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
                     // exempel moms, total kostnad, kanske även hur många produkter man köpte totalt
 
                     break;

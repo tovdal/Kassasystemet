@@ -1,0 +1,5 @@
+1000:Milk 1L 1,5%:12,95:pc
+1001:Heavy whipping cream 2,5dl 36%:18,50:pc
+1002:Cottage cheese 4% 250g:16,50:pc
+1003:Cottage cheese 4% 500g:30,95:pc
+Ska fortsätta med denna lista
