@@ -1,9 +1,12 @@
-﻿namespace Kassasystemet
+﻿using System.IO;
+
+namespace Kassasystemet
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+
 
             Console.WriteLine("Cashier System 1.0\n");
 
@@ -18,30 +21,69 @@
             switch (num)
             {
                 case 1:
-                    Console.WriteLine("[1] New Costumer");
+                    //produkt listan skapas
+
+                    var dagensDatum = DateTime.Now.ToShortDateString();
+                    // Dagens datum till kvittot.
+                    var receipt = "Kvitto";
+
+                    Console.Clear();
+                    Console.WriteLine("[1] New Costumer\n");
                     // det man skriver in här ska vara en produkt kod och antal av produkten.
                     // Sedan ska dessa sparas och visas i konsollen.
-                    Console.Clear();
-                    DateTime now = DateTime.Now;
-                    Console.WriteLine("cash register");
-                    Console.Write($"RECEIPT      ");
-                    Console.Write(now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                        DateTime now = DateTime.Now;
+                        Console.WriteLine("cash register");
+                        Console.Write($"RECEIPT      ");
+                        Console.Write(now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        Console.WriteLine("\n");
 
                     // här kommer det att vara de produkter som skrivs in och sparas.
+                    // måst göras med en loop?
 
-                    Console.WriteLine("comands: ");
-                    Console.WriteLine("<PLU code> <amount> \n PAY");
-                    Console.Write("comand:");
-                    // Varor skrivs in och splitras i artikel och antal
-                    string userComand = Console.ReadLine();
-                    string[] comands = userComand.Split(' ');
-                    Console.WriteLine(comands[0]);
-                    Console.WriteLine(comands[1]);
-                    
+                        Console.WriteLine("<PLU code> <amount> PAY");
+                        Console.Write("comand:");
+                        // Varor skrivs in och splitras i artikel och antal
+                        string userComand = Console.ReadLine();
+                        string[] comands = userComand.Split(' ');
+                        Console.WriteLine(comands[0]);
+                        Console.WriteLine(comands[1]);                    
+
                     // PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
                     // exempel moms, total kostnad, kanske även hur många produkter man köpte totalt
 
+                    // Exempel på hur kvittot ska kunna skrivas ut.
+                    //using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{dagensDatum}.txt", append: false))
+                    //{
+                    //    foreach (string name in names)
+                    //    {
+                    //        myStream.WriteLine(name);
+                    //    }
+                    //}
+
+                    //using (StreamReader reader = new StreamReader($"../../../Files/{receipt} Names -{dagensDatum}.txt"))
+                    //{
+                    //    while (reader.Peek() >= 0)
+                    //    {
+                    //        Console.WriteLine(reader.ReadLine());
+                    //    }
+                    //}
+                    if (File.Exists("../../../Files/MyWares.txt")) return;
+
+                    string text =
+                        "1000:Milk 1L 1,5 %:12,95:pc \n" +
+                        "1001:Heavy whipping cream 2,5dl 36 %:18,50:pc \n" +
+                        "1002:Cottage cheese 4 % 250g: 16,50:pc \n" +
+                        "1003:Cottage cheese 4 % 500g: 30,95:pc \n" +
+                        "1007:Fiskpinnar 45,90:pc \n" +
+                        "2003 Dill 22,90:kg \n";
+
+                    File.WriteAllText("../../../Files/MyWares.txt", text);
+                    //Ska fortsätta med denna lista
+
+
                     break;
+
                 case 2:
                     Console.WriteLine("[2] Admin tools");
                     switch (num)
@@ -51,6 +93,7 @@
                             // Här inne kommer det att ligga information om produkter. Man ska kunda ändra produkterna eller tabort dem / addera nya!
 
                             break;
+
                         case 2:
                             Console.WriteLine("[2] Change deals and promotional prices");
                             // här inne kommer det att ligga information om kampanjpriser
@@ -67,11 +110,13 @@
 
 
                             break;
+
                         case 3:
                             Console.WriteLine("[3] Return");
                             break;
                     }
                     break;
+
                 case 3:
                     Console.WriteLine("[3] Exit");
                     break;
