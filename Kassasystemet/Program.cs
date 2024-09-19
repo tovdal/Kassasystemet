@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Kassasystemet
 {
@@ -22,65 +23,77 @@ namespace Kassasystemet
             {
                 case 1:
                     //produkt listan skapas
+                    List<Item> shoppingCart = new List<Item>(); // Här ska varorna laggras och sedan kunna visas upp på kvitto
+                    string userComand;
+                    do
+                    {
+                        var dagensDatum = DateTime.Now.ToShortDateString();
+                        // Dagens datum till kvittot.
+                        var receipt = "Kvitto";
 
-                    var dagensDatum = DateTime.Now.ToShortDateString();
-                    // Dagens datum till kvittot.
-                    var receipt = "Kvitto";
-
-                    Console.Clear();
-                    Console.WriteLine("[1] New Costumer\n");
-                    // det man skriver in här ska vara en produkt kod och antal av produkten.
-                    // Sedan ska dessa sparas och visas i konsollen.
+                        Console.Clear();
+                        // det man skriver in här ska vara en produkt kod och antal av produkten.
+                        // Sedan ska dessa sparas och visas i konsollen.
 
                         DateTime now = DateTime.Now;
-                        Console.WriteLine("cash register");
+                        Console.WriteLine("CASH REGISTER");
                         Console.Write($"RECEIPT      ");
                         Console.Write(now.ToString("yyyy-MM-dd HH:mm:ss"));
                         Console.WriteLine("\n");
 
-                    // här kommer det att vara de produkter som skrivs in och sparas.
-                    // måst göras med en loop?
+                        foreach(var item in shoppingCart)
+                        {
+                            Console.WriteLine($"{ item.Name} {item.Amount} * {item.Price} = {item.Amount * item.Price}" );
+                        }
 
+                        Console.WriteLine($"Total: {}"); //Måste ha något sätt att räkna ihop alla varor.
                         Console.WriteLine("<PLU code> <amount> PAY");
                         Console.Write("comand:");
+
                         // Varor skrivs in och splitras i artikel och antal
-                        string userComand = Console.ReadLine();
+                        userComand = Console.ReadLine();
                         string[] comands = userComand.Split(' ');
-                        Console.WriteLine(comands[0]);
-                        Console.WriteLine(comands[1]);                    
 
-                    // PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
-                    // exempel moms, total kostnad, kanske även hur många produkter man köpte totalt
+                        if (comands[0].ToUpper() != "PAY")
+                        {
+                            string pluCode = comands[0];
+                            ushort amount = ushort.Parse(comands[1]);
+                        }
+                        
 
-                    // Exempel på hur kvittot ska kunna skrivas ut.
-                    //using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{dagensDatum}.txt", append: false))
-                    //{
-                    //    foreach (string name in names)
-                    //    {
-                    //        myStream.WriteLine(name);
-                    //    }
-                    //}
+                        // PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
+                        // exempel moms, total kostnad, kanske även hur många produkter man köpte totalt
 
-                    //using (StreamReader reader = new StreamReader($"../../../Files/{receipt} Names -{dagensDatum}.txt"))
-                    //{
-                    //    while (reader.Peek() >= 0)
-                    //    {
-                    //        Console.WriteLine(reader.ReadLine());
-                    //    }
-                    //}
-                    if (File.Exists("../../../Files/MyWares.txt")) return;
+                        // Exempel på hur kvittot ska kunna skrivas ut.
+                        //using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{dagensDatum}.txt", append: false))
+                        //{
+                        //    foreach (string name in names)
+                        //    {
+                        //        myStream.WriteLine(name);
+                        //    }
+                        //}
 
-                    string text =
-                        "1000:Milk 1L 1,5 %:12,95:pc \n" +
-                        "1001:Heavy whipping cream 2,5dl 36 %:18,50:pc \n" +
-                        "1002:Cottage cheese 4 % 250g: 16,50:pc \n" +
-                        "1003:Cottage cheese 4 % 500g: 30,95:pc \n" +
-                        "1007:Fiskpinnar 45,90:pc \n" +
-                        "2003 Dill 22,90:kg \n";
+                        //using (StreamReader reader = new StreamReader($"../../../Files/{receipt} Names -{dagensDatum}.txt"))
+                        //{
+                        //    while (reader.Peek() >= 0)
+                        //    {
+                        //        Console.WriteLine(reader.ReadLine());
+                        //    }
+                        //}
+                        if (File.Exists("../../../Files/MyWares.txt")) return;
 
-                    File.WriteAllText("../../../Files/MyWares.txt", text);
-                    //Ska fortsätta med denna lista
+                        string text =
+                            "1000:Milk 1L 1,5 %:12,95:pc \n" +
+                            "1001:Heavy whipping cream 2,5dl 36 %:18,50:pc \n" +
+                            "1002:Cottage cheese 4 % 250g: 16,50:pc \n" +
+                            "1003:Cottage cheese 4 % 500g: 30,95:pc \n" +
+                            "1007:Fiskpinnar 45,90:pc \n" +
+                            "2003 Dill 22,90:kg \n";
 
+                        File.WriteAllText("../../../Files/MyWares.txt", text);
+                        //Ska fortsätta med denna lista
+                    }
+                    while (userComand != "PAY");
 
                     break;
 
