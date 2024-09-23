@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic; // För att använda LISTAN?
 using System.IO;
 
 namespace Kassasystemet
@@ -23,32 +24,31 @@ namespace Kassasystemet
             {
                 case 1:
                     //produkt listan skapas
-                    List<Item> shoppingCart = new List<Item>(); // Här ska varorna laggras och sedan kunna visas upp på kvitto
+                    List<CartItem> shoppingCart = new List<CartItem>(); // Här ska varorna laggras och sedan kunna visas upp på kvitto
                     string userComand;
+                    
                     do
                     {
-                        var dagensDatum = DateTime.Now.ToShortDateString();
+                        Console.Clear();
+                        var todaysDate = DateTime.Now.ToShortDateString();
                         // Dagens datum till kvittot.
                         var receipt = "Kvitto";
 
-                        Console.Clear();
                         // det man skriver in här ska vara en produkt kod och antal av produkten.
                         // Sedan ska dessa sparas och visas i konsollen.
 
-                        DateTime now = DateTime.Now;
                         Console.WriteLine("CASH REGISTER");
-                        Console.Write($"RECEIPT      ");
-                        Console.Write(now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        Console.Write($"RECEIPT      " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                         Console.WriteLine("\n");
 
-                        foreach(var item in shoppingCart)
+                        foreach (var item in shoppingCart)
                         {
-                            Console.WriteLine($"{ item.Name} {item.Amount} * {item.Price} = {item.Amount * item.Price}" );
+                            Console.WriteLine($"{item.Name} {item.Amount} * {item.Price} = {item.Amount * item.Price}");
                         }
 
-                        Console.WriteLine($"Total: {}"); //Måste ha något sätt att räkna ihop alla varor.
+                        Console.WriteLine($"Total: {CalculateTotal(shoppingCart)}"); //Måste ha något sätt att räkna ihop alla varor.
                         Console.WriteLine("<PLU code> <amount> PAY");
-                        Console.Write("comand:");
+                        Console.Write("Command:");
 
                         // Varor skrivs in och splitras i artikel och antal
                         userComand = Console.ReadLine();
@@ -58,8 +58,12 @@ namespace Kassasystemet
                         {
                             string pluCode = comands[0];
                             ushort amount = ushort.Parse(comands[1]);
+
+                            
+
+                            if ()
                         }
-                        
+
 
                         // PAY ska räkna ihop allt till ett kvitto och slut summa av köpet.
                         // exempel moms, total kostnad, kanske även hur många produkter man köpte totalt
@@ -93,7 +97,9 @@ namespace Kassasystemet
                         File.WriteAllText("../../../Files/MyWares.txt", text);
                         //Ska fortsätta med denna lista
                     }
-                    while (userComand != "PAY");
+                    while (userComand.ToUpper() != "PAY");
+
+                    // Kvittot måst skrivas ut här?
 
                     break;
 
@@ -136,6 +142,12 @@ namespace Kassasystemet
 
             }
 
+        }
+
+
+        static Item WareByPLUCode(string pluCode)
+        {
+            if 
         }
     }
 }

@@ -1,0 +1,5 @@
+﻿1000 Milk 12,95 pc
+1001 Cream 18,50 pc
+1002 Cottagecheese 16,50 pc
+1007 Fiskpinnar 45,90 pc
+2003 Dill 22,90 kg
