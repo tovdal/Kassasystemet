@@ -10,13 +10,13 @@ namespace Kassasystemet
     {
         public static void Receipt() 
         {
-            using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{dagensDatum}.txt", append: false))
-            {
-                foreach (string name in names)
-                {
-                    myStream.WriteLine(name);
-                }
-            }
+            //using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{TodayDate}.txt", append: false))
+            //{
+            //    foreach (string name in names)
+            //    {
+            //        myStream.WriteLine(name);
+            //    }
+            //}
 
         }
     }

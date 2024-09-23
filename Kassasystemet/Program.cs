@@ -46,7 +46,7 @@ namespace Kassasystemet
                             Console.WriteLine($"{item.Name} {item.Amount} * {item.Price} = {item.Amount * item.Price}");
                         }
 
-                        Console.WriteLine($"Total: {CalculateTotal(shoppingCart)}"); //Måste ha något sätt att räkna ihop alla varor.
+                        Console.WriteLine($"Total: {Cart.CalculateTotal(shoppingCart)}"); //Måste ha något sätt att räkna ihop alla varor.
                         Console.WriteLine("<PLU code> <amount> PAY");
                         Console.Write("Command:");
 
@@ -58,10 +58,6 @@ namespace Kassasystemet
                         {
                             string pluCode = comands[0];
                             ushort amount = ushort.Parse(comands[1]);
-
-                            
-
-                            if ()
                         }
 
 
@@ -147,7 +143,7 @@ namespace Kassasystemet
 
         static Item WareByPLUCode(string pluCode)
         {
-            if 
+        
         }
     }
 }
