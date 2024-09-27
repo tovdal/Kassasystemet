@@ -24,10 +24,4 @@ namespace Kassasystemet
             Unit = unit;
         }
     }
-
-    public enum UnitType
-    {
-        pc,  // Styck
-        kg      // Kilo
-    }
 }

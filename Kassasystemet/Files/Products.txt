@@ -1,5 +1,10 @@
 ﻿1000 Milk 12,95 pc
 1001 Cream 18,50 pc
 1002 Cottagecheese 16,50 pc
-1007 Fiskpinnar 45,90 pc
 2003 Dill 22,90 kg
+3007 Fiskpinnar 45,90 pc
+3008 Salmon 250 kg
+4001 MincedMeat 105 kg
+4002 Meatballs 55,95 pc
+5001 Pork 86,50 kg
+
