@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
-    internal class HandelNewCustomer
+    internal class HandelCustomer
     {
-        static void HandleCustomer()
+        private CashRegister CashRegister;
+        public HandelCustomer() 
+        {
+            CashRegister cashRegister1 = new CashRegister("../../../Files/{receipt} Names -{TodayDate}.txt"); // ??????????????????????????
+        }
+
+        static void HandleNewCustomer()
         {
             List<Product> shoppingCart = new List<Product>();
             Receipt receipt1 = new Receipt();
@@ -17,19 +23,16 @@ namespace Kassasystemet
             do
             {
                 Console.Clear();
-                var todaysDate = DateTime.Now.ToShortDateString();
-                var receipt = "Kvitto";
-
                 Console.WriteLine("CASH REGISTER");
                 Console.Write($"RECEIPT      " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 Console.WriteLine("\n");
 
-                foreach (var item in shoppingCart)
+                foreach (var product in shoppingCart)
                 {
-                    Console.WriteLine($"{item.Name} {item.Amount} * {item.Price} = {item.Amount * item.Price}");
+                    Console.WriteLine($"{product.ProductName} {product.Quantity} * {product.Price} = {product.Quantity * product.Price}"); // varför blir Quantity jordgubbsland
                 }
 
-                Console.WriteLine($"Total: {CalculateTotal(shoppingCart)}"); //Måste ha något sätt att räkna ihop alla varor.
+                Console.WriteLine($"Total: {receipt1.TotalAmount}"); //Måste ha något sätt att räkna ihop alla varor.
                 Console.WriteLine("<PLU code> <amount> PAY");
                 Console.Write("Command:");
 
@@ -39,7 +42,7 @@ namespace Kassasystemet
 
                 if (comands[0].ToUpper() != "PAY")
                 {
-                    string pluCode = comands[0];
+                    int pluCode = int.Parse(comands[0]);
                     ushort amount = ushort.Parse(comands[1]);
                 }
 
@@ -51,6 +54,7 @@ namespace Kassasystemet
             while (userComand.ToUpper() != "PAY");
 
             // Kvittot måst skrivas ut här?
+            //var todaysDate = DateTime.Now.ToShortDateString();
         }
     }
 }
