@@ -6,39 +6,26 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
-    internal class Receipt
+    public class Receipt
     {
+        public List<CartItem> CartItems { get; set; } = new List<CartItem>();
+        public decimal TotalAmount { get; private set; }
 
-        public List<Product> Products { get; set; } = new List<Product>();
-        public decimal TotalAmount { get; set; }
-
-
-        public void AddProduct(Product product, int quantity)
+        public void AddCartItem(CartItem cartItem)
         {
-            Products.Add(product);
-            TotalAmount += product.Price * quantity;
+            CartItems.Add(cartItem);
+            TotalAmount += cartItem.Product.Price * cartItem.Quantity;
         }
 
         public void PrintReceipt()
         {
             Console.WriteLine("Receipt:");
-            foreach (Product product in Products)
+            foreach (var item in CartItems)
             {
-                Console.WriteLine($"{product.ProductName} - {product.Price:C}"); // här hittade jag :C https://dzone.com/articles/c-string-format-examples
+                Console.WriteLine($"{item.Product.ProductName} x {item.Quantity} = {item.Product.Price * item.Quantity:C}");
             }
-            Console.WriteLine($"Total: {TotalAmount}");
-        }
-
-        public void SaveReceipt(string filePath)
-        {
-            using (StreamWriter myStream = new StreamWriter($"../../../Files/{receipt} Names -{TodayDate}.txt", append: false))
-            {
-                foreach (string name in names)
-                {
-                    myStream.WriteLine(name);
-                }
-            }
-
+            Console.WriteLine($"Total: {TotalAmount:C}");
         }
     }
+
 }

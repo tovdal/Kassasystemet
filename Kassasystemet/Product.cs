@@ -9,14 +9,11 @@ namespace Kassasystemet
     internal class Product
     {
         public int PLUCode { get; set; }
-
         public string ProductName { get; set; }
-
         public decimal Price { get; set; }
-
         public UnitType Unit { get; set; }
 
-        public Product(int pluCode, string productName, decimal price, UnitType unit) 
+        public Product(int pluCode, string productName, decimal price, UnitType unit)
         {
             PLUCode = pluCode;
             ProductName = productName;
