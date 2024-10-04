@@ -4,19 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet
+namespace Kassasystemet.Kassasystemet
 {
     // Hanterar varje enskild produkt i kundvagnen, inklusive information som produktnamn, pris och kvantitet.
     public class CartItem
     {
         public Product Product { get; set; }
-        public int Quantity { get; set; }
+        public ushort Quantity { get; set; }
 
-        public CartItem(Product product, int quantity)
+        public CartItem(Product product, ushort quantity)
         {
             Product = product;
             Quantity = quantity;
         }
+
+        public decimal CalculateTotalPrice()
+        {
+            return Product.Price * Quantity;
+        }
+
     }
 
 }

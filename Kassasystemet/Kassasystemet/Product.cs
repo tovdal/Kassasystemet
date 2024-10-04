@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet
+namespace Kassasystemet.Kassasystemet
 {
     // Representerar en produkt med egenskaper som PLU-kod, produktnamn, pris och enhet.
     public class Product
@@ -21,5 +21,11 @@ namespace Kassasystemet
             Price = price;
             Unit = unit;
         }
+    }
+    // Enum för att definiera enheterna av produkterna
+    public enum UnitType
+    {
+        pc,
+        kg
     }
 }

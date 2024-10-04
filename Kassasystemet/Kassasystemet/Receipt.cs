@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet
+namespace Kassasystemet.Kassasystemet
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class Receipt
