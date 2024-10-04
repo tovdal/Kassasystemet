@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
-    internal class Product
+    // Representerar en produkt med egenskaper som PLU-kod, produktnamn, pris och enhet.
+    public class Product
     {
         public int PLUCode { get; set; }
         public string ProductName { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
+    // Enum för att definiera enheterna av produkterna
     public enum UnitType
     {
         pc,  // Styck

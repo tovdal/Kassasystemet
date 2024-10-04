@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
+    // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class Receipt
     {
         public List<CartItem> CartItems { get; set; } = new List<CartItem>();

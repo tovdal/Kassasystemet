@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet
 {
+    // Ansvarar för att hantera produkter, kundvagnar och alla betalnings- och kvittofunktioner.
     public class CashRegister
     {
         private Dictionary<int, Product> products = new Dictionary<int, Product>();

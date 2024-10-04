@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet
+namespace Kassasystemet.Delete
 {
     internal class HandelCustomer
     {
@@ -29,7 +29,7 @@ namespace Kassasystemet
 
                 foreach (var item in shoppingCart)
                 {
-                    Console.WriteLine($"{item.Product.ProductName} - {item.Product.Price:C} * {item.Quantity} = {(item.Quantity * item.Product.Price):C}");
+                    Console.WriteLine($"{item.Product.ProductName} - {item.Product.Price:C} * {item.Quantity} = {item.Quantity * item.Product.Price:C}");
                 }
 
                 Console.WriteLine($"Total: {receipt.TotalAmount:C}");
