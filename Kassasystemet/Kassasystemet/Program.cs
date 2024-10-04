@@ -12,7 +12,7 @@ namespace Kassasystemet.Kassasystemet
             Console.WriteLine("Cash Register System");
 
             // Initialisera CashRegister och andra klasser
-            var cashRegister = new CashRegister("../../../Files/Products.txt");
+            var cashRegister = new CashRegister("../../../Products.txt");
 
             cashRegister.AddToCart(101, 2); // Exempel på PLU-kod och kvantitet
             cashRegister.AddToCart(102, 3); // Exempel på PLU-kod och kvantitet
