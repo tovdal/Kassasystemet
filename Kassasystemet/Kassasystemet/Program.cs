@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Kassasystemet
 {
@@ -9,20 +10,33 @@ namespace Kassasystemet.Kassasystemet
     {
         static void Main(string[] args)
         {
-            string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
-            CashRegister register = new CashRegister(productFilePath);
+           
+            ConsoleCenter consoleCenter = new ConsoleCenter();
+            TitleDisplay titleDisplay = new TitleDisplay();
             HandleCustomer handleCustomer = new HandleCustomer();
+
             bool IsRunning = true;
 
             while (IsRunning)
             {
                 Console.Clear();
-                Console.WriteLine("Cashier System 1.0\n");
-                Console.WriteLine("[1] New Customer");
-                Console.WriteLine("[2] Admin Tools");
-                Console.WriteLine("[3] Exit\n");
 
-                Console.WriteLine("Pick selection: ");
+                titleDisplay.PrintTitle();
+
+                int lines = 8;
+                consoleCenter.SetCursorToMiddle(lines);
+
+                
+                consoleCenter.CenterText("Cashier System 1.0\n");
+                consoleCenter.CenterText("[1] New Customer");
+                consoleCenter.CenterText("[2] Admin Tools");
+                consoleCenter.CenterText("[3] Exit\n");
+
+                string prompt = "Pick selection: ";
+                int spacesBeforeCursor = (Console.WindowWidth - prompt.Length) / 2;
+                Console.SetCursorPosition(spacesBeforeCursor, Console.CursorTop + 1);
+                Console.Write(prompt); //skriver ut den.
+
                 string choice = Console.ReadLine();
 
                 switch (choice)
@@ -30,14 +44,18 @@ namespace Kassasystemet.Kassasystemet
                     case "1":
                         // hanterar kund
                         handleCustomer.StartHandleCustomer();
-
                         break;
+
                     case "2":
                         // Admin verktyg? om jag kommer så långt,
+                        consoleCenter.CenterText("Admin tools under construction....");
+                        Console.ReadKey();
                         break;
+
                     case "3":
                         IsRunning = false;
                         break;
+
                     default:
                         Console.WriteLine("Invalid choice");
                         break;

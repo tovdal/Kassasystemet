@@ -1,0 +1,445 @@
+==== RECEIPT ====
+Date: 2024-10-10 10:35:20
+Total: 0,00 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+==== RECEIPT ====
+Date: 2024-10-10 10:35:47
+Total: 0,00 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+==== RECEIPT ====
+Date: 2024-10-10 10:40:39
+Milk - 12,95 kr
+Cream - 18,50 kr
+Cottagecheese - 16,50 kr
+Total: 47,95 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+==== RECEIPT ====
+Date: 2024-10-10 10:58:12
+Milk - 12,95 kr
+Total: 12,95 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+==== RECEIPT ====
+Date: 2024-10-10 10:59:00
+Milk - 12,95 kr
+Total: 12,95 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+==== RECEIPT ====
+Date: 2024-10-10 10:59:28
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Total: 129,50 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+───────────────────
+==== RECEIPT ====
+Date: 2024-10-10 12:52:11
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Total: 129,50 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+───────────────────
+
+
+───────────────────
+==== RECEIPT ====
+Date: 2024-10-10 12:57:25
+Cream - 18,50 kr
+Cream - 18,50 kr
+Cream - 18,50 kr
+Cream - 18,50 kr
+Cream - 18,50 kr
+Total: 92,50 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+───────────────────
+
+
+
+───────────────────
+==== RECEIPT ====
+Date: 2024-10-10 12:58:28
+Milk - 12,95 kr
+Total: 12,95 kr
+=================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****ORIGINAL****
+───────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:04:53
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Total: 129,50 kr
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:05:05
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Total: 129,50 kr
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:10:53
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+System.Collections.Generic.List`1[Kassasystemet.Kassasystemet.Product] : articles
+Total: 129,50 kr
+
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:14:23
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Cream - 18,50 kr
+11 : articles
+Total: 148,00 kr
+
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:15:29
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+
+5 : articles
+Total: 64,75 kr
+
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:17:41
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+
+10 : articles
+Total: 129,50 kr
+
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:20:18
+
+Milk - 12,95 kr
+
+1 : articles
+Total: 12,95 kr
+
+----------------------
+
+----------------------
+======================
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:22:00
+
+Milk - 12,95 kr
+Cottagecheese - 16,50 kr
+
+2 : articles
+Total: 29,45 kr
+
+----------------------
+LÖPNUMMER ska vara här
+----------------------
+
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+======================
+
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:23:49
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+
+10 : articles
+Total: 129,50 kr
+
+----------------------
+LÖPNUMMER ska vara här
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+****** ORIGINAL *******
+======================
+
+───────────────────────
+
+
+
+───────────────────────
+======= RECEIPT =======
+Super Market - NoWhere
+NoWhere Steet
+234 56 NoWhere
+TEL NR 010-0000000
+Date: 2024-10-10 13:24:34
+
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+Milk - 12,95 kr
+
+10 : articles
+Total: 129,50 kr
+
+----------------------
+THANKS AND WELCOME
+BACK TO THE SHOP
+
+chashier 1 1122002
+LÖPNUMMER ska vara här
+****** ORIGINAL *******
+======================
+
+───────────────────────
+
+
+
