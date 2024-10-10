@@ -11,12 +11,9 @@ namespace Kassasystemet.Kassasystemet
     public class CashRegister
     {
         private Dictionary<int, Product> products = new Dictionary<int, Product>();
-        private List<CartItem> cartItems = new List<CartItem>();
-        private string filePath;
 
         public CashRegister(string filePath)
         {
-            this.filePath = filePath;
             LoadProducts(filePath);
         }
 
@@ -46,36 +43,17 @@ namespace Kassasystemet.Kassasystemet
             }
             else
             {
-                Console.WriteLine("Could not find the wares file.");
+                Console.WriteLine("Could not find the product file.");
             }
         }
-        public void AddToCart(int pluCode, ushort quantity)
+        public Product GetProductByPLU(int pluCode)
         {
-            if (products.TryGetValue(pluCode, out Product product))
+            if (products.ContainsKey(pluCode))
             {
-                cartItems.Add(new CartItem(product, quantity));
-                Console.WriteLine($"{quantity} x {product.ProductName}");
+                return products[pluCode];
             }
-            else
-            {
-                Console.WriteLine("Product not found.");
-            }
-        }
-
-        public decimal GetTotalAmount()
-        {
-            decimal total = 0;
-            foreach (var item in cartItems)
-            {
-                total += item.Product.Price * item.Quantity;
-            }
-            return total;
-
-        }
-
-        public void SaveReceipt(string filePath)
-        {
-
+            return null; //inget.
+            
         }
     }
 }
