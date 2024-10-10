@@ -22,10 +22,10 @@ namespace Kassasystemet.Kassasystemet
             Unit = unit;
         }
     }
-    // Enum för att definiera enheterna av produkterna
+    // Enum för att definiera enheterna av produkterna - den kan stanna kvar här inne.
     public enum UnitType
     {
-        pc,
-        kg
+        pc, //Styck
+        kg //Kilogram
     }
 }
