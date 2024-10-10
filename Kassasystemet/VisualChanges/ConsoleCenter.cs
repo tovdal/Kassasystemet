@@ -8,14 +8,16 @@ namespace Kassasystemet.VisualChanges
 {
     public class ConsoleCenter
     {
+        // sätter texten till mitten horisontell
         public void CenterText(string text)
         {
             int windowWidth = Console.WindowWidth;
             int textLength = text.Length;
-            int space = (windowWidth - textLength) / 2;
-
-            Console.WriteLine(new string(' ', space) + text);
+            int spaces = (windowWidth - textLength) / 2;
+            Console.WriteLine(new string(' ', spaces) + text);
         }
+
+        // sätter texten till mitten vertikalt
         public void SetCursorToMiddle(int lines)
         {
             int windowHeight = Console.WindowHeight;
