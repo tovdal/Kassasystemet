@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.VisualChanges
+namespace Kassasystemet.Kassasystemet.VisualChanges
 {
     public class ConsoleCenter
     {

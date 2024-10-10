@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet
+namespace Kassasystemet.Kassasystemet.Customer
 {
     // Ansvarar för att hantera produkter, kundvagnar och alla betalnings- och kvittofunktioner.
     public class CashRegister
@@ -53,7 +53,7 @@ namespace Kassasystemet.Kassasystemet
                 return products[pluCode];
             }
             return null; //inget.
-            
+
         }
     }
 }

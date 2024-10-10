@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet
+namespace Kassasystemet.Kassasystemet.Customer
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class Receipt
@@ -27,8 +27,8 @@ namespace Kassasystemet.Kassasystemet
                 writer.WriteLine("───────────────────────");
                 writer.WriteLine("======= RECEIPT =======");
                 writer.WriteLine("Super Market - NoWhere");
-                writer.WriteLine("NoWhere Steet");
-                writer.WriteLine("234 56 NoWhere");
+                writer.WriteLine("No-Where Steet 0");
+                writer.WriteLine("234 56 No-Where");
                 writer.WriteLine("TEL NR 010-0000000");
                 writer.WriteLine($"Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
                 foreach (var product in shoppingCart)

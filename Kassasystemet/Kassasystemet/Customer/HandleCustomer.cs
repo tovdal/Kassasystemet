@@ -1,4 +1,4 @@
-﻿using Kassasystemet.VisualChanges;
+﻿using Kassasystemet.Kassasystemet.VisualChanges;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Kassasystemet.Kassasystemet
+namespace Kassasystemet.Kassasystemet.Customer
 {
     public class HandleCustomer
     {
@@ -47,7 +47,7 @@ namespace Kassasystemet.Kassasystemet
                 consoleCenter.CenterText($"Total:                 {Receipt.CalculateTotal(shoppingCart):C}");
                 consoleCenter.CenterText("Command:                        ");
                 Console.ForegroundColor = ConsoleColor.Green;
-                consoleCenter.CenterText("<PLU code> or type 'PAY' to complete");
+                consoleCenter.CenterText("<PLU> <amount> or type 'PAY' to complete");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 consoleCenter.CenterText("───────────────────────────────────");
                 input = Console.ReadLine();
