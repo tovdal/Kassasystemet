@@ -19,45 +19,36 @@ namespace Kassasystemet.Kassasystemet
             return total;
         }
 
-        public static void SaveReceipt(List<Product> shoppingCart)
+        public void SaveReceipt(List<Product> shoppingCart)
         {
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";
             using (StreamWriter writer = new StreamWriter(receiptFilePath, append: true))
             {
-                writer.WriteLine("==== RECEIPT ====");
-                writer.WriteLine($"Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                writer.WriteLine("───────────────────────");
+                writer.WriteLine("======= RECEIPT =======");
+                writer.WriteLine("Super Market - NoWhere");
+                writer.WriteLine("NoWhere Steet");
+                writer.WriteLine("234 56 NoWhere");
+                writer.WriteLine("TEL NR 010-0000000");
+                writer.WriteLine($"Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
                 foreach (var product in shoppingCart)
                 {
                     writer.WriteLine($"{product.ProductName} - {product.Price:C}");
                 }
-                writer.WriteLine($"Total: {CalculateTotal(shoppingCart):C}");
-                writer.WriteLine("=================\n");
+                writer.WriteLine($"\n{shoppingCart.Count} : articles");
+                writer.WriteLine($"Total: {CalculateTotal(shoppingCart):C}\n");
+                writer.WriteLine("-----------------------");
                 writer.WriteLine("THANKS AND WELCOME");
                 writer.WriteLine("BACK TO THE SHOP\n");
                 writer.WriteLine("chashier 1 1122002");
-                writer.WriteLine("****ORIGINAL****");
+                writer.WriteLine("LÖPNUMMER ska vara här");
+                writer.WriteLine("****** ORIGINAL *******");
+                writer.WriteLine("=======================");
+                writer.WriteLine("───────────────────────");
+                writer.WriteLine("\n\n");
+
             }
-            Console.WriteLine("Receipt saved.");
-
-            //public List<CartItem> CartItems { get; set; } = new List<CartItem>();
-            //public decimal TotalAmount { get; private set; }
-
-            //public void AddCartItem(CartItem cartItem)
-            //{
-            //    CartItems.Add(cartItem);
-            //    TotalAmount += cartItem.Product.Price * cartItem.Quantity;
-            //}
-
-            //public void PrintReceipt()
-            //{
-            //    Console.WriteLine("Receipt:");
-            //    foreach (var item in CartItems)
-            //    {
-            //        Console.WriteLine($"{item.Product.ProductName} x {item.Quantity} = {item.Product.Price * item.Quantity:C}");
-            //    }
-            //    Console.WriteLine($"Total: {TotalAmount:C}");
-            //}
+            Console.Clear();
         }
     }
-
 }
