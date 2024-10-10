@@ -29,25 +29,28 @@ namespace Kassasystemet.Kassasystemet
             {
                 Console.Clear();
 
-                int lines = 20;
+                int lines = 25;
                 consoleCenter.SetCursorToMiddle(lines);
 
                 consoleCenter.CenterText("───────────────────────────────────");
-
+                Console.ForegroundColor = ConsoleColor.White;
                 consoleCenter.CenterText("Cash Register\n");
+                Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
+                Console.ForegroundColor = ConsoleColor.Gray;
 
                 foreach (var products in shoppingCart)
                 {
                     consoleCenter.CenterText($"{products.ProductName} - {products.Price:C}");
                 }
 
-                consoleCenter.CenterText($"Total: {Receipt.CalculateTotal(shoppingCart):C}");
+                consoleCenter.CenterText($"Total:                 {Receipt.CalculateTotal(shoppingCart):C}");
+                consoleCenter.CenterText("Command:                        ");
+                Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText("<PLU code> or type 'PAY' to complete");
-                consoleCenter.CenterText("Command: ");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 consoleCenter.CenterText("───────────────────────────────────");
                 input = Console.ReadLine();
-
 
                 if (input.ToUpper() != "PAY")
                 {
