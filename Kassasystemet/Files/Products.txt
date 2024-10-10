@@ -1,1 +1,15 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+100 Milk 12,95 pc
+101 Cream 18,50 pc
+102 Cottagecheese 16,50 pc
+203 Dill 22,90 kg
+307 Fiskpinnar 45,90 pc
+308 Salmon 250 kg
+401 MincedMeat 105 kg
+402 Meatballs 55,95 pc
+501 Pork 86,50 kg
