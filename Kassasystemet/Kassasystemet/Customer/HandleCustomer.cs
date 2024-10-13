@@ -29,13 +29,14 @@ namespace Kassasystemet.Kassasystemet.Customer
             {
                 Console.Clear();
 
-                int lines = 25;
-                consoleCenter.SetCursorToMiddle(lines);
-
+                // Skriver ut alla producter med PLU och namn som finns med i listan.
                 foreach (var product in register.GetProducts())
                 {
                     Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName}");
                 }
+
+                int lines = 12;
+                consoleCenter.SetCursorToMiddle(lines);
 
                 consoleCenter.CenterText("───────────────────────────────────");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -57,7 +58,6 @@ namespace Kassasystemet.Kassasystemet.Customer
                 Console.ForegroundColor = ConsoleColor.Gray;
                 consoleCenter.CenterText("───────────────────────────────────");
                 input = Console.ReadLine();
-
                 if (input.ToUpper() != "PAY")
                 {
                     try
