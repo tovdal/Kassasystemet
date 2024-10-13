@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Kassasystemet.Kassasystemet.Customer
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
-    public class Receipt
+    public class SalesReceipt
     {
         public static decimal CalculateTotal(List<Product> shoppingCart)
         {

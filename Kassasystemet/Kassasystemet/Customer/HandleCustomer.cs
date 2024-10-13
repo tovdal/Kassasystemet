@@ -17,8 +17,8 @@ namespace Kassasystemet.Kassasystemet.Customer
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
-            CashRegister register = new CashRegister(productFilePath);
-            Receipt receipt = new Receipt();
+            CashRegisterSystem register = new CashRegisterSystem(productFilePath);
+            SalesReceipt receipt = new SalesReceipt();
             List<Product> shoppingCart = new List<Product>();
             ConsoleCenter consoleCenter = new ConsoleCenter();
 
@@ -32,19 +32,25 @@ namespace Kassasystemet.Kassasystemet.Customer
                 int lines = 25;
                 consoleCenter.SetCursorToMiddle(lines);
 
+                foreach (var product in register.GetProducts())
+                {
+                    Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName}");
+                }
+
                 consoleCenter.CenterText("───────────────────────────────────");
                 Console.ForegroundColor = ConsoleColor.White;
-                consoleCenter.CenterText("Cash Register\n");
+                consoleCenter.CenterText("Cash Register - New Customer\n");
                 Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
                 Console.ForegroundColor = ConsoleColor.Gray;
 
+                // visa shoppingCart varorna i 
                 foreach (var products in shoppingCart)
                 {
                     consoleCenter.CenterText($"{products.ProductName} - {products.Price:C}");
                 }
 
-                consoleCenter.CenterText($"Total:                 {Receipt.CalculateTotal(shoppingCart):C}");
+                consoleCenter.CenterText($"Total:                 {SalesReceipt.CalculateTotal(shoppingCart):C}");
                 consoleCenter.CenterText("Command:                        ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText("<PLU> <amount> or type 'PAY' to complete");

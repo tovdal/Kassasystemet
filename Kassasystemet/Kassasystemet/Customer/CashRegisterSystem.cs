@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Kassasystemet.Customer
 {
-    // Ansvarar för att hantera produkter, kundvagnar och alla betalnings- och kvittofunktioner.
-    public class CashRegister
+    /// <summary>
+    /// Cash register system that loads and manages a list of products.
+    /// </summary>
+    public class CashRegisterSystem
     {
-        private List<Product> products = new List<Product>();
+        private List<Product> products = new List<Product>(); // Private pga Encapsulation!
 
-        public CashRegister(string filePath)
+        public CashRegisterSystem(string filePath)
         {
             LoadProducts(filePath);
         }
@@ -29,7 +31,7 @@ namespace Kassasystemet.Kassasystemet.Customer
 
                     if (parts.Length < 4)
                     {
-                        Console.WriteLine($"Ogiltig rad i filen: {strings}");
+                        Console.WriteLine($"Ogiltig rad i filen: {s}");
                         Console.ReadKey();
                         continue;
                     }
@@ -39,7 +41,8 @@ namespace Kassasystemet.Kassasystemet.Customer
                     decimal price = decimal.Parse(parts[2]);
                     UnitType unit = (UnitType)Enum.Parse(typeof(UnitType), parts[3]);
 
-                    products.Add(new Product(pluCode, productName, price, unit));
+                    Product product = new Product(pluCode, productName, price, unit);
+                    products.Add(product);
                 }
             }
             else
@@ -56,8 +59,18 @@ namespace Kassasystemet.Kassasystemet.Customer
                     return product;
                 }
             }
+            Console.WriteLine($"Produkten med PLU {pluCode} hittades inte.");
             return null; //ingen product hittades.
 
+        }
+
+        /// <summary>
+        /// Returns products in the list.
+        /// </summary>
+        /// <returns></returns>
+        public List<Product> GetProducts()
+        {
+            return products;
         }
     }
 }

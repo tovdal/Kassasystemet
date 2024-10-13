@@ -13,7 +13,7 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
         {
             int windowWidth = Console.WindowWidth;
             int textLength = text.Length;
-            int spaces = (windowWidth - textLength) / 2;
+            int spaces = Math.Max((windowWidth - textLength) / 2, 0);
             Console.WriteLine(new string(' ', spaces) + text);
         }
 
@@ -21,9 +21,26 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
         public void SetCursorToMiddle(int lines)
         {
             int windowHeight = Console.WindowHeight;
-            int verticalPosition = (windowHeight - lines) / 2;
+            int verticalPosition = Math.Max((windowHeight - lines) / 2, 0);
             Console.SetCursorPosition(0, verticalPosition);
         }
 
+        public void CenterAndDisplay(string text)
+        {
+            Console.Clear();  // Clear the console
+
+            // Get the console dimensions
+            int windowWidth = Console.WindowWidth;
+            int windowHeight = Console.WindowHeight;
+
+            // Calculate the horizontal and vertical positions
+            int textLength = text.Length;
+            int horizontalSpaces = Math.Max((windowWidth - textLength) / 2, 0); // Prevent negative spaces
+            int verticalPosition = Math.Max((windowHeight - 1) / 2, 0); // Prevent negative position
+
+            // Set cursor position and display text
+            Console.SetCursorPosition(horizontalSpaces, verticalPosition);
+            Console.WriteLine(text);
+        }
     }
 }

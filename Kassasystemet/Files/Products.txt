@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-100 Milk 12,95 pc
+﻿100 Milk 12,95 pc
 101 Cream 18,50 pc
 102 Cottagecheese 16,50 pc
 203 Dill 22,90 kg
