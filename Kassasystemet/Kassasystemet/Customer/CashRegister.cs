@@ -10,7 +10,7 @@ namespace Kassasystemet.Kassasystemet.Customer
     // Ansvarar för att hantera produkter, kundvagnar och alla betalnings- och kvittofunktioner.
     public class CashRegister
     {
-        private Dictionary<int, Product> products = new Dictionary<int, Product>();
+        private List<Product> products = new List<Product>();
 
         public CashRegister(string filePath)
         {
@@ -30,6 +30,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                     if (parts.Length < 4)
                     {
                         Console.WriteLine($"Ogiltig rad i filen: {strings}");
+                        Console.ReadKey();
                         continue;
                     }
 
@@ -38,7 +39,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                     decimal price = decimal.Parse(parts[2]);
                     UnitType unit = (UnitType)Enum.Parse(typeof(UnitType), parts[3]);
 
-                    products[pluCode] = new Product(pluCode, productName, price, unit);
+                    products.Add(new Product(pluCode, productName, price, unit));
                 }
             }
             else
@@ -48,11 +49,14 @@ namespace Kassasystemet.Kassasystemet.Customer
         }
         public Product GetProductByPLU(int pluCode)
         {
-            if (products.ContainsKey(pluCode))
+            foreach (var product in products)
             {
-                return products[pluCode];
+                if (product.PLUCode == pluCode)
+                {
+                    return product;
+                }
             }
-            return null; //inget.
+            return null; //ingen product hittades.
 
         }
     }
