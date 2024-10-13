@@ -24,23 +24,5 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
             int verticalPosition = Math.Max((windowHeight - lines) / 2, 0);
             Console.SetCursorPosition(0, verticalPosition);
         }
-
-        public void CenterAndDisplay(string text)
-        {
-            Console.Clear();  // Clear the console
-
-            // Get the console dimensions
-            int windowWidth = Console.WindowWidth;
-            int windowHeight = Console.WindowHeight;
-
-            // Calculate the horizontal and vertical positions
-            int textLength = text.Length;
-            int horizontalSpaces = Math.Max((windowWidth - textLength) / 2, 0); // Prevent negative spaces
-            int verticalPosition = Math.Max((windowHeight - 1) / 2, 0); // Prevent negative position
-
-            // Set cursor position and display text
-            Console.SetCursorPosition(horizontalSpaces, verticalPosition);
-            Console.WriteLine(text);
-        }
     }
 }
