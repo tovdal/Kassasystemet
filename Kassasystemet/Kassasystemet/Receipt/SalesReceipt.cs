@@ -5,35 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Kassasystemet.Kassasystemet.Register;
 
-namespace Kassasystemet.Kassasystemet.Customer
+namespace Kassasystemet.Kassasystemet.Receipt
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class SalesReceipt
     {
-        public decimal CalculateTotal(List<Product> shoppingCart)
-        {
-            decimal total = 0;
-
-            foreach (var product in shoppingCart)
-            {
-                total += product.Price;
-            }
-            return total;
-        }
-        public decimal CalculateTax(List<Product> shoppingCart)
-        {
-            decimal tax = 0;
-
-            foreach (var product in shoppingCart)
-            {
-                tax += product.Price;
-            }
-            tax *= 0.12m; 
-
-            return tax;
-        }
-
-        public void SaveReceipt(List<Product> shoppingCart)
+        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt)
         {
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";
             using (StreamWriter writer = new StreamWriter(receiptFilePath, append: true))
@@ -49,14 +26,16 @@ namespace Kassasystemet.Kassasystemet.Customer
                 writer.WriteLine($"|Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}  |");
                 writer.WriteLine("|---------------------------|");
                 writer.WriteLine("|                           |");
+
                 foreach (var product in shoppingCart)
                 {
                     writer.WriteLine($"|{product.ProductName} - {product.Price:C}");
                 }
+
                 writer.WriteLine("|                           |");
                 writer.WriteLine($"|Articles: {shoppingCart.Count}");
-                writer.WriteLine($"|Total: {CalculateTotal(shoppingCart):C}");
-                writer.WriteLine($"|Taxes: {CalculateTax(shoppingCart):C}");
+                writer.WriteLine($"|Total: {calculateReceipt.CalculateTotal(shoppingCart):C}");
+                writer.WriteLine($"|Taxes: {calculateReceipt.CalculateTax(shoppingCart):C}");
                 writer.WriteLine("|                           |");
                 writer.WriteLine("|---------------------------|");
                 writer.WriteLine("|                           |");
@@ -72,7 +51,6 @@ namespace Kassasystemet.Kassasystemet.Customer
                 writer.WriteLine("|                           |");
                 writer.WriteLine(" ───────────────────────────");
                 writer.WriteLine("\n\n");
-
             }
             Console.Clear();
         }
