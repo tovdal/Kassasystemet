@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Kassasystemet.Register;
+﻿using Kassasystemet.Kassasystemet.Receipt;
+using Kassasystemet.Kassasystemet.Register;
 using Kassasystemet.Kassasystemet.VisualChanges;
 using Microsoft.Win32;
 using System;
@@ -11,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Kassasystemet.Customer
 {
-    public class HandleCustomer
+    public class NewCustomer
     {
-        public void StartHandleCustomer()
+        public void StartNewCustormer(CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, ConsoleCenter consoleCenter)
         {
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
@@ -21,9 +22,7 @@ namespace Kassasystemet.Kassasystemet.Customer
             IProductLoader productLoader = new ProductLoader();
             ProductManager productManager = new ProductManager(productLoader, productFilePath);
 
-            SalesReceipt receipt = new SalesReceipt();
             List<Product> shoppingCart = new List<Product>();
-            ConsoleCenter consoleCenter = new ConsoleCenter();
 
             string input;
             bool IsPaymentCompleted = false;
@@ -55,7 +54,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                     consoleCenter.CenterText($"{products.ProductName} - {products.Price:C}");
                 }
 
-                consoleCenter.CenterText($"Total:                 {receipt.CalculateTotal(shoppingCart):C}");
+                consoleCenter.CenterText($"Total:                 {calculateReceipt.CalculateTotal(shoppingCart):C}");
                 consoleCenter.CenterText("Command:                        ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText("<PLU> <amount> or type 'PAY' to complete");
@@ -100,7 +99,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                 }
             }
             while (!IsPaymentCompleted);
-            receipt.SaveReceipt(shoppingCart); //När betalningen är klart, kvittot sparas.
+            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt); //När betalningen är klart, kvittot sparas.
 
             consoleCenter.CenterText("Receipt saved and printed out.");
             consoleCenter.CenterText("Press any key to continue");
