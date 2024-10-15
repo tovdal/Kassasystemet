@@ -11,8 +11,8 @@ namespace Kassasystemet.Kassasystemet
     {
         static void Main(string[] args)
         {
-            var cashRegiserMenu = new CashRegisterMenu();
-            cashRegiserMenu.RunMenu();
+            var startRegister = new StartMenu();
+            startRegister.RunMenu();
         }
     }
 }
