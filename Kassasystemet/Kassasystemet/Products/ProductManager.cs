@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kassasystemet.Kassasystemet.VisualChanges;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,10 +14,12 @@ namespace Kassasystemet.Kassasystemet.Register
     public class ProductManager
     {
         private List<Product> products = new List<Product>(); // Private pga Encapsulation!
+        private ConsoleCenter consoleCenter;
 
-        public ProductManager(IProductLoader productloader, string filePath)
+        public ProductManager(IProductLoader productloader, string filePath, ConsoleCenter consoleCenter)
         {
             products = productloader.LoadProducts(filePath);
+            this.consoleCenter = consoleCenter;
         }
 
         public Product GetProductByPLU(int pluCode)
@@ -28,7 +31,7 @@ namespace Kassasystemet.Kassasystemet.Register
                     return product;
                 }
             }
-            Console.WriteLine($"Produkten med PLU {pluCode} hittades inte.");
+            consoleCenter.CenterText($"Product with {pluCode} could not be found."); // This needs to be centerd.
             return null; //ingen product hittades.
 
         }
