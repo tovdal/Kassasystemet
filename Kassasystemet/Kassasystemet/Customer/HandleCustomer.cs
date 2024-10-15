@@ -33,12 +33,13 @@ namespace Kassasystemet.Kassasystemet.Customer
                 Console.Clear();
 
                 // Skriver ut alla producter med PLU och namn som finns med i listan.
+                Console.WriteLine("Available Products:");
                 foreach (var product in productManager.GetProducts())
                 {
-                    Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName}");
+                    Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
                 }
 
-                int lines = 12;
+                int lines = 15;
                 consoleCenter.SetCursorToMiddle(lines);
 
                 consoleCenter.CenterText("───────────────────────────────────");
@@ -54,13 +55,15 @@ namespace Kassasystemet.Kassasystemet.Customer
                     consoleCenter.CenterText($"{products.ProductName} - {products.Price:C}");
                 }
 
-                consoleCenter.CenterText($"Total:                 {SalesReceipt.CalculateTotal(shoppingCart):C}");
+                consoleCenter.CenterText($"Total:                 {receipt.CalculateTotal(shoppingCart):C}");
                 consoleCenter.CenterText("Command:                        ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText("<PLU> <amount> or type 'PAY' to complete");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 consoleCenter.CenterText("───────────────────────────────────");
+
                 input = Console.ReadLine();
+
                 if (input.ToUpper() != "PAY")
                 {
                     try
@@ -88,6 +91,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                         consoleCenter.CenterText($"Error: {e.Message}");
                         consoleCenter.CenterText("Press any key to continue");
                         Console.ReadKey();
+                    
                     }
                 }
                 else
