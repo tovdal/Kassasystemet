@@ -11,6 +11,8 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
     {
         public void RunMenu()
         {
+            Console.SetWindowSize(200, 50); // make a class?
+
             StartMenuDisplay cashRegisterMenu = new StartMenuDisplay();
             HandleCustomer handleCustomer = new HandleCustomer();
 

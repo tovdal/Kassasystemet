@@ -21,11 +21,11 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
             int lines = 8;
             consoleCenter.SetCursorToMiddle(lines);
 
-
-            consoleCenter.CenterText("Cashier System 1.0\n");
+            Console.WriteLine("\n");
+            consoleCenter.CenterText("-:Menu:-\n");
             consoleCenter.CenterText("[1] New Customer");
-            consoleCenter.CenterText("[2] Admin Tools");
-            consoleCenter.CenterText("[3] Exit\n");
+            consoleCenter.CenterText("[2] Admin Tools ");
+            consoleCenter.CenterText("[3] Exit      \n");
 
             string prompt = "Pick selection: ";
             int spacesBeforeCursor = (Console.WindowWidth - prompt.Length) / 2;
