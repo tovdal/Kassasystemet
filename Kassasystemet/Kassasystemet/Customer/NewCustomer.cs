@@ -14,13 +14,13 @@ namespace Kassasystemet.Kassasystemet.Customer
 {
     public class NewCustomer
     {
-        public void StartNewCustormer(CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, ConsoleCenter consoleCenter)
+        public void StartNewCustormer(CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, ConsoleCenter consoleCenter, LatestReceiptNumber latestReceiptNumber)
         {
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
-            ProductManager productManager = new ProductManager(productLoader, productFilePath);
+            ProductManager productManager = new ProductManager(productLoader, productFilePath,consoleCenter);
 
             List<Product> shoppingCart = new List<Product>();
 
@@ -30,20 +30,20 @@ namespace Kassasystemet.Kassasystemet.Customer
             do
             {
                 Console.Clear();
-
-                // Skriver ut alla producter med PLU och namn som finns med i listan.
-                Console.WriteLine("Available Products:");
+                Console.WriteLine("\n\t\t ______________________________");
+                Console.WriteLine("\t\t|Available Products:");
                 foreach (var product in productManager.GetProducts())
                 {
-                    Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
+                    Console.WriteLine($"\t\t|PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
                 }
 
-                int lines = 15;
-                consoleCenter.SetCursorToMiddle(lines);
-
-                consoleCenter.CenterText("───────────────────────────────────");
-                Console.ForegroundColor = ConsoleColor.White;
+                //int lines = 5;
+                //consoleCenter.SetCursorToMiddle(lines);
+                Console.ForegroundColor = ConsoleColor.Red;
                 consoleCenter.CenterText("Cash Register - New Customer\n");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                consoleCenter.CenterText("─────────────────────────────────────────────────────");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Green;
                 consoleCenter.CenterText($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -53,13 +53,15 @@ namespace Kassasystemet.Kassasystemet.Customer
                 {
                     consoleCenter.CenterText($"{products.ProductName} - {products.Price:C}");
                 }
-
+                consoleCenter.CenterText("");
                 consoleCenter.CenterText($"Total:                 {calculateReceipt.CalculateTotal(shoppingCart):C}");
-                consoleCenter.CenterText("Command:                        ");
+                consoleCenter.CenterText($"Taxes:                 {calculateReceipt.CalculateTax(shoppingCart):C}");
+                consoleCenter.CenterText("                           ");
                 Console.ForegroundColor = ConsoleColor.Green;
-                consoleCenter.CenterText("<PLU> <amount> or type 'PAY' to complete");
+                consoleCenter.CenterText("Commands: <PLU> <amount> or type 'PAY' to complete");
                 Console.ForegroundColor = ConsoleColor.Gray;
-                consoleCenter.CenterText("───────────────────────────────────");
+                consoleCenter.CenterText("─────────────────────────────────────────────────────");
+                consoleCenter.CenterTextLine("Command: ");
 
                 input = Console.ReadLine();
 
@@ -99,7 +101,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                 }
             }
             while (!IsPaymentCompleted);
-            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt); //När betalningen är klart, kvittot sparas.
+            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt, latestReceiptNumber); //När betalningen är klart, kvittot sparas.
 
             consoleCenter.CenterText("Receipt saved and printed out.");
             consoleCenter.CenterText("Press any key to continue");
