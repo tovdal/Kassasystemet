@@ -11,7 +11,7 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
 {
     public class StartMenu
     {
-        public void RunMenu(ConsoleWindow consoleWindow, CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, NewCustomer handleCustomer, ConsoleCenter consoleCenter, TitleDisplay titleDisplay)
+        public void RunMenu(ConsoleWindow consoleWindow, CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, NewCustomer handleCustomer, ConsoleCenter consoleCenter, TitleDisplay titleDisplay, LatestReceiptNumber latestReceiptNumber)
         {
             consoleWindow.WindowSize();
 
@@ -28,7 +28,7 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
                 {
                     case "1":
                         // hanterar kund
-                        handleCustomer.StartNewCustormer(calculateReceipt, salesReceipt, consoleCenter);
+                        handleCustomer.StartNewCustormer(calculateReceipt, salesReceipt, consoleCenter, latestReceiptNumber);
                         break;
 
                     case "2":
