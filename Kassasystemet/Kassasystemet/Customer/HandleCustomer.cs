@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Kassasystemet.VisualChanges;
+﻿using Kassasystemet.Kassasystemet.Register;
+using Kassasystemet.Kassasystemet.VisualChanges;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace Kassasystemet.Kassasystemet.Customer
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
-            CashRegisterSystem register = new CashRegisterSystem(productFilePath);
+            IProductLoader productLoader = new ProductLoader();
+            ProductManager productManager = new ProductManager(productLoader, productFilePath);
+
             SalesReceipt receipt = new SalesReceipt();
             List<Product> shoppingCart = new List<Product>();
             ConsoleCenter consoleCenter = new ConsoleCenter();
@@ -30,7 +33,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                 Console.Clear();
 
                 // Skriver ut alla producter med PLU och namn som finns med i listan.
-                foreach (var product in register.GetProducts())
+                foreach (var product in productManager.GetProducts())
                 {
                     Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName}");
                 }
@@ -66,7 +69,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                         int pluCode = int.Parse(parts[0]);
                         int amount = int.Parse(parts[1]);
 
-                        Product product = register.GetProductByPLU(pluCode);
+                        Product product = productManager.GetProductByPLU(pluCode);
                         if (product != null)
                         {
                             for (int i = 0; i < amount; i++)
