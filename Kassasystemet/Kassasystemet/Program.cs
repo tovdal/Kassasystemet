@@ -16,13 +16,14 @@ namespace Kassasystemet.Kassasystemet
         {
             var consoleWindow = new ConsoleWindow();
             var calculateReceipt = new CalculateReceipt();
-            var salesReceipt = new SalesReceipt();
+            var salesReceipt = new PrintSalesReciept();
             var newCustomer = new NewCustomer();
             var consoleCenter = new ConsoleCenter();
             var titleDisplay = new TitleDisplay();
+            var latestReceiptNumber = new LatestReceiptNumber();
 
             var startRegister = new StartMenu();
-            startRegister.RunMenu(consoleWindow, calculateReceipt, salesReceipt, newCustomer, consoleCenter, titleDisplay);
+            startRegister.RunMenu(consoleWindow, calculateReceipt, salesReceipt, newCustomer, consoleCenter, titleDisplay, latestReceiptNumber);
         }
     }
 }

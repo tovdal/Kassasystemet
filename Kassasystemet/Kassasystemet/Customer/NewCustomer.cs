@@ -14,7 +14,7 @@ namespace Kassasystemet.Kassasystemet.Customer
 {
     public class NewCustomer
     {
-        public void StartNewCustormer(CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, ConsoleCenter consoleCenter, LatestReceiptNumber latestReceiptNumber)
+        public void StartNewCustormer(CalculateReceipt calculateReceipt, PrintSalesReceipt salesReceipt, ConsoleCenter consoleCenter, LatestReceiptNumber latestReceiptNumber)
         {
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna

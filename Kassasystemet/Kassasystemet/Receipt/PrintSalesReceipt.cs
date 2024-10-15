@@ -8,10 +8,12 @@ using Kassasystemet.Kassasystemet.Register;
 namespace Kassasystemet.Kassasystemet.Receipt
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
-    public class SalesReceipt
+    public class PrintSalesReceipt
     {
-        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt)
+        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt, LatestReceiptNumber latestReceiptNumber)
         {
+            int receiptNumber;
+
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";
             using (StreamWriter writer = new StreamWriter(receiptFilePath, append: true))
             {
@@ -43,7 +45,9 @@ namespace Kassasystemet.Kassasystemet.Receipt
                 writer.WriteLine("|     BACK TO THE SHOP      |");
                 writer.WriteLine("|                           |");
                 writer.WriteLine("|     cashier 1 1122002     |");
-                writer.WriteLine("|  LÖPNUMMER ska vara här   |");
+
+                writer.WriteLine($"|    Receipt Number: {receiptNumber = latestReceiptNumber.GetAndSaveLatestReceiptNumber()}      |");
+
                 writer.WriteLine("|                           |");
                 writer.WriteLine("|  ****** ORIGINAL *******  |");
                 writer.WriteLine("|                           |");
@@ -52,6 +56,7 @@ namespace Kassasystemet.Kassasystemet.Receipt
                 writer.WriteLine(" ───────────────────────────");
                 writer.WriteLine("\n\n");
             }
+
             Console.Clear();
         }
     }

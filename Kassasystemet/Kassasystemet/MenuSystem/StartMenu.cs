@@ -11,7 +11,7 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
 {
     public class StartMenu
     {
-        public void RunMenu(ConsoleWindow consoleWindow, CalculateReceipt calculateReceipt, SalesReceipt salesReceipt, NewCustomer handleCustomer, ConsoleCenter consoleCenter, TitleDisplay titleDisplay, LatestReceiptNumber latestReceiptNumber)
+        public void RunMenu(ConsoleWindow consoleWindow, CalculateReceipt calculateReceipt, PrintSalesReceipt salesReceipt, NewCustomer handleCustomer, ConsoleCenter consoleCenter, TitleDisplay titleDisplay, LatestReceiptNumber latestReceiptNumber)
         {
             consoleWindow.WindowSize();
 
