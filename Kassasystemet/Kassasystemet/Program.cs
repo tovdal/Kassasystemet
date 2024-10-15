@@ -16,7 +16,7 @@ namespace Kassasystemet.Kassasystemet
         {
             var consoleWindow = new ConsoleWindow();
             var calculateReceipt = new CalculateReceipt();
-            var salesReceipt = new PrintSalesReciept();
+            var salesReceipt = new PrintSalesReceipt();
             var newCustomer = new NewCustomer();
             var consoleCenter = new ConsoleCenter();
             var titleDisplay = new TitleDisplay();

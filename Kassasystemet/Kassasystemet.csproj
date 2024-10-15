@@ -7,16 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Files\LatestReceiptNumber.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Files\LatestReceiptNumber.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Files\CustomerReceipts\" />
-  </ItemGroup>
-
 </Project>

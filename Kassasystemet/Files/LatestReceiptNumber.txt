@@ -1,1 +1,1 @@
-﻿// Här ska kvitto nummer lagras och sparas.
+2
