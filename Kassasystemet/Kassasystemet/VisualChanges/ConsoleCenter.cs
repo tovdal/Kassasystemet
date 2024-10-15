@@ -17,8 +17,17 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
             Console.WriteLine(new string(' ', spaces) + text);
         }
 
-        // sätter texten till mitten vertikalt
-        public void SetCursorToMiddle(int lines)
+        public void CenterTextLine(string text)
+        {
+            int windowWidth = Console.WindowWidth;
+            int textLength = text.Length;
+            int spaces = Math.Max((windowWidth - textLength) / 2, 0);
+            Console.Write(new string(' ', spaces) + text);
+        }
+
+
+            // sätter texten till mitten vertikalt
+            public void SetCursorToMiddle(int lines)
         {
             int windowHeight = Console.WindowHeight;
             int verticalPosition = Math.Max((windowHeight - lines) / 2, 0);
