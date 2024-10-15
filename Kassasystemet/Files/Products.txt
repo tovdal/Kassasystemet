@@ -7,3 +7,4 @@
 401 MincedMeat 105 kg
 402 Meatballs 55,95 pc
 501 Pork 86,50 kg
+601 Candy 88,80 kg
