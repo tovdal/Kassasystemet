@@ -7,11 +7,11 @@ using Kassasystemet.Kassasystemet.Customer;
 
 namespace Kassasystemet.Kassasystemet.MenuSystem
 {
-    public class CashRegisterMenu
+    public class StartMenu
     {
         public void RunMenu()
         {
-            CashRegisterMenuDisplay cashRegisterMenu = new CashRegisterMenuDisplay();
+            StartMenuDisplay cashRegisterMenu = new StartMenuDisplay();
             HandleCustomer handleCustomer = new HandleCustomer();
 
             bool IsRunning = true;

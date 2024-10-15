@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Kassasystemet.MenuSystem
 {
-    public class CashRegisterMenuDisplay
+    public class StartMenuDisplay
     {
         ConsoleCenter consoleCenter = new ConsoleCenter();
         TitleDisplay titleDisplay = new TitleDisplay();
