@@ -9,10 +9,7 @@ namespace Kassasystemet.Kassasystemet.MenuSystem
 {
     public class StartMenuDisplay
     {
-        ConsoleCenter consoleCenter = new ConsoleCenter();
-        TitleDisplay titleDisplay = new TitleDisplay();
-
-        public void RegisterMenu()
+        public void RegisterMenu(ConsoleCenter consoleCenter, TitleDisplay titleDisplay)
         {
             Console.Clear();
 
