@@ -13,10 +13,10 @@ namespace Kassasystemet.Kassasystemet.Register
     /// </summary>
     public class ProductManager
     {
-        private List<Product> products = new List<Product>(); // Private pga Encapsulation!
-        private ConsoleCenter consoleCenter;
+        private List<Product> products = new List<Product>();
+        private ConsoleWriteLineCenter consoleCenter;
 
-        public ProductManager(IProductLoader productloader, string filePath, ConsoleCenter consoleCenter)
+        public ProductManager(IProductLoader productloader, string filePath, ConsoleWriteLineCenter consoleCenter)
         {
             products = productloader.LoadProducts(filePath);
             this.consoleCenter = consoleCenter;

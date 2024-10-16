@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Kassasystemet.Register
 {
-    // Representerar en produkt med egenskaper som PLU-kod, produktnamn, pris och enhet.
+
+    /// <summary>
+    /// Product that has properties: PLUCode, product name, price and unit
+    /// </summary>
     public class Product
     {
         public int PLUCode { get; set; }
@@ -22,10 +25,13 @@ namespace Kassasystemet.Kassasystemet.Register
             Unit = unit;
         }
     }
-    // Enum för att definiera enheterna av produkterna - den kan stanna kvar här inne.
+
+    /// <summary>
+    /// Defines Unit types
+    /// </summary>
     public enum UnitType
     {
-        pc, //Styck
-        kg //Kilogram
+        pc, 
+        kg 
     }
 }
