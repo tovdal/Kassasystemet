@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Kassasystemet.VisualChanges
 {
-    public class ConsoleCenter
+    public class ConsoleWriteLineCenter
     {
         // sätter texten till mitten horisontell
         public void CenterText(string text)
@@ -17,7 +17,7 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
             Console.WriteLine(new string(' ', spaces) + text);
         }
 
-        public void CenterTextLine(string text)
+        public void CenterTextShort(string text)
         {
             int windowWidth = Console.WindowWidth;
             int textLength = text.Length;

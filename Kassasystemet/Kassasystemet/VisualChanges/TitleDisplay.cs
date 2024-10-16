@@ -8,7 +8,7 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
 {
     public class TitleDisplay
     {
-        ConsoleCenter consoleCenter = new ConsoleCenter();
+        ConsoleWriteLineCenter consoleCenter = new ConsoleWriteLineCenter();
         // Ascii konst.
         public void PrintTitle()
         {
