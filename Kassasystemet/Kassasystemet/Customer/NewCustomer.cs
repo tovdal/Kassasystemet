@@ -14,13 +14,20 @@ namespace Kassasystemet.Kassasystemet.Customer
 {
     public class NewCustomer
     {
-        public void StartNewCustormer(CalculateReceipt calculateReceipt, PrintSalesReceipt salesReceipt, ConsoleCenter consoleCenter, LatestReceiptNumber latestReceiptNumber)
+
+        public void StartNewCustormer()
         {
+            var calculateReceipt = new CalculateReceipt();
+            var salesReceipt = new PrintSalesReceipt();
+            var latestReceiptNumber = new LatestReceiptNumber();
+            var consoleCenter = new ConsoleWriteLineCenter();
+
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
             ProductManager productManager = new ProductManager(productLoader, productFilePath,consoleCenter);
+
 
             List<Product> shoppingCart = new List<Product>();
 
@@ -61,7 +68,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                 consoleCenter.CenterText("Commands: <PLU> <amount> or type 'PAY' to complete");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 consoleCenter.CenterText("─────────────────────────────────────────────────────");
-                consoleCenter.CenterTextLine("Command: ");
+                consoleCenter.CenterTextShort("Command: ");
 
                 input = Console.ReadLine();
 
