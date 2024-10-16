@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet.VisualChanges
+namespace Kassasystemet.VisualChanges
 {
     public class TitleDisplay
     {

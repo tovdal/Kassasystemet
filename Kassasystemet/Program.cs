@@ -1,4 +1,6 @@
-﻿namespace Kassasystemet.Kassasystemet
+﻿using Kassasystemet;
+
+namespace Kassasystemet
 {
     class Program
     {

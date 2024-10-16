@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet.VisualChanges
+namespace Kassasystemet.VisualChanges
 {
     public class ConsoleWriteLineCenter
     {
@@ -26,8 +26,8 @@ namespace Kassasystemet.Kassasystemet.VisualChanges
         }
 
 
-            // sätter texten till mitten vertikalt
-            public void SetCursorToMiddle(int lines)
+        // sätter texten till mitten vertikalt
+        public void SetCursorToMiddle(int lines)
         {
             int windowHeight = Console.WindowHeight;
             int verticalPosition = Math.Max((windowHeight - lines) / 2, 0);

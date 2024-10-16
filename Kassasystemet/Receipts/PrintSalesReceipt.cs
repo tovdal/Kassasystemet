@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kassasystemet.Kassasystemet.Register;
+using Kassasystemet.Products;
 
-namespace Kassasystemet.Kassasystemet.Receipt
+namespace Kassasystemet.Receipts
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class PrintSalesReceipt
     {
-        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt, LatestReceiptNumber latestReceiptNumber)
+        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt)
         {
+            var latestReceiptNumber = new LatestReceiptNumber();
             int receiptNumber;
 
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";

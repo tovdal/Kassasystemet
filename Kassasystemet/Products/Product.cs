@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet.Register
+namespace Kassasystemet.Products
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Kassasystemet.Kassasystemet.Register
     /// </summary>
     public enum UnitType
     {
-        pc, 
-        kg 
+        pc,
+        kg
     }
 }

@@ -1,16 +1,9 @@
-﻿using Kassasystemet.Kassasystemet.Receipt;
-using Kassasystemet.Kassasystemet.Register;
-using Kassasystemet.Kassasystemet.VisualChanges;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kassasystemet.VisualChanges;
+using Kassasystemet.Products;
+using Kassasystemet.Receipts;
 
 
-namespace Kassasystemet.Kassasystemet.Customer
+namespace Kassasystemet.Customer
 {
     public class NewCustomer
     {
@@ -26,8 +19,7 @@ namespace Kassasystemet.Kassasystemet.Customer
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
-            ProductManager productManager = new ProductManager(productLoader, productFilePath,consoleCenter);
-
+            ProductManager productManager = new ProductManager(productLoader, productFilePath, consoleCenter);
 
             List<Product> shoppingCart = new List<Product>();
 
@@ -99,7 +91,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                         consoleCenter.CenterText($"Error: {e.Message}");
                         consoleCenter.CenterText("Press any key to continue");
                         Console.ReadKey();
-                    
+
                     }
                 }
                 else
@@ -108,7 +100,7 @@ namespace Kassasystemet.Kassasystemet.Customer
                 }
             }
             while (!IsPaymentCompleted);
-            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt, latestReceiptNumber); //När betalningen är klart, kvittot sparas.
+            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt); //När betalningen är klart, kvittot sparas.
 
             consoleCenter.CenterText("Receipt saved and printed out.");
             consoleCenter.CenterText("Press any key to continue");

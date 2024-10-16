@@ -1,4 +1,4 @@
-﻿using Kassasystemet.Kassasystemet.VisualChanges;
+﻿using Kassasystemet.VisualChanges;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet.Register
+namespace Kassasystemet.Products
 {
     /// <summary>
     /// Manages a list of products.
@@ -15,6 +15,7 @@ namespace Kassasystemet.Kassasystemet.Register
     {
         private List<Product> products = new List<Product>();
         private ConsoleWriteLineCenter consoleCenter;
+
 
         public ProductManager(IProductLoader productloader, string filePath, ConsoleWriteLineCenter consoleCenter)
         {

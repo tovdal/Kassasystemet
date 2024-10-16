@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Kassasystemet.Kassasystemet.Customer;
-using Kassasystemet.Kassasystemet.Receipt;
-using Kassasystemet.Kassasystemet.VisualChanges;
+﻿using Kassasystemet.Customer;
+using Kassasystemet.VisualChanges;
 
-namespace Kassasystemet.Kassasystemet.MenuSystem
+namespace Kassasystemet.Menu
 {
     public class StartMenu
     {

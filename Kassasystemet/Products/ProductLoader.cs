@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Kassasystemet.Register
+namespace Kassasystemet.Products
 {
     public class ProductLoader : IProductLoader
     {
