@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Customer
 {
-    public class DisplayProducts
+    public class AvailableProductsDisplay
     {
         public static void DisplayAvailableProducts(ProductManager productManager)
         {
