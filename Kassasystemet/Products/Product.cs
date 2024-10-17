@@ -15,6 +15,7 @@ namespace Kassasystemet.Products
         public int PLUCode { get; set; }
         public string ProductName { get; set; }
         public decimal Price { get; set; }
+        public int Quantity { get; set; } = 1; //default value
         public UnitType Unit { get; set; }
 
         public Product(int pluCode, string productName, decimal price, UnitType unit)
