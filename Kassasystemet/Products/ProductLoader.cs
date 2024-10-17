@@ -22,7 +22,7 @@ namespace Kassasystemet.Products
 
                     if (parts.Length < 4)
                     {
-                        Console.WriteLine($"Invalid line in file: {s}");
+                        Console.WriteLine($"\nInvalid line in file: {s}");
                         continue;
                     }
 
@@ -36,7 +36,7 @@ namespace Kassasystemet.Products
             }
             else
             {
-                Console.WriteLine("Could not find the product file.");
+                Console.WriteLine("\nCould not find the product file.");
             }
 
             return products;

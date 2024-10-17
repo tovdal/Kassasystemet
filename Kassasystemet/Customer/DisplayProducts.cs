@@ -11,12 +11,17 @@ namespace Kassasystemet.Customer
     {
         public static void DisplayAvailableProducts(ProductManager productManager)
         {
-            Console.Clear();
-            Console.WriteLine("\n\t\t ______________________________");
-            Console.WriteLine("\t\t|Available Products:");
+            Console.SetCursorPosition(119, 9);
+            Console.WriteLine("Available Products:");
+
+
+            int currentRow = 12;
+
             foreach (var product in productManager.GetProducts())
             {
-                Console.WriteLine($"\t\t|PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
+                Console.SetCursorPosition(119, currentRow);
+                Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
+                currentRow++;
             }
         }
     }

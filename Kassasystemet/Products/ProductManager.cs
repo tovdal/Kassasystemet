@@ -32,7 +32,10 @@ namespace Kassasystemet.Products
                     return product;
                 }
             }
+            Console.WriteLine("\n");
+            Console.ForegroundColor = ConsoleColor.Red;
             consoleCenter.CenterText($"Product with {pluCode} could not be found."); // This needs to be centerd.
+            Console.ForegroundColor = ConsoleColor.Gray;
             return null; //ingen product hittades.
 
         }

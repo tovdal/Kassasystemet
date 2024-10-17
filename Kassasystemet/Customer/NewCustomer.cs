@@ -28,6 +28,14 @@ namespace Kassasystemet.Customer
 
             do
             {
+                Console.Clear();
+
+                consoleCenter.DrawBorder(7, 50, 65, 25); // New Customer
+                consoleCenter.DrawBorder(7, 115, 35, 25); //Available products
+                consoleCenter.DrawBorder(32, 50, 100, 3); //Comand box
+                consoleCenter.DrawBorder(28, 50, 65, 4); // total box.
+
+
                 DisplayProducts.DisplayAvailableProducts(productManager);
                 DisplayReceipt.DisplayCustomerReceipt(calculateReceipt, consoleCenter, shoppingCart);
 
@@ -46,8 +54,10 @@ namespace Kassasystemet.Customer
 
             salesReceipt.SaveReceipt(shoppingCart, calculateReceipt); //När betalningen är klart, kvittot sparas.
 
-            consoleCenter.CenterText("Receipt saved and printed out.");
-            consoleCenter.CenterText("Press any key to continue");
+            Console.SetCursorPosition(85, 20);
+            Console.WriteLine("Receipt saved and printed out.");
+            Console.SetCursorPosition(85, 21);
+            Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
 

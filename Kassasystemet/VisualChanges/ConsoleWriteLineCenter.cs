@@ -36,6 +36,7 @@ namespace Kassasystemet.VisualChanges
 
         public void DrawBorder(int y, int x, int width, int height)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(x, y);
             Console.Write("╔" + new string('═', width - 2) + "╗"); // Top border
 
@@ -47,6 +48,7 @@ namespace Kassasystemet.VisualChanges
 
             Console.SetCursorPosition(x, y + height - 1);
             Console.Write("╚" + new string('═', width - 2) + "╝"); // Bottom border
+            Console.ForegroundColor= ConsoleColor.Gray;
         }
     }
 }

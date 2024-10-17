@@ -15,6 +15,10 @@ namespace Kassasystemet.Customer
             try
             {
                 string[] parts = input.Split(' ');
+                if (parts.Length != 2)
+                {
+                    ShowErrorMessage("Please enter in the format: <PLU> <amount>");
+                }
                 int pluCode = int.Parse(parts[0]);
                 int amount = int.Parse(parts[1]);
 
@@ -28,17 +32,24 @@ namespace Kassasystemet.Customer
                 }
                 else
                 {
-                    consoleCenter.CenterText("Product not found.");
                     Console.ReadKey();
                 }
             }
             catch (Exception e)
             {
-                consoleCenter.CenterText($"Error: {e.Message}");
-                consoleCenter.CenterText("Press any key to continue");
-                Console.ReadKey();
-
+                //ShowErrorMessage();
             }
+        }
+
+        private static void ShowErrorMessage(string message)
+        {
+            Console.SetCursorPosition(80, Console.CursorTop + 2);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+            Console.SetCursorPosition(86, Console.CursorTop + 1);
+            Console.ReadKey();
+
         }
     }
 }
