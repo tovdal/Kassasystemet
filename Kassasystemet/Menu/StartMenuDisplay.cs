@@ -13,22 +13,22 @@ namespace Kassasystemet.Menu
 
             titleDisplay.PrintTitle();
 
-            int lines = 8;
-            consoleCenter.SetCursorToMiddle(lines);
+            consoleCenter.DrawBorder(23, 81, 30, 10);
 
-            Console.WriteLine("\n");
             Console.ForegroundColor = ConsoleColor.Red;
-            consoleCenter.CenterText("-:Menu:-\n");
+            Console.SetCursorPosition(92, 24);
+            Console.WriteLine("-:Menu:-");
             Console.ForegroundColor = ConsoleColor.Gray;
-            consoleCenter.CenterText("[1] New Customer");
-            consoleCenter.CenterText("[2] Admin Tools ");
-            consoleCenter.CenterText("[3] Exit      \n");
+            Console.SetCursorPosition(88, 27);
+            Console.WriteLine("[1] New Customer");
+            Console.SetCursorPosition(88, 28);
+            Console.WriteLine("[2] Admin Tools ");
+            Console.SetCursorPosition(88, 29);
+            Console.WriteLine("[3] Exit\n");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            string prompt = "Pick selection: ";
-            int spacesBeforeCursor = (Console.WindowWidth - prompt.Length) / 2;
-            Console.SetCursorPosition(spacesBeforeCursor, Console.CursorTop + 1);
-            Console.Write(prompt); // writes out
+            Console.SetCursorPosition(87, 35);
+            Console.Write("Pick selection: ");
             Console.ForegroundColor = ConsoleColor.Gray;
 
         }

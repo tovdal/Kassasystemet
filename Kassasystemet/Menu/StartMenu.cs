@@ -36,16 +36,17 @@ namespace Kassasystemet.Menu
 
                     case "3":
                         Console.Clear();
-                        int lines = 20;
-                        consoleCenter.SetCursorToMiddle(lines);
-                        consoleCenter.CenterText("Closing down the system...");
-                        consoleCenter.CenterText("Thank you for using Cashier System 1.0!");
+                        Console.SetCursorPosition(85, 20);
+                        Console.WriteLine("Closing down the system...");
+                        Console.SetCursorPosition(77, 21);
+                        Console.WriteLine("Thank you for using Cashier System 1.0!");
                         Console.ReadKey();
                         IsRunning = false;
                         break;
 
                     default:
-                        consoleCenter.CenterText("Invalid choice");
+                        Console.SetCursorPosition(92, 25);
+                        Console.WriteLine("Invalid choice");
                         break;
                 }
             }
