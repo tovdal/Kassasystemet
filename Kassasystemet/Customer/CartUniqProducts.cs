@@ -36,7 +36,6 @@ namespace Kassasystemet.Customer
                     ));
                 }
             }
-
             return uniqueProducts;
         }
     }

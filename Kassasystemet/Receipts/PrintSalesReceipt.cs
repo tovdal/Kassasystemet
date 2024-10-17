@@ -49,7 +49,6 @@ namespace Kassasystemet.Receipts
                 writer.WriteLine("|            BACK TO THE SHOP           |");
                 writer.WriteLine("|                                       |");
                 writer.WriteLine("|               cashier 1               |");
-
                 writer.WriteLine($"|           Receipt Number: {receiptNumber = latestReceiptNumber.GetAndSaveLatestReceiptNumber()}          |");
                 writer.WriteLine("|                                       |");
                 writer.WriteLine("|        ****** ORIGINAL *******        |");
@@ -59,7 +58,6 @@ namespace Kassasystemet.Receipts
                 writer.WriteLine("|_______________________________________|");
                 writer.WriteLine("\n\n");
             }
-
             Console.Clear();
         }
     }

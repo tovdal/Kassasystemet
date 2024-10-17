@@ -30,14 +30,11 @@ namespace Kassasystemet.Customer
             do
             {
                 Console.Clear();
-
                 consoleCenter.DrawBorder(7, 50, 65, 25); // New Customer
                 consoleCenter.DrawBorder(7, 115, 35, 25); //Available products
                 consoleCenter.DrawBorder(32, 50, 100, 3); //Comand box
                 consoleCenter.DrawBorder(28, 50, 65, 4); // total box.
                 consoleCenter.DrawBorder(7, 50, 65, 4);
-
-
 
                 AvailableProductsDisplay.DisplayAvailableProducts(productManager);
                 DisplayCart.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
