@@ -33,5 +33,20 @@ namespace Kassasystemet.VisualChanges
             int verticalPosition = Math.Max((windowHeight - lines) / 2, 0);
             Console.SetCursorPosition(0, verticalPosition);
         }
+
+        public void DrawBorder(int y, int x, int width, int height)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("╔" + new string('═', width - 2) + "╗"); // Top border
+
+            for (int i = 1; i < height - 1; i++)
+            {
+                Console.SetCursorPosition(x, y + i);
+                Console.Write("║" + new string(' ', width - 2) + "║"); // Side borders
+            }
+
+            Console.SetCursorPosition(x, y + height - 1);
+            Console.Write("╚" + new string('═', width - 2) + "╝"); // Bottom border
+        }
     }
 }
