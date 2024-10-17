@@ -34,7 +34,7 @@ namespace Kassasystemet.Products
             }
             Console.WriteLine("\n");
             Console.ForegroundColor = ConsoleColor.Red;
-            consoleCenter.CenterText($"Product with {pluCode} could not be found."); // This needs to be centerd.
+            consoleCenter.CenterText($"Product with {pluCode} could not be found.");
             Console.ForegroundColor = ConsoleColor.Gray;
             return null; //ingen product hittades.
 
