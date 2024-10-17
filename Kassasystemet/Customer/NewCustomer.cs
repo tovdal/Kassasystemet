@@ -14,6 +14,7 @@ namespace Kassasystemet.Customer
             var salesReceipt = new PrintSalesReceipt();
             var latestReceiptNumber = new LatestReceiptNumber();
             var consoleCenter = new ConsoleWriteLineCenter();
+            var customerImput = new CustomerImput();
 
             // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
@@ -34,16 +35,18 @@ namespace Kassasystemet.Customer
                 consoleCenter.DrawBorder(7, 115, 35, 25); //Available products
                 consoleCenter.DrawBorder(32, 50, 100, 3); //Comand box
                 consoleCenter.DrawBorder(28, 50, 65, 4); // total box.
+                consoleCenter.DrawBorder(7, 50, 65, 4);
 
 
-                DisplayProducts.DisplayAvailableProducts(productManager);
-                DisplayReceipt.DisplayCustomerReceipt(calculateReceipt, consoleCenter, shoppingCart);
+
+                AvailableProductsDisplay.DisplayAvailableProducts(productManager);
+                DisplayCart.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
 
                 input = Console.ReadLine();
 
                 if (input.ToUpper() != "PAY")
                 {
-                    CustomerImput.HandleProductInput(consoleCenter, productManager, shoppingCart, input);
+                    customerImput.HandleProductInput(consoleCenter, productManager, shoppingCart, input);
                 }
                 else
                 {

@@ -10,7 +10,7 @@ namespace Kassasystemet.Customer
 {
     public class CustomerImput
     {
-        public static void HandleProductInput(ConsoleWriteLineCenter consoleCenter, ProductManager productManager, List<Product> shoppingCart, string input)
+        public void HandleProductInput(ConsoleWriteLineCenter consoleCenter, ProductManager productManager, List<Product> shoppingCart, string input)
         {
             try
             {
