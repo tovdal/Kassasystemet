@@ -16,7 +16,7 @@ namespace Kassasystemet.Admin
             Console.WriteLine("Enter the name of the product: ");
             string productName = Console.ReadLine();
             Console.WriteLine("Enter the price: ");
-            if (!int.TryParse(Console.ReadLine(), out int price))
+            if (!decimal.TryParse(Console.ReadLine(), out decimal price))
             {
                 Console.WriteLine("invalid price. Please enter a valid number.");
                 return;
@@ -33,7 +33,7 @@ namespace Kassasystemet.Admin
 
             Product product = new Product(PLUCode, productName, price, unit);
 
-            productManager.SaveNewProductToFile(filePath);
+            productManager.AddProduct(product, filePath);
 
             Console.WriteLine("Product added successfully.");
             Console.ReadKey();
