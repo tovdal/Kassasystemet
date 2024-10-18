@@ -18,7 +18,7 @@ namespace Kassasystemet.Products
                 string[] lines = File.ReadAllLines(filePath);
                 foreach (string s in lines)
                 {
-                    string[] parts = s.Split(' ');
+                    string[] parts = s.Split(':');
 
                     if (parts.Length < 4)
                     {
