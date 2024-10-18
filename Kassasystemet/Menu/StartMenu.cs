@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Customer;
+﻿using Kassasystemet.Admin;
+using Kassasystemet.Customer;
 using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Menu
@@ -10,6 +11,7 @@ namespace Kassasystemet.Menu
             var cashRegisterMenu = new StartMenuDisplay();
             var consoleWindow = new ConsoleWindow();
             var newCustomer = new NewCustomer();
+            var adminDisplay = new AdminDisplay();
             var consoleCenter = new ConsoleWriteLineCenter();
 
             consoleWindow.WindowSize();
@@ -31,6 +33,9 @@ namespace Kassasystemet.Menu
                     case "2":
                         // Admin verktyg? om jag kommer så långt,
                         consoleCenter.CenterText("Admin tools under construction....");
+
+                        adminDisplay.DisplayAdminChoices();
+
                         Console.ReadKey();
                         break;
 
