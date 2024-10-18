@@ -52,5 +52,17 @@ namespace Kassasystemet.Admin
                 Console.WriteLine("Product price updated successfully.");
             }
         }
+        public void SaveNewProductToFile(ProductManager productManager)
+        {
+            using (StreamWriter writeNewProduct = new StreamWriter(filepath))
+            {
+                foreach (Product product in products)
+                {
+                    writeNewProduct.WriteLine($"{product.PLUCode} {product.ProductName} {product.Price} {product.Unit}");
+                }
+            }
+            Console.WriteLine("The new product has ben saved successfully!");
+        }
+
     }
 }
