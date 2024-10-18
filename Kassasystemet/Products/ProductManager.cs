@@ -37,16 +37,21 @@ namespace Kassasystemet.Products
 
         }
 
-        public void SaveNewProductToFile(string filepath)
+        public void AddProduct(Product newProduct, string filePath)
         {
-            using (StreamWriter writeNewProduct = new StreamWriter(filepath))
+            products.Add(newProduct);
+            SaveNewProductToFile(filePath); // Save changes to file after adding a product
+        }
+
+        public void SaveNewProductToFile(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath, append: true))
             {
-                foreach (Product product in products)
+                foreach (var product in products)
                 {
-                    writeNewProduct.WriteLine($"{product.PLUCode} {product.ProductName} {product.Price} {product.Unit}");
+                    writer.WriteLine($"{product.PLUCode}:{product.ProductName}:{product.Price}:{product.Unit}");
                 }
             }
-            Console.WriteLine("The new product has ben saved successfully!");
         }
 
         /// <summary>
