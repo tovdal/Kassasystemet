@@ -12,25 +12,32 @@ namespace Kassasystemet.Customer
     {
         public void HandleProductInput(ConsoleWriteLineCenter consoleCenter, ProductManager productManager, List<Product> shoppingCart, string input)
         {
-            string[] parts = input.Split(' ');
-            if (parts.Length != 2)
+            try
             {
-                ShowErrorMessage("Please enter in the format: <PLU> <amount>");
-            }
-            int pluCode = int.Parse(parts[0]);
-            int amount = int.Parse(parts[1]);
-
-            Product product = productManager.GetProductByPLU(pluCode);
-            if (product != null)
-            {
-                for (int i = 0; i < amount; i++)
+                string[] parts = input.Split(' ');
+                if (parts.Length != 2)
                 {
-                    shoppingCart.Add(product);
+                    ShowErrorMessage("Please enter in the format: <PLU> <amount>");
+                }
+                int pluCode = int.Parse(parts[0]);
+                int amount = int.Parse(parts[1]);
+
+                Product product = productManager.GetProductByPLU(pluCode);
+                if (product != null)
+                {
+                    for (int i = 0; i < amount; i++)
+                    {
+                        shoppingCart.Add(product);
+                    }
+                }
+                else
+                {
+                    Console.ReadKey();
                 }
             }
-            else
+            catch (FormatException e)
             {
-                Console.ReadKey();
+                Console.WriteLine($"{e.Message}");
             }
         }
         private static void ShowErrorMessage(string message)
