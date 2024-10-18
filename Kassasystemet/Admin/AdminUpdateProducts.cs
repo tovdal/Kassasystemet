@@ -2,17 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Kassasystemet.Admin
 {
-    public class AdminProducts
+    public class AdminUpdateProducts
     {
         public Product FindPLUCode(ProductManager productManager)
         {
+            int PLUCode = 0;
             Console.WriteLine("Enter the PLUCode of the product you want to change.");
-            int PLUCode = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                PLUCode = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("You must enter a valid PLU number");
+            }
 
             Product productToChange = productManager.GetProductByPLU(PLUCode);
             if (productToChange == null)
@@ -52,17 +61,5 @@ namespace Kassasystemet.Admin
                 Console.WriteLine("Product price updated successfully.");
             }
         }
-        public void SaveNewProductToFile(ProductManager productManager)
-        {
-            using (StreamWriter writeNewProduct = new StreamWriter(filepath))
-            {
-                foreach (Product product in products)
-                {
-                    writeNewProduct.WriteLine($"{product.PLUCode} {product.ProductName} {product.Price} {product.Unit}");
-                }
-            }
-            Console.WriteLine("The new product has ben saved successfully!");
-        }
-
     }
 }
