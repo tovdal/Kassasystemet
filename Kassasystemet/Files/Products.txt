@@ -1,10 +1,14 @@
-﻿100 Milk 12,95 pc
-101 Cream 18,50 pc
-102 Cottagecheese 16,50 pc
-203 Dill 22,90 kg
-307 Fiskpinnar 45,90 pc
-308 Salmon 250 kg
-401 MincedMeat 105 kg
-402 Meatballs 55,95 pc
-501 Pork 86,50 kg
-601 Candy 88,80 kg
+﻿100:Milk:12,95:pc
+101:Cream:18,50:pc
+102:Cottage cheese:16,50:pc
+203:Dill:22,90:pc
+307:Fiskpinnar:45,90:pc
+308:Salmon:250:kg
+401:Minced Meat:105:kg
+402:Meatballs:55,95:pc
+501:Pork:86,50:kg
+601:Candy:88,80:kg
+202:Egg Whites:30,95:pc
+204:Chives:14,50:pc
+404:ErrorFood:404:kg
+999:DogFood:34,95:pc
