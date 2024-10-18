@@ -20,7 +20,7 @@ namespace Kassasystemet.Customer
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
-            ProductManager productManager = new ProductManager(productLoader, productFilePath, consoleCenter);
+            ProductManager productManager = new ProductManager(productLoader, productFilePath);
 
             List<Product> shoppingCart = new List<Product>();
 
@@ -39,7 +39,10 @@ namespace Kassasystemet.Customer
                 AvailableProductsDisplay.DisplayAvailableProducts(productManager);
                 DisplayCart.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
 
+
                 input = Console.ReadLine();
+
+
 
                 if (input.ToUpper() != "PAY")
                 {

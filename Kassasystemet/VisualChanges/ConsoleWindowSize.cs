@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.VisualChanges
 {
-    public class ConsoleWindow
+    public class ConsoleWindowSize
     {
         public void WindowSize()
         {

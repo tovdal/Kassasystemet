@@ -20,11 +20,11 @@ namespace Kassasystemet.Menu
             Console.SetCursorPosition(92, 24);
             Console.WriteLine("-:Menu:-");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.SetCursorPosition(88, 27);
+            Console.SetCursorPosition(88, 26);
             Console.WriteLine("[1] New Customer");
-            Console.SetCursorPosition(88, 28);
+            Console.SetCursorPosition(88, 27);
             Console.WriteLine("[2] Admin Tools ");
-            Console.SetCursorPosition(88, 29);
+            Console.SetCursorPosition(88, 28);
             Console.WriteLine("[3] Exit\n");
 
 

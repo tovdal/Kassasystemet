@@ -1,5 +1,6 @@
 ﻿using Kassasystemet.Admin;
 using Kassasystemet.Customer;
+using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Menu
@@ -8,22 +9,25 @@ namespace Kassasystemet.Menu
     {
         public void RunMenu()
         {
-            var cashRegisterMenu = new StartMenuDisplay();
-            var consoleWindow = new ConsoleWindow();
+            var startMenuDisplay = new StartMenuDisplay();
+            var consoleWindowSize = new ConsoleWindowSize();
             var newCustomer = new NewCustomer();
-            var adminDisplay = new AdminDisplay();
+            var adminMenu = new AdminMenu();
+            var productLoader = new ProductLoader();
             var consoleCenter = new ConsoleWriteLineCenter();
 
-            consoleWindow.WindowSize();
+            string productFilePath = "../../../Files/products.txt";
+
+            consoleWindowSize.WindowSize();
 
             bool IsRunning = true;
 
             while (IsRunning)
             {
-                cashRegisterMenu.PrintOutMenu();
+                startMenuDisplay.PrintOutMenu();
 
-                string choice = Console.ReadLine();
-                switch (choice)
+                string choiceMainMenu = Console.ReadLine();
+                switch (choiceMainMenu)
                 {
                     case "1":
                         // hanterar kund
@@ -32,11 +36,7 @@ namespace Kassasystemet.Menu
 
                     case "2":
                         // Admin verktyg? om jag kommer så långt,
-                        consoleCenter.CenterText("Admin tools under construction....");
-
-                        adminDisplay.DisplayAdminChoices();
-
-                        Console.ReadKey();
+                        adminMenu.MenuAdmin(productLoader, productFilePath);
                         break;
 
                     case "3":
