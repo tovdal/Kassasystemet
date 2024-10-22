@@ -9,15 +9,15 @@ namespace Kassasystemet.Customer
         public static void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(68, 8);
+            Console.SetCursorPosition(68, 7);
             Console.WriteLine("Cash Register - New Customer\n");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.SetCursorPosition(66, 11);
+            Console.SetCursorPosition(66, 10);
             Console.WriteLine($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
             Console.ForegroundColor = ConsoleColor.Gray;
 
             // starting row for products
-            int currentRow = 14;
+            int currentRow = 12;
 
             var uniqueProducts = CartUniqProducts.GatherProducts(shoppingCart);
             //visa shoppingCart varorna i
@@ -28,21 +28,21 @@ namespace Kassasystemet.Customer
                 currentRow++;
             }
 
-            Console.SetCursorPosition(51, 27);
+            Console.SetCursorPosition(51, 29);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Commands: <PLU> <amount> or type 'PAY' to complete");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.SetCursorPosition(51, currentRow + 5);
-            Console.SetCursorPosition(51, 29);
+            Console.SetCursorPosition(51, 31);
             Console.WriteLine("Total:");
-            Console.SetCursorPosition(99, 29);
+            Console.SetCursorPosition(99, 31);
             Console.WriteLine($"{calculateReceipt.CalculateTotal(shoppingCart):C}");
-            Console.SetCursorPosition(51, 30);
+            Console.SetCursorPosition(51, 32);
             Console.WriteLine("Taxes:");
-            Console.SetCursorPosition(99, 30);
+            Console.SetCursorPosition(99, 32);
             Console.WriteLine($"{calculateReceipt.CalculateTax(shoppingCart):C}");
 
-            Console.SetCursorPosition(51, 33);
+            Console.SetCursorPosition(51, 35);
             Console.Write("Command: ");
         }
     }

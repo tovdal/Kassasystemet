@@ -6,11 +6,11 @@ namespace Kassasystemet.Customer
     {
         public static void DisplayAvailableProducts(ProductManager productManager)
         {
-            Console.SetCursorPosition(119, 9);
+            Console.SetCursorPosition(119, 8);
             Console.WriteLine("Available Products:");
 
 
-            int currentRow = 12;
+            int currentRow = 10;
 
             foreach (var product in productManager.GetProducts())
             {
