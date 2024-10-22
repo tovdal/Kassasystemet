@@ -7,13 +7,13 @@ namespace Kassasystemet.Menu
 {
     public class StartMenu
     {
+        private IProductLoader _productLoader;
         public void RunMenu()
         {
             var startMenuDisplay = new StartMenuDisplay();
             var consoleWindowSize = new ConsoleWindowSize();
             var newCustomer = new NewCustomer();
             var adminMenu = new AdminMenu();
-            var productLoader = new ProductLoader();
             var consoleCenter = new ConsoleWriteLineCenter();
 
             string productFilePath = "../../../Files/products.txt";
@@ -36,7 +36,7 @@ namespace Kassasystemet.Menu
 
                     case "2":
                         // Admin verktyg? om jag kommer så långt,
-                        adminMenu.MenuAdmin(productLoader, productFilePath);
+                        adminMenu.MenuAdmin(_productLoader, productFilePath);
                         break;
 
                     case "3":
