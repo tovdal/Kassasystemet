@@ -1,11 +1,4 @@
-﻿using Kassasystemet.Customer;
-using Kassasystemet.Products;
-using Kassasystemet.VisualChanges;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kassasystemet.Products;
 
 namespace Kassasystemet.Admin
 {
@@ -41,7 +34,7 @@ namespace Kassasystemet.Admin
                         break;
 
                     case "4":
-                        // back to menu
+                        // Campain deals
                         Console.WriteLine("change campain not added yet.");
                         break;
 

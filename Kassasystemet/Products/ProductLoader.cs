@@ -1,11 +1,4 @@
-﻿using Kassasystemet.VisualChanges;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kassasystemet.Products
+﻿namespace Kassasystemet.Products
 {
     public class ProductLoader : IProductLoader
     {

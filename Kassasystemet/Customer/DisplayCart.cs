@@ -1,11 +1,6 @@
 ﻿using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.VisualChanges;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kassasystemet.Customer
 {
