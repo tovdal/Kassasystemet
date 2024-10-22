@@ -29,7 +29,7 @@ namespace Kassasystemet.Products
             Console.ForegroundColor = ConsoleColor.Red;
             consoleCenter.CenterText($"Product with {pluCode} could not be found.");
             Console.ForegroundColor = ConsoleColor.Gray;
-            return null; //ingen product hittades.
+            return null; //no product found.
 
         }
 
@@ -38,6 +38,18 @@ namespace Kassasystemet.Products
             products.Add(newProduct);
             SaveNewProductToFile(filePath); // Save changes to file after adding a product
         }
+        public bool IsPLUTaken(int PLUCode)
+        {
+            foreach(var product in products)
+            {
+                if (product.PLUCode == PLUCode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         public void SaveNewProductToFile(string filePath)
         {
