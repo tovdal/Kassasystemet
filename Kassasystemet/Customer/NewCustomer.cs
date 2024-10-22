@@ -7,7 +7,9 @@ namespace Kassasystemet.Customer
 {
     public class NewCustomer
     {
-
+        /// <summary>
+        /// Handles new customer.
+        /// </summary>
         public void StartNewCustormer()
         {
             var calculateReceipt = new SalesReceiptCalculate();
@@ -16,7 +18,6 @@ namespace Kassasystemet.Customer
             var consoleCenter = new ConsoleWriteLineCenter();
             var customerImput = new CustomerImput();
 
-            // hanterar kund
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
@@ -30,19 +31,11 @@ namespace Kassasystemet.Customer
             do
             {
                 Console.Clear();
-                consoleCenter.DrawBorder(7, 50, 65, 25); // New Customer
-                consoleCenter.DrawBorder(7, 115, 35, 25); //Available products
-                consoleCenter.DrawBorder(32, 50, 100, 3); //Comand box
-                consoleCenter.DrawBorder(28, 50, 65, 4); // total box.
-                consoleCenter.DrawBorder(7, 50, 65, 4);
-
+                CustomerBorderDisplay.CustomerDrawBorder(consoleCenter);
                 AvailableProductsDisplay.DisplayAvailableProducts(productManager);
                 CartDisplay.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
 
-
                 input = Console.ReadLine();
-
-
 
                 if (input.ToUpper() != "PAY")
                 {
