@@ -30,6 +30,14 @@ namespace Kassasystemet.Customer
                     Console.ReadKey();
                 }
             }
+            catch (OverflowException e)
+            {
+                Console.WriteLine($"{e.Message}");
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine($"{e.Message}");
+            }
             catch (FormatException e)
             {
                 Console.WriteLine($"{e.Message}");
