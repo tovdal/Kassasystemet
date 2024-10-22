@@ -7,12 +7,14 @@ namespace Kassasystemet.Products
     /// </summary>
     public class ProductManager
     {
+        private IProductLoader _productLoader;
         private List<Product> products = new List<Product>();
         private ConsoleWriteLineCenter consoleCenter;
 
-        public ProductManager(IProductLoader productloader, string filePath)
+        public ProductManager(IProductLoader productLoader, string filePath)
         {
-            products = productloader.LoadProducts(filePath);
+            _productLoader = productLoader;
+            products = productLoader.LoadProducts(filePath);
         }
         public Product GetProductByPLU(int pluCode)
         {
