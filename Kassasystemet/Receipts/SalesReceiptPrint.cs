@@ -4,12 +4,12 @@ using Kassasystemet.Products;
 namespace Kassasystemet.Receipts
 {
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
-    public class PrintSalesReceipt
+    public class SalesReceiptPrint
     {
-        public void SaveReceipt(List<Product> shoppingCart, CalculateReceipt calculateReceipt)
+        public void SaveReceipt(List<Product> shoppingCart, SalesReceiptCalculate calculateReceipt)
         {
             var uniqueProducts = CartUniqProducts.GatherProducts(shoppingCart);
-            var latestReceiptNumber = new LatestReceiptNumber();
+            var latestReceiptNumber = new SalesReceiptLatestNumber();
             int receiptNumber;
 
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";

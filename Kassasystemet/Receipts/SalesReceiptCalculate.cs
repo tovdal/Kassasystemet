@@ -2,7 +2,7 @@
 
 namespace Kassasystemet.Receipts
 {
-    public class CalculateReceipt
+    public class SalesReceiptCalculate
     {
         public decimal CalculateTotal(List<Product> shoppingCart)
         {

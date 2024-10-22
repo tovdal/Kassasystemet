@@ -4,9 +4,9 @@ using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Customer
 {
-    public class DisplayCart
+    public class CartDisplay
     {
-        public static void DisplayCustomerCart(CalculateReceipt calculateReceipt, ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
+        public static void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(68, 8);
@@ -23,7 +23,7 @@ namespace Kassasystemet.Customer
             //visa shoppingCart varorna i
             foreach (var products in uniqueProducts)
             {
-                Console.SetCursorPosition(51, currentRow);
+                Console.SetCursorPosition(53, currentRow);
                 Console.WriteLine($"{products.ProductName} {products.Quantity} * {products.Price:C} = {products.Quantity * products.Price:C}");
                 currentRow++;
             }

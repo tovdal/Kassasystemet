@@ -10,9 +10,9 @@ namespace Kassasystemet.Customer
 
         public void StartNewCustormer()
         {
-            var calculateReceipt = new CalculateReceipt();
-            var salesReceipt = new PrintSalesReceipt();
-            var latestReceiptNumber = new LatestReceiptNumber();
+            var calculateReceipt = new SalesReceiptCalculate();
+            var salesReceipt = new SalesReceiptPrint();
+            var latestReceiptNumber = new SalesReceiptLatestNumber();
             var consoleCenter = new ConsoleWriteLineCenter();
             var customerImput = new CustomerImput();
 
@@ -37,7 +37,7 @@ namespace Kassasystemet.Customer
                 consoleCenter.DrawBorder(7, 50, 65, 4);
 
                 AvailableProductsDisplay.DisplayAvailableProducts(productManager);
-                DisplayCart.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
+                CartDisplay.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
 
 
                 input = Console.ReadLine();

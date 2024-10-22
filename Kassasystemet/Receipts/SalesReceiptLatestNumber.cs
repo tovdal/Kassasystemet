@@ -1,8 +1,8 @@
 ﻿namespace Kassasystemet.Receipts
 {
-    public class LatestReceiptNumber
+    public class SalesReceiptLatestNumber
     {
-        private string latestReceiptNumberFilePath = $"../../../Files/LatestReceiptNumber.txt";
+        private string SalesReceiptLatestNumberFilePath = $"../../../Files/LatestReceiptNumber.txt";
 
         public int GetAndSaveLatestReceiptNumber()
         {
@@ -10,9 +10,9 @@
 
             try
             {
-                if (File.Exists(latestReceiptNumberFilePath))
+                if (File.Exists(SalesReceiptLatestNumberFilePath))
                 {
-                    string readLine = File.ReadAllText(latestReceiptNumberFilePath);
+                    string readLine = File.ReadAllText(SalesReceiptLatestNumberFilePath);
                     int.TryParse(readLine, out latestNumber);
                 }
             }
@@ -25,7 +25,7 @@
 
             try
             {
-                File.WriteAllText(latestReceiptNumberFilePath, latestNumber.ToString());
+                File.WriteAllText(SalesReceiptLatestNumberFilePath, latestNumber.ToString());
             }
             catch (Exception ex)
             {

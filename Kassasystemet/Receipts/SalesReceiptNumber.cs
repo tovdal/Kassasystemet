@@ -1,10 +1,10 @@
 ﻿namespace Kassasystemet.Receipts
 {
-    public class ReceiptNumber
+    public class SalesReceiptNumber
     {
         public int CurrentReceiptNumber { get; set; }
 
-        public ReceiptNumber(int currentReceiptNumber)
+        public SalesReceiptNumber(int currentReceiptNumber)
         {
             CurrentReceiptNumber = currentReceiptNumber;
         }
