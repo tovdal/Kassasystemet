@@ -1,6 +1,7 @@
 ﻿using Kassasystemet.VisualChanges;
 using Kassasystemet.Products;
 using Kassasystemet.Receipts;
+using Kassasystemet.Products.Interface;
 
 
 namespace Kassasystemet.Customer
@@ -17,6 +18,8 @@ namespace Kassasystemet.Customer
             var latestReceiptNumber = new SalesReceiptLatestNumber();
             var consoleCenter = new ConsoleWriteLineCenter();
             var customerImput = new CustomerImput();
+            var availiableProductsDisplay = new AvailableProductsDisplay();
+            var cartDisplay = new CartDisplay();
 
             string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
 
@@ -32,8 +35,8 @@ namespace Kassasystemet.Customer
             {
                 Console.Clear();
                 CustomerBorderDisplay.CustomerDrawBorder(consoleCenter);
-                AvailableProductsDisplay.DisplayAvailableProducts(productManager);
-                CartDisplay.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
+                availiableProductsDisplay.DisplayAvailableProducts(productManager);
+                cartDisplay.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
 
                 input = Console.ReadLine();
 
