@@ -12,6 +12,9 @@ namespace Kassasystemet.Receipts
             var latestReceiptNumber = new SalesReceiptLatestNumber();
             int receiptNumber;
 
+
+            // Padding left och right.
+
             string receiptFilePath = $"../../../Files/RECEIPT_{DateTime.Now:yyyyMMdd}.txt";
             using (StreamWriter writer = new StreamWriter(receiptFilePath, append: true))
             {
