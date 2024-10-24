@@ -1,4 +1,5 @@
-﻿using Kassasystemet.VisualChanges;
+﻿using Kassasystemet.Products.Interface;
+using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Products
 {
@@ -9,7 +10,6 @@ namespace Kassasystemet.Products
     {
         private IProductLoader _productLoader;
         private List<Product> products = new List<Product>();
-        private ConsoleWriteLineCenter consoleCenter;
 
         public ProductManager(IProductLoader productLoader, string filePath)
         {
@@ -27,7 +27,10 @@ namespace Kassasystemet.Products
             }
             Console.WriteLine("\n");
             Console.ForegroundColor = ConsoleColor.Red;
-            consoleCenter.CenterText($"Product with {pluCode} could not be found.");
+            Console.SetCursorPosition(83, 38);
+            Console.WriteLine("Product with that PLU could not be found.");
+
+            Console.ReadKey();
             Console.ForegroundColor = ConsoleColor.Gray;
             return null; //no product found.
 
