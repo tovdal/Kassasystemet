@@ -1,9 +1,10 @@
-﻿using Kassasystemet.Admin;
+﻿using Kassasystemet.Menu;
+using Kassasystemet.Menu.AdminM;
 using Kassasystemet.Customer;
 using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
 
-namespace Kassasystemet.Menu
+namespace Kassasystemet.Menu.StartM
 {
     public class StartMenu
     {

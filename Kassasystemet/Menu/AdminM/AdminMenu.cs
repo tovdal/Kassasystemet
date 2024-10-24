@@ -1,6 +1,8 @@
-﻿using Kassasystemet.Products;
+﻿using Kassasystemet.Admin;
+using Kassasystemet.Products;
+using Kassasystemet.Products.Interface;
 
-namespace Kassasystemet.Admin
+namespace Kassasystemet.Menu.AdminM
 {
     public class AdminMenu
     {
@@ -8,8 +10,9 @@ namespace Kassasystemet.Admin
         {
             var productManager = new ProductManager(productLoader, filePath);
             var updateProducts = new AdminUpdateProducts();
+            var PLUfinder = new AdminPLUFinder();
             var addProducts = new AdminAddProduct();
-            var adminDisplay = new AdminDisplay();
+            var adminDisplay = new AdminMenuDisplay();
 
             bool IsRunningAdmin = true;
 
@@ -26,11 +29,11 @@ namespace Kassasystemet.Admin
 
                     case "2":
                         // change name
-                        updateProducts.ChangeProductName(productManager);
+                        updateProducts.ChangeProductName(productManager, PLUfinder);
                         break;
 
                     case "3":
-                        updateProducts.ChangeProductPrice(productManager);
+                        updateProducts.ChangeProductPrice(productManager, PLUfinder);
                         break;
 
                     case "4":
@@ -50,6 +53,6 @@ namespace Kassasystemet.Admin
                 }
             }
         }
-        
+
     }
 }

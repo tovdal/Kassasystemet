@@ -1,10 +1,10 @@
 ﻿using Kassasystemet.VisualChanges;
 
-namespace Kassasystemet.Menu
+namespace Kassasystemet.Menu.AdminM
 {
-    public class StartMenuDisplay
+    public class AdminMenuDisplay
     {
-        public void PrintOutMenu()
+        public void PrintOutAdminMenu()
         {
             var consoleCenter = new ConsoleWriteLineCenter();
             var titleDisplay = new TitleDisplay();
@@ -18,14 +18,18 @@ namespace Kassasystemet.Menu
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(92, 24);
-            Console.WriteLine("-:Menu:-");
+            Console.WriteLine("-:Admin:-");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.SetCursorPosition(88, 26);
-            Console.WriteLine("[1] New Customer");
-            Console.SetCursorPosition(88, 27);
-            Console.WriteLine("[2] Admin Tools ");
-            Console.SetCursorPosition(88, 28);
-            Console.WriteLine("[3] Exit\n");
+            Console.SetCursorPosition(83, 26);
+            Console.WriteLine("[1] Add new product");
+            Console.SetCursorPosition(83, 27);
+            Console.WriteLine("[2] Change name on product");
+            Console.SetCursorPosition(83, 28);
+            Console.WriteLine("[3] Change price on product");
+            Console.SetCursorPosition(83, 29);
+            Console.WriteLine("[4] Change campain on product");
+            Console.SetCursorPosition(83, 30);
+            Console.WriteLine("[5] Exit");
 
 
             consoleCenter.DrawBorder(33, 81, 30, 5);
@@ -33,7 +37,6 @@ namespace Kassasystemet.Menu
             Console.SetCursorPosition(87, 35);
             Console.Write("Pick selection: ");
             Console.ForegroundColor = ConsoleColor.Gray;
-
         }
     }
 }
