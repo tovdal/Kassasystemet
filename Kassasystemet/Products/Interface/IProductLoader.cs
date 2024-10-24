@@ -1,4 +1,4 @@
-﻿namespace Kassasystemet.Products
+﻿namespace Kassasystemet.Products.Interface
 {
     public interface IProductLoader
     {
