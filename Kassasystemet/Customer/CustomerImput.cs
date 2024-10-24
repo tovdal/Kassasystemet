@@ -5,14 +5,19 @@ namespace Kassasystemet.Customer
 {
     public class CustomerImput
     {
-        public void HandleProductInput(ConsoleWriteLineCenter consoleCenter, ProductManager productManager, List<Product> shoppingCart, string input)
+        public void HandleProductInput(ConsoleWriteLineCenter consoleCenter, 
+            ProductManager productManager, List<Product> shoppingCart, string input)
         {
             try
             {
                 string[] parts = input.Split(' ');
                 if (parts.Length != 2)
                 {
-                    ShowErrorMessage("Please enter in the format: <PLU> <amount>");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(80, 38);
+                    Console.WriteLine("Please enter in the format: <PLU> <amount>");
+                    Console.ResetColor();
+                    Console.ReadKey();
                 }
                 int pluCode = int.Parse(parts[0]);
                 int amount = int.Parse(parts[1]);
@@ -42,16 +47,6 @@ namespace Kassasystemet.Customer
             {
                 Console.WriteLine($"{e.Message}");
             }
-        }
-        private static void ShowErrorMessage(string message)
-        {
-            Console.SetCursorPosition(80, Console.CursorTop + 2);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            Console.ResetColor();
-            Console.SetCursorPosition(86, Console.CursorTop + 1);
-            Console.ReadKey();
-
         }
     }
 }

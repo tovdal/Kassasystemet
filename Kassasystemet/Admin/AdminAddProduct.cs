@@ -25,7 +25,6 @@ namespace Kassasystemet.Admin
                         Console.ReadKey();
                         continue;
                     }
-
                     Console.WriteLine("Enter the name of the product: ");
                     string productName = Console.ReadLine();
 
