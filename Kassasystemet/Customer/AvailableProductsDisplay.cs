@@ -4,7 +4,7 @@ namespace Kassasystemet.Customer
 {
     public class AvailableProductsDisplay
     {
-        public static void DisplayAvailableProducts(ProductManager productManager)
+        public void DisplayAvailableProducts(ProductManager productManager)
         {
             Console.SetCursorPosition(119, 8);
             Console.WriteLine("Available Products:");
