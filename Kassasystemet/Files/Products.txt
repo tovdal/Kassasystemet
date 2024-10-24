@@ -10,5 +10,5 @@
 601:Candy:88,80:kg
 202:Egg Whites:30,95:pc
 204:Chives:14,50:pc
-404:ErrorFood:404:kg
-999:DogFood:34,95:pc
+404:Error Food:404:kg
+999:Dog Food:34,95:pc
