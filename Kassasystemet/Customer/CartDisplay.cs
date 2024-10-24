@@ -6,7 +6,8 @@ namespace Kassasystemet.Customer
 {
     public class CartDisplay
     {
-        public static void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
+        public void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, 
+            ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(68, 7);
@@ -24,7 +25,8 @@ namespace Kassasystemet.Customer
             foreach (var products in uniqueProducts)
             {
                 Console.SetCursorPosition(53, currentRow);
-                Console.WriteLine($"{products.ProductName} {products.Quantity} * {products.Price:C} = {products.Quantity * products.Price:C}");
+                Console.WriteLine($"{products.ProductName} {products.Quantity} * {products.Price:C}" +
+                    $" = {products.Quantity * products.Price:C}");
                 currentRow++;
             }
 
