@@ -44,7 +44,7 @@ namespace Kassasystemet.Menu.StartM
                         break;
 
                     case "3":
-                        campaignMenu.MenuCampaign();
+                        campaignMenu.MenuCampaign(productLoader, productFilePath);
                         break;
 
                     case "4":
