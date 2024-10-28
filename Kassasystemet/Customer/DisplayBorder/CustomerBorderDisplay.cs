@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kassasystemet.Customer
+namespace Kassasystemet.Customer.DisplayBorder
 {
     public class CustomerBorderDisplay
     {
