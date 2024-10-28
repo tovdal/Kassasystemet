@@ -28,7 +28,7 @@ namespace Kassasystemet.Menu.CampaignM
             Console.SetCursorPosition(83, 26);
             Console.WriteLine("[1] Add new Campaign");
             Console.SetCursorPosition(83, 27);
-            Console.WriteLine("[2] Change Campaign");
+            Console.WriteLine("[2] Remove Campaign");
             Console.SetCursorPosition(83, 28);
             Console.WriteLine("[3] Exit");
 

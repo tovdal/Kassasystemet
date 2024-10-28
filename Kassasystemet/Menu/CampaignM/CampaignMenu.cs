@@ -1,4 +1,6 @@
 ﻿using Kassasystemet.Campaign;
+using Kassasystemet.Products;
+using Kassasystemet.Products.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace Kassasystemet.Menu.CampaignM
 {
     public class CampaignMenu
     {
-        public void MenuCampaign()
+        public void MenuCampaign(IProductLoader productLoader, string filePath)
         {
+            var productManager = new ProductManager(productLoader, filePath);
             var campaignDisplay = new CampaignDisplay();
             var campaignAdd = new CampaignAdd();
             var campaignRemove = new CampaignRemove();
+
 
             bool IsRunningCampaign = true;
 
@@ -25,15 +29,14 @@ namespace Kassasystemet.Menu.CampaignM
                 switch (choiceCampaignMenu)
                 {
                     case "1":
-                        campaignAdd.AddCampaign();
+                        campaignAdd.AddCampaign(productManager);
                         break;
 
                     case "2":
-                        campaignRemove.RemoveCampaign();
+                        campaignRemove.RemoveCampaign(productManager);
                         break;
 
                     case "3":
-                        // back to menu
                         IsRunningCampaign = false;
                         break;
 
