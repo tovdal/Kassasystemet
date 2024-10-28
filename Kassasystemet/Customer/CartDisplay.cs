@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Products;
+﻿using Kassasystemet.Campaign;
+using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.VisualChanges;
 
@@ -9,6 +10,8 @@ namespace Kassasystemet.Customer
         public void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, 
             ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
         {
+            var campaignManager = new CampaignManager();
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(68, 7);
             Console.WriteLine("Cash Register - New Customer\n");
@@ -25,8 +28,8 @@ namespace Kassasystemet.Customer
             foreach (var products in uniqueProducts)
             {
                 Console.SetCursorPosition(53, currentRow);
-                Console.WriteLine($"{products.ProductName} {products.Quantity} * {products.Price:C}" +
-                    $" = {products.Quantity * products.Price:C}");
+                decimal currentPrice = products.GetCurrentPrice();
+                Console.WriteLine($"{products.ProductName} {products.Quantity} * {currentPrice:C} = {products.Quantity * currentPrice:C}");
                 currentRow++;
             }
 

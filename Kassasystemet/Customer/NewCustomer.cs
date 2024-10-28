@@ -2,6 +2,8 @@
 using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.Products.Interface;
+using Kassasystemet.Customer.DisplayBorder;
+using Kassasystemet.Campaign;
 
 
 namespace Kassasystemet.Customer
@@ -27,6 +29,7 @@ namespace Kassasystemet.Customer
             ProductManager productManager = new ProductManager(productLoader, productFilePath);
 
             List<Product> shoppingCart = new List<Product>();
+            
 
             string input;
             bool IsPaymentCompleted = false;
