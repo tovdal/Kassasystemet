@@ -27,9 +27,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.SetCursorPosition(83, 28);
             Console.WriteLine("[3] Change price on product");
             Console.SetCursorPosition(83, 29);
-            Console.WriteLine("[4] Change campain on product");
-            Console.SetCursorPosition(83, 30);
-            Console.WriteLine("[5] Exit");
+            Console.WriteLine("[4] Exit");
 
 
             consoleCenter.DrawBorder(33, 82, 30, 5);

@@ -37,11 +37,6 @@ namespace Kassasystemet.Menu.AdminM
                         break;
 
                     case "4":
-                        // Campain deals
-                        Console.WriteLine("change campain not added yet.");
-                        break;
-
-                    case "5":
                         // back to menu
                         IsRunningAdmin = false;
                         break;

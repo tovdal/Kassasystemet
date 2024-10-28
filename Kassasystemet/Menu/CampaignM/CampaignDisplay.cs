@@ -1,10 +1,15 @@
 ﻿using Kassasystemet.VisualChanges;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Kassasystemet.Menu.StartM
+namespace Kassasystemet.Menu.CampaignM
 {
-    public class StartMenuDisplay
+    internal class CampaignDisplay
     {
-        public void PrintOutMenu()
+        public void PrintOutCampaignMenu()
         {
             var consoleCenter = new ConsoleWriteLineCenter();
             var titleDisplay = new TitleDisplay();
@@ -14,28 +19,26 @@ namespace Kassasystemet.Menu.StartM
             Console.SetCursorPosition(46, 3);
             titleDisplay.PrintTitle();
 
-            consoleCenter.DrawBorder(23, 81, 30, 10);
+            consoleCenter.DrawBorder(23, 80, 34, 10);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(92, 24);
-            Console.WriteLine("-:Menu:-");
+            Console.WriteLine("-:Campaign:-");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.SetCursorPosition(83, 26);
-            Console.WriteLine("[1] New Customer");
+            Console.WriteLine("[1] Add new Campaign");
             Console.SetCursorPosition(83, 27);
-            Console.WriteLine("[2] Admin Tools ");
+            Console.WriteLine("[2] Change Campaign");
             Console.SetCursorPosition(83, 28);
-            Console.WriteLine("[3] Campaign Tools");
+            Console.WriteLine("[3] Delete Campaign");
             Console.SetCursorPosition(83, 29);
-            Console.WriteLine("[4] Exit\n");
+            Console.WriteLine("[4] Exit");
 
-
-            consoleCenter.DrawBorder(33, 81, 30, 5);
+            consoleCenter.DrawBorder(33, 82, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(87, 35);
             Console.Write("Pick selection: ");
             Console.ForegroundColor = ConsoleColor.Gray;
-
         }
     }
 }

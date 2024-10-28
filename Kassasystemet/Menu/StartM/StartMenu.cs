@@ -1,5 +1,6 @@
 ﻿using Kassasystemet.Menu;
 using Kassasystemet.Menu.AdminM;
+using Kassasystemet.Menu.CampaignM;
 using Kassasystemet.Customer;
 using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
@@ -17,6 +18,7 @@ namespace Kassasystemet.Menu.StartM
             var adminMenu = new AdminMenu();
             var productLoader = new ProductLoader();
             var consoleCenter = new ConsoleWriteLineCenter();
+            var campaignMenu = new CampaignMenu();
 
 
             string productFilePath = "../../../Files/products.txt";
@@ -42,6 +44,10 @@ namespace Kassasystemet.Menu.StartM
                         break;
 
                     case "3":
+                        campaignMenu.MenuCampaign();
+                        break;
+
+                    case "4":
                         Console.Clear();
                         Console.SetCursorPosition(85, 20);
                         Console.WriteLine("Closing down the system...");
