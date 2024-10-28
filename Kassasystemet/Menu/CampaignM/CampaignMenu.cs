@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kassasystemet.Campaign;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,9 @@ namespace Kassasystemet.Menu.CampaignM
         public void MenuCampaign()
         {
             var campaignDisplay = new CampaignDisplay();
+            var campaignAdd = new CampaignAdd();
+            var campaignRemove = new CampaignRemove();
+
             bool IsRunningCampaign = true;
 
             while (IsRunningCampaign)
@@ -21,19 +25,14 @@ namespace Kassasystemet.Menu.CampaignM
                 switch (choiceCampaignMenu)
                 {
                     case "1":
-                        // Add campaign
+                        campaignAdd.AddCampaign();
                         break;
 
                     case "2":
-                        // change campaign
-                        
+                        campaignRemove.RemoveCampaign();
                         break;
 
                     case "3":
-                        // remove campaign
-                        break;
-
-                    case "4":
                         // back to menu
                         IsRunningCampaign = false;
                         break;
