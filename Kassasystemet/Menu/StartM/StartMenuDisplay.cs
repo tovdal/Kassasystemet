@@ -21,11 +21,11 @@ namespace Kassasystemet.Menu.StartM
             Console.WriteLine("-:Menu:-");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.SetCursorPosition(83, 26);
-            Console.WriteLine("[1] New Customer");
+            Console.WriteLine("[1] Check out Customer");
             Console.SetCursorPosition(83, 27);
-            Console.WriteLine("[2] Admin Tools ");
+            Console.WriteLine("[2] Admin Product Tools");
             Console.SetCursorPosition(83, 28);
-            Console.WriteLine("[3] Campaign Tools");
+            Console.WriteLine("[3] Campaign Product Tools");
             Console.SetCursorPosition(83, 29);
             Console.WriteLine("[4] Exit\n");
 
