@@ -8,14 +8,14 @@ namespace Kassasystemet.Admin
     {
         public void SaveNewProductToFile(ProductManager productManager, string filePath)
         {
-            var addProductBorder = new AdminAddProductDisplayBorder();
+            var addProductBorder = new AdminDisplayBorder();
             var availiableProductsDisplay = new AvailableProductsDisplay();
 
             bool IsValidInput = false;
             while (!IsValidInput)
             {
                 Console.Clear();
-                addProductBorder.AdminAddProductBorder();
+                addProductBorder.ProductBorder();
                 availiableProductsDisplay.DisplayAvailableProducts(productManager);
                 try
                 {

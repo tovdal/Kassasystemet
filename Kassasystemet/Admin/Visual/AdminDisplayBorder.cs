@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Kassasystemet.Admin.Display
 {
-    internal class AdminAddProductDisplayBorder
+    internal class AdminDisplayBorder
     {
-        public void AdminAddProductBorder()
+        public void ProductBorder()
         {
             var consoleCenter = new ConsoleWriteLineCenter();
             consoleCenter.DrawBorder(6, 50, 65, 28); // Products box
