@@ -23,7 +23,7 @@ namespace Kassasystemet.Customer
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var cartDisplay = new CartDisplay();
 
-            string productFilePath = "../../../Files/products.txt"; //Filvägen till produkterna
+            string productFilePath = "../../../Files/Products.txt"; //Filvägen till produkterna
 
             IProductLoader productLoader = new ProductLoader();
             ProductManager productManager = new ProductManager(productLoader, productFilePath);

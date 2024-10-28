@@ -28,8 +28,18 @@ namespace Kassasystemet.Customer
             foreach (var products in uniqueProducts)
             {
                 Console.SetCursorPosition(53, currentRow);
-                decimal currentPrice = products.GetCurrentPrice();
-                Console.WriteLine($"{products.ProductName} {products.Quantity} * {currentPrice:C} = {products.Quantity * currentPrice:C}");
+                decimal currentPrice = campaignManager.GetPriceWithCampaigns(products, DateTime.Now);
+
+                if (currentPrice < products.Price)
+                {
+                    Console.WriteLine($"{products.ProductName} (Campaign Price!) " +
+                        $"{products.Quantity} * {currentPrice:C} = {products.Quantity * currentPrice:C}");
+                }
+                else
+                {
+                    Console.WriteLine($"{products.ProductName} " +
+                        $"{products.Quantity} * {currentPrice:C} = {products.Quantity * currentPrice:C}");
+                }
                 currentRow++;
             }
 

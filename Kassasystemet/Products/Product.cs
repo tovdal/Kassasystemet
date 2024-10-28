@@ -1,4 +1,5 @@
-﻿namespace Kassasystemet.Products
+﻿
+namespace Kassasystemet.Products
 {
 
     /// <summary>
@@ -12,12 +13,30 @@
         public int Quantity { get; set; } = 1; //default value
         public UnitType Unit { get; set; }
 
+        public decimal? CampaignPrice { get; set; }
+        public DateTime? CampaignStart { get; set; }
+        public DateTime? CampaignEnd { get; set; }
+
         public Product(int pluCode, string productName, decimal price, UnitType unit)
         {
             PLUCode = pluCode;
             ProductName = productName;
             Price = price;
             Unit = unit;
+        }
+
+
+        public decimal GetCurrentPrice()
+        {
+            if (CampaignPrice.HasValue && CampaignStart.HasValue && CampaignEnd.HasValue)
+            {
+                DateTime today = DateTime.Now;
+                if (today >= CampaignStart.Value && today <= CampaignEnd.Value)
+                {
+                    return CampaignPrice.Value;
+                }
+            }
+            return Price;
         }
     }
 
