@@ -9,7 +9,7 @@ namespace Kassasystemet.Menu.AdminM
         public void MenuAdmin(IProductLoader productLoader, string filePath)
         {
             var productManager = new ProductManager(productLoader, filePath);
-            var updateProducts = new AdminUpdateProducts();
+            var updateProducts = new AdminManager();
             var PLUfinder = new AdminPLUFinder();
             var addProducts = new AdminAddProduct();
             var adminDisplay = new AdminMenuDisplay();

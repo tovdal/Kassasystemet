@@ -20,13 +20,16 @@ namespace Kassasystemet.Admin
             }
             catch (FormatException)
             {
+                Console.SetCursorPosition(83, 38);
                 Console.WriteLine("You must enter a valid PLU number");
             }
 
             Product productToChange = productManager.GetProductByPLU(PLUCode);
             if (productToChange == null)
             {
+                Console.SetCursorPosition(83, 38);
                 Console.WriteLine("Product not found");
+                Console.ReadKey();
                 return null;
             }
             return productToChange;
