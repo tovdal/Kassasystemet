@@ -33,7 +33,6 @@ namespace Kassasystemet.Menu.StartM
                 switch (choiceMainMenu)
                 {
                     case "1":
-                        // hanterar kund
                         newCustomer.StartNewCustormer();
                         break;
 

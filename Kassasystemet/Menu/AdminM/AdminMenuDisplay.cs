@@ -14,7 +14,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.SetCursorPosition(46, 3);
             titleDisplay.PrintTitle();
 
-            consoleCenter.DrawBorder(23, 81, 30, 10);
+            consoleCenter.DrawBorder(23, 80, 34, 10);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(92, 24);
@@ -32,7 +32,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.WriteLine("[5] Exit");
 
 
-            consoleCenter.DrawBorder(33, 81, 30, 5);
+            consoleCenter.DrawBorder(33, 82, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(87, 35);
             Console.Write("Pick selection: ");

@@ -18,24 +18,28 @@ namespace Kassasystemet.Admin
                 try
                 {
                     Console.SetCursorPosition(95, 17);
-                    // Color red
-                    Console.WriteLine("Add new product");
-                    // Normal color
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("-:Add new product:-");
+                    Console.ForegroundColor = ConsoleColor.Gray;
 
                     Console.SetCursorPosition(78, 20);
                     Console.Write("Enter the PLU of the product: ");
                     string PLUInput = Console.ReadLine();
                     if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length !=3)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(72, 29);
                         Console.WriteLine("invalid PLU. Please enter a valid 3-digit number");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         continue;
                     }
                     if (productManager.IsPLUTaken(PLUCode))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(72, 29);
                         Console.WriteLine("This PLU code is already taken. Please enter a different PLU.");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         continue;
                     }
@@ -48,8 +52,10 @@ namespace Kassasystemet.Admin
                     Console.Write("Enter the price: ");
                     if (!decimal.TryParse(Console.ReadLine(), out decimal price))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(72, 29);
                         Console.WriteLine("invalid price. Please enter a valid number.");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         continue;
                     }
@@ -60,8 +66,10 @@ namespace Kassasystemet.Admin
                     UnitType unit;
                     if (!Enum.TryParse(unitInput, true, out unit))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(72, 29);
                         Console.WriteLine("Invalid unit type. Please enter either 'kg' or 'pc'.");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         continue;
                     }
@@ -77,20 +85,26 @@ namespace Kassasystemet.Admin
                 }
                 catch (ArgumentNullException e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.SetCursorPosition(72, 29);
                     Console.WriteLine(e.Message);
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
                 }
                 catch (OverflowException e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.SetCursorPosition(72, 29);
                     Console.WriteLine(e.Message);
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
                 }
                 catch (Exception ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.SetCursorPosition(72, 29);
                     Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
                 }
             }

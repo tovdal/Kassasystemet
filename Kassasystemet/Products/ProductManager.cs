@@ -39,7 +39,7 @@ namespace Kassasystemet.Products
         public void AddProduct(Product newProduct, string filePath)
         {
             products.Add(newProduct);
-            SaveNewProductToFile(filePath); // Save changes to file after adding a product
+            SaveNewProductToFile(filePath, newProduct); // Save changes to file after adding a product
         }
         public bool IsPLUTaken(int PLUCode)
         {
@@ -54,14 +54,11 @@ namespace Kassasystemet.Products
         }
 
 
-        public void SaveNewProductToFile(string filePath)
+        public void SaveNewProductToFile(string filePath, Product newProduct)
         {
-            using (StreamWriter writer = new StreamWriter(filePath, append: true))
+            using (StreamWriter writer = new StreamWriter(filePath, append: true)) // append = true
             {
-                foreach (var product in products)
-                {
-                    writer.WriteLine($"{product.PLUCode}:{product.ProductName}:{product.Price}:{product.Unit}");
-                }
+                writer.WriteLine($"{newProduct.PLUCode}:{newProduct.ProductName}:{newProduct.Price}:{newProduct.Unit}");
             }
         }
 
