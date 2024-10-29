@@ -14,12 +14,13 @@ namespace Kassasystemet.Menu.StartM
 
             var startMenuDisplay = new StartMenuDisplay();
             var consoleWindowSize = new ConsoleWindowSize();
+            var createBorder = new CreateBorder();
+
             var newCustomer = new NewCustomer();
             var adminMenu = new AdminMenu();
-            var productLoader = new ProductLoader();
-            var consoleCenter = new ConsoleWriteLineCenter();
             var campaignMenu = new CampaignMenu();
 
+            var productLoader = new ProductLoader();
 
             string productFilePath = "../../../Files/products.txt";
 
@@ -29,7 +30,7 @@ namespace Kassasystemet.Menu.StartM
 
             while (IsRunning)
             {
-                startMenuDisplay.PrintOutMenu();
+                startMenuDisplay.PrintOutMenu(createBorder);
 
                 string choiceMainMenu = Console.ReadLine();
                 switch (choiceMainMenu)

@@ -37,11 +37,13 @@ namespace Kassasystemet.Receipts
                     decimal priceWithCampaigns = campaignProducts.GetPriceWithCampaigns(product, DateTime.Now);
                     if (priceWithCampaigns < product.Price)
                     {
-                        writer.WriteLine($"|{product.ProductName} (Campaign Price!) {product.Quantity} * {priceWithCampaigns:C} = {product.Quantity * priceWithCampaigns:C}");
+                        writer.WriteLine($"|{product.ProductName} (Campaign Price!) " +
+                            $"{product.Quantity} * {priceWithCampaigns:C} = {product.Quantity * priceWithCampaigns:C}");
                     }
                     else
                     {
-                        writer.WriteLine($"|{product.ProductName} {product.Quantity} * {priceWithCampaigns:C} = {product.Quantity * priceWithCampaigns:C}");
+                        writer.WriteLine($"|{product.ProductName} {product.Quantity}" +
+                            $" * {priceWithCampaigns:C} = {product.Quantity * priceWithCampaigns:C}");
                     }
                 }
                 writer.WriteLine("|                                                           |");
@@ -57,7 +59,8 @@ namespace Kassasystemet.Receipts
                 writer.WriteLine("|                      BACK TO THE SHOP                     |");
                 writer.WriteLine("|                                                           |");
                 writer.WriteLine("|                         cashier 1                         |");
-                writer.WriteLine($"|                     Receipt Number: {receiptNumber = latestReceiptNumber.GetAndSaveLatestReceiptNumber()}                    |");
+                writer.WriteLine($"|                     Receipt Number: " +
+                    $"{receiptNumber = latestReceiptNumber.GetAndSaveLatestReceiptNumber()}                    |");
                 writer.WriteLine("|                                                           |");
                 writer.WriteLine("|                  ****** ORIGINAL *******                  |");
                 writer.WriteLine("|                                                           |");

@@ -13,7 +13,7 @@ namespace Kassasystemet.Products
         public int Quantity { get; set; } = 1; //default value
         public UnitType Unit { get; set; }
 
-        public decimal? CampaignPrice { get; set; }
+        public decimal? CampaignPrice { get; set; } //Optional properties
         public DateTime? CampaignStart { get; set; }
         public DateTime? CampaignEnd { get; set; }
 

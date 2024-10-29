@@ -1,6 +1,6 @@
 ﻿namespace Kassasystemet.VisualChanges
 {
-    public class ConsoleWriteLineCenter
+    public class CreateBorder
     {
         public void CenterText(string text)
         {

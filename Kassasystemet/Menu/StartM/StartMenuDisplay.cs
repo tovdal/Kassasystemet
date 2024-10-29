@@ -4,9 +4,8 @@ namespace Kassasystemet.Menu.StartM
 {
     public class StartMenuDisplay
     {
-        public void PrintOutMenu()
+        public void PrintOutMenu(CreateBorder createBorder)
         {
-            var consoleCenter = new ConsoleWriteLineCenter();
             var titleDisplay = new TitleDisplay();
 
             Console.Clear();
@@ -14,7 +13,7 @@ namespace Kassasystemet.Menu.StartM
             Console.SetCursorPosition(46, 3);
             titleDisplay.PrintTitle();
 
-            consoleCenter.DrawBorder(23, 81, 30, 10);
+            createBorder.DrawBorder(23, 81, 30, 10);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(92, 24);
@@ -30,7 +29,7 @@ namespace Kassasystemet.Menu.StartM
             Console.WriteLine("[4] Exit\n");
 
 
-            consoleCenter.DrawBorder(33, 81, 30, 5);
+            createBorder.DrawBorder(33, 81, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(87, 35);
             Console.Write("Pick selection: ");

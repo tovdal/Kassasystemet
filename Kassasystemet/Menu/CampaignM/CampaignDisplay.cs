@@ -11,7 +11,7 @@ namespace Kassasystemet.Menu.CampaignM
     {
         public void PrintOutCampaignMenu()
         {
-            var consoleCenter = new ConsoleWriteLineCenter();
+            var consoleCenter = new CreateBorder();
             var titleDisplay = new TitleDisplay();
 
             Console.Clear();

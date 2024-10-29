@@ -13,10 +13,10 @@ namespace Kassasystemet.Admin.Display
     {
         public void ProductBorder()
         {
-            var consoleCenter = new ConsoleWriteLineCenter();
-            consoleCenter.DrawBorder(6, 50, 65, 28); // Products box
-            consoleCenter.DrawBorder(6, 115, 35, 28); //Display Avalible products
-            consoleCenter.DrawBorder(6, 50, 65, 4); // Header Add products
+            var createBorder = new CreateBorder();
+            createBorder.DrawBorder(6, 50, 65, 28); // Products box
+            createBorder.DrawBorder(6, 115, 35, 28); //Display Avalible products
+            createBorder.DrawBorder(6, 50, 65, 4); // Header Add products
         }
 
     }

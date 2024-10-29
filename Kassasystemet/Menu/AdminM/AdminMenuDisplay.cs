@@ -6,7 +6,7 @@ namespace Kassasystemet.Menu.AdminM
     {
         public void PrintOutAdminMenu()
         {
-            var consoleCenter = new ConsoleWriteLineCenter();
+            var consoleCenter = new CreateBorder();
             var titleDisplay = new TitleDisplay();
 
             Console.Clear();

@@ -10,7 +10,7 @@ namespace Kassasystemet.Customer.DisplayBorder
 {
     public class CustomerBorderDisplay
     {
-        public static void CustomerDrawBorder(ConsoleWriteLineCenter consoleCenter)
+        public static void CustomerDrawBorder(CreateBorder consoleCenter)
         {
             consoleCenter.DrawBorder(6, 50, 65, 26); // Products box
             consoleCenter.DrawBorder(6, 115, 35, 28); //Available products

@@ -3,10 +3,9 @@ using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Customer
 {
-    public class CustomerImput
+    public class ProductInput
     {
-        public void HandleProductInput(ConsoleWriteLineCenter consoleCenter, 
-            ProductManager productManager, List<Product> shoppingCart, string input)
+        public void HandleProductInput(CreateBorder createBorder, ProductManager productManager, List<Product> shoppingCart, string input)
         {
             try
             {

@@ -15,11 +15,11 @@ namespace Kassasystemet.Customer
         /// </summary>
         public void StartNewCustormer()
         {
-            var calculateReceipt = new SalesReceiptCalculate();
-            var salesReceipt = new SalesReceiptPrint();
+            var salesReciptCalculator = new SalesReceiptCalculate();
+            var salesReceiptPrint = new SalesReceiptPrint();
             var latestReceiptNumber = new SalesReceiptLatestNumber();
-            var consoleCenter = new ConsoleWriteLineCenter();
-            var customerImput = new CustomerImput();
+            var createBorder = new CreateBorder();
+            var productInput = new ProductInput();
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var cartDisplay = new CartDisplay();
 
@@ -37,15 +37,15 @@ namespace Kassasystemet.Customer
             do
             {
                 Console.Clear();
-                CustomerBorderDisplay.CustomerDrawBorder(consoleCenter);
+                CustomerBorderDisplay.CustomerDrawBorder(createBorder);
                 availiableProductsDisplay.DisplayAvailableProducts(productManager);
-                cartDisplay.DisplayCustomerCart(calculateReceipt, consoleCenter, shoppingCart);
+                cartDisplay.DisplayCustomerCart(salesReciptCalculator, createBorder, shoppingCart);
 
                 input = Console.ReadLine();
 
                 if (input.ToUpper() != "PAY")
                 {
-                    customerImput.HandleProductInput(consoleCenter, productManager, shoppingCart, input);
+                    productInput.HandleProductInput(createBorder, productManager, shoppingCart, input);
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace Kassasystemet.Customer
             }
             while (!IsPaymentCompleted);
 
-            salesReceipt.SaveReceipt(shoppingCart, calculateReceipt); //När betalningen är klart, kvittot sparas.
+            salesReceiptPrint.SaveReceipt(shoppingCart, salesReciptCalculator); //När betalningen är klart, kvittot sparas.
 
             Console.SetCursorPosition(85, 20);
             Console.WriteLine("Receipt saved and printed out.");

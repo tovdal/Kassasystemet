@@ -6,7 +6,7 @@
 
         public int GetAndSaveLatestReceiptNumber()
         {
-            int latestNumber = 0; // Default to 0
+            int latestNumber = 0;
 
             try
             {

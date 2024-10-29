@@ -16,6 +16,7 @@ namespace Kassasystemet.Admin
             Console.Clear();
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var addProductBorder = new AdminDisplayBorder();
+
             addProductBorder.ProductBorder();
             availiableProductsDisplay.DisplayAvailableProducts(productManager);
 

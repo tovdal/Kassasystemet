@@ -8,7 +8,7 @@ namespace Kassasystemet.Customer
     public class CartDisplay
     {
         public void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, 
-            ConsoleWriteLineCenter consoleCenter, List<Product> shoppingCart)
+            CreateBorder consoleCenter, List<Product> shoppingCart)
         {
             var campaignManager = new CampaignManager();
 
