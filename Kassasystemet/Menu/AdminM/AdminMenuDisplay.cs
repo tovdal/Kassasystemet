@@ -27,7 +27,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.SetCursorPosition(83, 28);
             Console.WriteLine("[3] Change price on product");
             Console.SetCursorPosition(83, 29);
-            Console.WriteLine("[4] Exit");
+            Console.WriteLine("[4] Back to menu");
 
 
             createBorder.DrawBorder(33, 82, 30, 5);

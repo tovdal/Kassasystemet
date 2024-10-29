@@ -63,7 +63,7 @@ namespace Kassasystemet.Admin
                     }
 
                     Console.SetCursorPosition(60, 18);
-                    Console.Write("Is the product in kg or pc? (Enter 'kg' or 'pc')");
+                    Console.Write("Is the product in kg or pc?: ");
                     string unitInput = Console.ReadLine();
                     UnitType unit;
                     if (!Enum.TryParse(unitInput, true, out unit))

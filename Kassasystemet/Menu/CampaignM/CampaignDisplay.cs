@@ -30,7 +30,7 @@ namespace Kassasystemet.Menu.CampaignM
             Console.SetCursorPosition(83, 27);
             Console.WriteLine("[2] Remove Campaign");
             Console.SetCursorPosition(83, 28);
-            Console.WriteLine("[3] Exit");
+            Console.WriteLine("[3] Back to menu");
 
             createBorder.DrawBorder(33, 82, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;

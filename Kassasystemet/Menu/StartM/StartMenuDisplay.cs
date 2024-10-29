@@ -26,7 +26,7 @@ namespace Kassasystemet.Menu.StartM
             Console.SetCursorPosition(83, 28);
             Console.WriteLine("[3] Campaign Product Tools");
             Console.SetCursorPosition(83, 29);
-            Console.WriteLine("[4] Exit\n");
+            Console.WriteLine("[4] Exit Program\n");
 
 
             createBorder.DrawBorder(33, 81, 30, 5);

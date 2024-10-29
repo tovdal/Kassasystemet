@@ -30,7 +30,7 @@ namespace Kassasystemet.Receipts
                 writer.WriteLine("|234 56 No-Where                                            |");
                 writer.WriteLine("|TEL NR 010-0000000                                         |");
                 writer.WriteLine($"|Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}                                  |");
-                writer.WriteLine("|                                       |");
+                writer.WriteLine("|                                                           |");
                 writer.WriteLine("|------------------------                    ---------------|");
                 foreach (var product in uniqueProducts)
                 {
