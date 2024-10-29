@@ -64,6 +64,8 @@ namespace Kassasystemet.Products
 
         public List<Product> GetProducts()
         {
+            products.Sort((product1, product2) => product1.PLUCode.CompareTo(product2.PLUCode)); // Lambda !!!
+            //https://www.webdevtutor.net/blog/c-sharp-lambda-on-list
             return products;
         }
 
