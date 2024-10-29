@@ -72,7 +72,11 @@ namespace Kassasystemet.Campaign
             {
                 foreach (var campaign in campaigns)
                 {
-                    writer.WriteLine($"{campaign.StartDate:yyyy-MM-dd}:{campaign.EndDate:yyyy-MM-dd}:{campaign.DiscountedPrice}:{campaign.PLUCode}");
+                    writer.WriteLine(
+                        $"{campaign.StartDate:yyyy-MM-dd}:" +
+                        $"{campaign.EndDate:yyyy-MM-dd}:" +
+                        $"{campaign.DiscountedPrice}:" +
+                        $"{campaign.PLUCode}");
                 }
             }
         }

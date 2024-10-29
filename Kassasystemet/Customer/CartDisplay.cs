@@ -7,8 +7,8 @@ namespace Kassasystemet.Customer
 {
     public class CartDisplay
     {
-        public void DisplayCustomerCart(SalesReceiptCalculate calculateReceipt, 
-            CreateBorder consoleCenter, List<Product> shoppingCart)
+        public void DisplayCustomerCart(SalesReceiptCalculate salesReceiptCalculate, 
+            CreateBorder createBorder, List<Product> shoppingCart)
         {
             var campaignManager = new CampaignManager();
 
@@ -51,11 +51,11 @@ namespace Kassasystemet.Customer
             Console.SetCursorPosition(51, 31);
             Console.WriteLine("Total:");
             Console.SetCursorPosition(99, 31);
-            Console.WriteLine($"{calculateReceipt.CalculateTotal(shoppingCart):C}");
+            Console.WriteLine($"{salesReceiptCalculate.CalculateTotal(shoppingCart):C}");
             Console.SetCursorPosition(51, 32);
             Console.WriteLine("Taxes:");
             Console.SetCursorPosition(99, 32);
-            Console.WriteLine($"{calculateReceipt.CalculateTax(shoppingCart):C}");
+            Console.WriteLine($"{salesReceiptCalculate.CalculateTax(shoppingCart):C}");
 
             Console.SetCursorPosition(51, 35);
             Console.Write("Command: ");

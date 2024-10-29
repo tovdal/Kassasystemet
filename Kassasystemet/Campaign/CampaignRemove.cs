@@ -57,7 +57,8 @@ namespace Kassasystemet.Campaign
                     {
                         Console.SetCursorPosition(80, 38);
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Campaign not found. Campaign not found with the given PLU and/or start date.");
+                        Console.WriteLine("Campaign not found. Campaign not found" +
+                            " with the given PLU and/or start date.");
                         Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     Console.ReadKey();

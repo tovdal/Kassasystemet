@@ -7,7 +7,7 @@ namespace Kassasystemet.Receipts
     // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class SalesReceiptPrint
     {
-        public void SaveReceipt(List<Product> shoppingCart, SalesReceiptCalculate calculateReceipt)
+        public void SaveReceipt(List<Product> shoppingCart, SalesReceiptCalculate salesReceiptCalculate)
         {
             var uniqueProducts = CartUniqProducts.GatherProducts(shoppingCart);
             var latestReceiptNumber = new SalesReceiptLatestNumber();
@@ -48,8 +48,8 @@ namespace Kassasystemet.Receipts
                 }
                 writer.WriteLine("|                                                           |");
                 writer.WriteLine($"|Articles: {shoppingCart.Count}");
-                writer.WriteLine($"|Total: {calculateReceipt.CalculateTotal(shoppingCart):C}");
-                writer.WriteLine($"|Taxes: {calculateReceipt.CalculateTax(shoppingCart):C}");
+                writer.WriteLine($"|Total: {salesReceiptCalculate.CalculateTotal(shoppingCart):C}");
+                writer.WriteLine($"|Taxes: {salesReceiptCalculate.CalculateTax(shoppingCart):C}");
                 writer.WriteLine("|-----------------------------------------------------------|");
                 writer.WriteLine("|                                                           |");
                 writer.WriteLine("|                                                           |");

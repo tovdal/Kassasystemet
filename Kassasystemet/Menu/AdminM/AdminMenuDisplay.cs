@@ -6,7 +6,7 @@ namespace Kassasystemet.Menu.AdminM
     {
         public void PrintOutAdminMenu()
         {
-            var consoleCenter = new CreateBorder();
+            var createBorder = new CreateBorder();
             var titleDisplay = new TitleDisplay();
 
             Console.Clear();
@@ -14,7 +14,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.SetCursorPosition(46, 3);
             titleDisplay.PrintTitle();
 
-            consoleCenter.DrawBorder(23, 80, 34, 10);
+            createBorder.DrawBorder(23, 80, 34, 10);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(92, 24);
@@ -30,7 +30,7 @@ namespace Kassasystemet.Menu.AdminM
             Console.WriteLine("[4] Exit");
 
 
-            consoleCenter.DrawBorder(33, 82, 30, 5);
+            createBorder.DrawBorder(33, 82, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(87, 35);
             Console.Write("Pick selection: ");

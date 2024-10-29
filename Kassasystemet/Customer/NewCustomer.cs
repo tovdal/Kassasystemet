@@ -15,7 +15,7 @@ namespace Kassasystemet.Customer
         /// </summary>
         public void StartNewCustormer()
         {
-            var salesReciptCalculator = new SalesReceiptCalculate();
+            var salesReceiptCalculate = new SalesReceiptCalculate();
             var salesReceiptPrint = new SalesReceiptPrint();
             var latestReceiptNumber = new SalesReceiptLatestNumber();
             var createBorder = new CreateBorder();
@@ -39,7 +39,7 @@ namespace Kassasystemet.Customer
                 Console.Clear();
                 CustomerBorderDisplay.CustomerDrawBorder(createBorder);
                 availiableProductsDisplay.DisplayAvailableProducts(productManager);
-                cartDisplay.DisplayCustomerCart(salesReciptCalculator, createBorder, shoppingCart);
+                cartDisplay.DisplayCustomerCart(salesReceiptCalculate, createBorder, shoppingCart);
 
                 input = Console.ReadLine();
 
@@ -54,7 +54,7 @@ namespace Kassasystemet.Customer
             }
             while (!IsPaymentCompleted);
 
-            salesReceiptPrint.SaveReceipt(shoppingCart, salesReciptCalculator); //När betalningen är klart, kvittot sparas.
+            salesReceiptPrint.SaveReceipt(shoppingCart, salesReceiptCalculate); //När betalningen är klart, kvittot sparas.
 
             Console.SetCursorPosition(85, 20);
             Console.WriteLine("Receipt saved and printed out.");

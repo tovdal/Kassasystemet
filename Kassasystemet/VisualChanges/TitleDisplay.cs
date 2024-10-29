@@ -2,7 +2,7 @@
 {
     public class TitleDisplay
     {
-        CreateBorder consoleCenter = new CreateBorder();
+        CreateBorder createBorder = new CreateBorder();
         // Ascii konst.
         public void PrintTitle()
         {

@@ -23,7 +23,9 @@ namespace Kassasystemet.Campaign
                 Console.SetCursorPosition(77, currentRow);
                 Console.WriteLine($"PLU: {campaign.PLUCode}");
                 Console.SetCursorPosition(77, ++currentRow);
-                Console.WriteLine($"Available between: {campaign.StartDate:yyyy-MM-dd} - {campaign.EndDate:yyyy-MM-dd}");
+                Console.WriteLine($"Available between: " +
+                    $"{campaign.StartDate:yyyy-MM-dd} - " +
+                    $"{campaign.EndDate:yyyy-MM-dd}");
                 Console.SetCursorPosition(77, ++currentRow);
                 Console.WriteLine($"Campaign Price: {campaign.DiscountedPrice:C}");
 
