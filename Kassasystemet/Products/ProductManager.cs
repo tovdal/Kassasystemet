@@ -64,7 +64,11 @@ namespace Kassasystemet.Products
 
         public List<Product> GetProducts()
         {
-            products.Sort((product1, product2) => product1.PLUCode.CompareTo(product2.PLUCode)); // Lambda och LINQ!!!
+            products.Sort((product1, product2) => product1.PLUCode.CompareTo(product2.PLUCode));
+            // Lambda, not LINQ because ...
+            // the return is an sorted original list. Otherwise with LINQ you would get a sorted copy of the original list
+            // Lambda, not LINQ because Sort() directly sorts the original list.
+            // LINQ methods like OrderBy() would create a sorted copy instead.
             //https://www.webdevtutor.net/blog/c-sharp-lambda-on-list
             return products;
         }
