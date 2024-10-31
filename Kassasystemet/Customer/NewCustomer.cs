@@ -3,8 +3,6 @@ using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.Products.Interface;
 using Kassasystemet.Customer.DisplayBorder;
-using Kassasystemet.Campaign;
-
 
 namespace Kassasystemet.Customer
 {

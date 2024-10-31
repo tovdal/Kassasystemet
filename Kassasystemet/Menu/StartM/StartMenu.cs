@@ -1,5 +1,4 @@
-﻿using Kassasystemet.Menu;
-using Kassasystemet.Menu.AdminM;
+﻿using Kassasystemet.Menu.AdminM;
 using Kassasystemet.Menu.CampaignM;
 using Kassasystemet.Customer;
 using Kassasystemet.Products;

@@ -1,5 +1,4 @@
-﻿using Kassasystemet;
-using Kassasystemet.Application;
+﻿using Kassasystemet.Application;
 
 namespace Kassasystemet
 {

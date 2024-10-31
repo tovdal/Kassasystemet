@@ -1,11 +1,5 @@
-﻿using Kassasystemet.Admin.Display;
-using Kassasystemet.Campaign.Visual;
+﻿using Kassasystemet.Campaign.Visual;
 using Kassasystemet.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kassasystemet.Campaign
 {

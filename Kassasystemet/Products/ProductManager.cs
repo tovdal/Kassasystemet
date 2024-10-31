@@ -1,5 +1,4 @@
 ﻿using Kassasystemet.Products.Interface;
-using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Products
 {

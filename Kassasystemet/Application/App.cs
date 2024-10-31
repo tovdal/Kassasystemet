@@ -1,5 +1,4 @@
-﻿using Kassasystemet.Menu.AdminM;
-using Kassasystemet.Menu.StartM;
+﻿using Kassasystemet.Menu.StartM;
 namespace Kassasystemet.Application
 {
     internal class App

@@ -1,11 +1,6 @@
 ﻿using Kassasystemet.Campaign;
 using Kassasystemet.Products;
 using Kassasystemet.Products.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kassasystemet.Menu.CampaignM
 {
