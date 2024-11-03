@@ -63,9 +63,9 @@ namespace Kassasystemet.Admin
                     }
 
                     Console.SetCursorPosition(60, 18);
-                    Console.Write("Is the product in kg or pc?: ");
-                    //string unitInput = Console.ReadLine();
-                    if (Enum.TryParse(Console.ReadLine(), out UnitType unit))
+                    Console.Write("Is the product in 'kg' or 'pc'?: ");
+                    string unitInput = Console.ReadLine();
+                    if (!Enum.TryParse(unitInput, true ,out UnitType unit) || !Enum.IsDefined(typeof(UnitType), unit)) //https://zetcode.com/csharp/enum/
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(83, 38);
@@ -74,6 +74,7 @@ namespace Kassasystemet.Admin
                         Console.ReadKey();
                         continue;
                     }
+                   
 
                     Product product = new Product(PLUCode, productName, price, unit);
 
