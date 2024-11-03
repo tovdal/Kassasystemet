@@ -27,7 +27,7 @@ namespace Kassasystemet.Admin
                     Console.SetCursorPosition(60, 15);
                     Console.Write("Enter the PLU of the product: ");
                     string PLUInput = Console.ReadLine();
-                    if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length !=3)
+                    if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length != 3)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.SetCursorPosition(83, 38);
@@ -83,22 +83,6 @@ namespace Kassasystemet.Admin
                     Console.SetCursorPosition(60, 19);
                     Console.WriteLine("Product added successfully.");
                     IsValidInput = true;
-                    Console.ReadKey();
-                }
-                catch (ArgumentNullException e)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
-                }
-                catch (OverflowException e)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
                 }
                 catch (Exception ex)
