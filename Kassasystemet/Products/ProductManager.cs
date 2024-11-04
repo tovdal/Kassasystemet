@@ -17,7 +17,7 @@ namespace Kassasystemet.Products
             products = productLoader.LoadProducts(filePath);
         }
 
-        public Product? GetProductByPLU(int pluCode)
+        public Product GetProductByPLU(int pluCode)
         {
             foreach (var product in products)
             {

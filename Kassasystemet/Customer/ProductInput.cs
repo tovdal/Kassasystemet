@@ -33,15 +33,15 @@ namespace Kassasystemet.Customer
             }
             catch (OverflowException e)
             {
-                DisplayErrorMessage.ErrorMessage(e.Message);
+                Console.WriteLine(e.Message);
             }
             catch (IndexOutOfRangeException e)
             {
-                DisplayErrorMessage.ErrorMessage(e.Message);
+                Console.WriteLine(e.Message);
             }
             catch (FormatException e)
             {
-                DisplayErrorMessage.ErrorMessage(e.Message);
+                Console.WriteLine(e.Message);
             }
         }
     }

@@ -22,7 +22,6 @@ namespace Kassasystemet.Campaign
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("-: Add Campaign :-");
                     Console.ForegroundColor = ConsoleColor.Gray;
-
                     Console.SetCursorPosition(32, 12);
                     Console.WriteLine("Enter PLU code for the product.");
                     Console.SetCursorPosition(32, 13);
@@ -46,8 +45,7 @@ namespace Kassasystemet.Campaign
                     string startDateInput = Console.ReadLine();
                     if (!DateTime.TryParse(startDateInput, out DateTime startDate))
                     {
-                        DisplayErrorMessage.ErrorMessage("Invalid date format. " +
-                            "Please enter a date in the format yyyy-mm-dd.");
+                        DisplayErrorMessage.ErrorMessage("Invalid date format. Please enter a date in the format yyyy-mm-dd.");
                         continue;
                     }
                     if (startDate < DateTime.Now.Date)
@@ -63,8 +61,7 @@ namespace Kassasystemet.Campaign
                     string endDateInput = Console.ReadLine();
                     if (!DateTime.TryParse(endDateInput, out DateTime endDate))
                     {
-                        DisplayErrorMessage.ErrorMessage("Invalid date format. " +
-                            "Please enter a date in the format yyyy-mm-dd.");
+                        DisplayErrorMessage.ErrorMessage("Invalid date format. Please enter a date in the format yyyy-mm-dd.");
                         continue;
                     }
                     if (endDate < startDate)
@@ -83,8 +80,7 @@ namespace Kassasystemet.Campaign
                     }
                     if (discountedPrice >= productManager.GetProductPrice(PLUCode))
                     {
-                        DisplayErrorMessage.ErrorMessage("Discounted price cannot be equal to" +
-                            " or greater than the original price.");
+                        DisplayErrorMessage.ErrorMessage("Discounted price cannot be equal to or greater than the original price.");
                         continue;
                     }
 

@@ -19,12 +19,18 @@ namespace Kassasystemet.Admin
             catch (FormatException)
             {
                 DisplayErrorMessage.ErrorMessage("You must enter a valid PLU number");
+                return null;
+            }
+            catch (OverflowException)
+            {
+                DisplayErrorMessage.ErrorMessage("Invalid PLU. Please enter a valid 3 - digit number");
+                return null;
             }
 
             Product productToChange = productManager.GetProductByPLU(PLUCode);
             if (productToChange == null)
             {
-                Console.WriteLine("Product not found");
+                DisplayErrorMessage.ErrorMessage("Invalid PLU. Please enter a valid 3 - digit number");
                 return null;
             }
             return productToChange;

@@ -67,7 +67,7 @@ namespace Kassasystemet.Admin
                     Console.SetCursorPosition(60, 22);
                     Console.Write(": ");
                     string unitInput = Console.ReadLine();
-                    if (!Enum.TryParse(unitInput, true ,out UnitType unit) || !Enum.IsDefined(typeof(UnitType), unit)) //https://zetcode.com/csharp/enum/
+                    if (!Enum.TryParse(unitInput, true ,out UnitType unit) || !Enum.IsDefined(typeof(UnitType), unit))
                     {
                         DisplayErrorMessage.ErrorMessage("Invalid unit type. Please enter either 'kg' or 'pc'.");
                         continue;
