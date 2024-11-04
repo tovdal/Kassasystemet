@@ -1,8 +1,8 @@
-﻿using Kassasystemet.Campaign.CampaignInput;
+﻿using Kassasystemet.Admin.AdminAddInput;
+using Kassasystemet.Campaign.CampaignInput;
 using Kassasystemet.Campaign.Visual;
 using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System.ComponentModel;
 
 namespace Kassasystemet.Campaign
 {
@@ -13,7 +13,7 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
 
-            var inputPLU = new CampaignPLUCodeInput(productManager);
+            var inputPLU = new AdminPLUInput(productManager);
             var inputStartDate = new CampaignDateInput();
 
             bool IsValidInput = false;

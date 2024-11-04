@@ -1,6 +1,8 @@
 ﻿using Kassasystemet.Messages;
 using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
+using System.Diagnostics.Metrics;
+using System.Numerics;
 
 namespace Kassasystemet.Customer
 {
@@ -28,7 +30,7 @@ namespace Kassasystemet.Customer
                 }
                 else
                 {
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage("Please enter 3 numeric digits for PLU");
                 }
             }
             catch (OverflowException)
