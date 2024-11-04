@@ -17,7 +17,7 @@ namespace Kassasystemet.Products
             products = productLoader.LoadProducts(filePath);
         }
 
-        public Product GetProductByPLU(int pluCode)
+        public Product? GetProductByPLU(int pluCode)
         {
             foreach (var product in products)
             {
@@ -26,7 +26,6 @@ namespace Kassasystemet.Products
                     return product;
                 }
             }
-            DisplayErrorMessage.ErrorMessage("Product with that PLU could not be found.");
             return null;
         }
 
@@ -36,6 +35,23 @@ namespace Kassasystemet.Products
             SaveNewProductToFile(filePath, newProduct);
         }
 
+        public decimal? GetProductPrice(int pluCode) 
+        {
+            foreach (var product in products)
+            {
+                if (product.PLUCode == pluCode)
+                {
+                    return product.Price;
+                }
+            }
+            return null; //'?' can return null- not found.
+        }
+
+        /// <summary>
+        /// If PLU Code is taken it will retun true or false
+        /// </summary>
+        /// <param name="PLUCode"></param>
+        /// <returns></returns>
         public bool IsPLUTaken(int PLUCode)
         {
             foreach (var product in products)
@@ -55,15 +71,14 @@ namespace Kassasystemet.Products
                 writer.WriteLine($"{newProduct.PLUCode}:{newProduct.ProductName}:{newProduct.Price}:{newProduct.Unit}");
             }
         }
-
+        /// <summary>
+        /// The return is an sorted original list of the PLU Products in lowest to highest.
+        /// https://www.webdevtutor.net/blog/c-sharp-lambda-on-list
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetProducts()
         {
             products.Sort((product1, product2) => product1.PLUCode.CompareTo(product2.PLUCode));
-            // Lambda, not LINQ because ...
-            // the return is an sorted original list. Otherwise with LINQ you would get a sorted copy of the original list
-            // Lambda, not LINQ because Sort() directly sorts the original list.
-            // LINQ methods like OrderBy() would create a sorted copy instead.
-            //https://www.webdevtutor.net/blog/c-sharp-lambda-on-list
             return products;
         }
     }

@@ -72,12 +72,12 @@ namespace Kassasystemet.Campaign
                         DisplayErrorMessage.ErrorMessage("invalid price. Please enter a valid number.");
                         continue;
                     }
-                    //if (discountedPrice >= pr
-                    //{
-                    //    DisplayErrorMessage.ErrorMessage("Discounted price cannot be equal to" +
-                    //        " or greater than the original price.");
-                    //    continue;
-                    //}
+                    if (discountedPrice >= productManager.GetProductPrice(PLUCode))
+                    {
+                        DisplayErrorMessage.ErrorMessage("Discounted price cannot be equal to" +
+                            " or greater than the original price.");
+                        continue;
+                    }
 
                     Campaign newCampaign = new Campaign(startDate, endDate, discountedPrice, PLUCode);
                     campaignManager.AddCampaign(newCampaign);
