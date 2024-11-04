@@ -46,8 +46,13 @@ namespace Kassasystemet.Admin
                     Console.SetCursorPosition(60, 18);
                     Console.Write(": ");
                     string productName = Console.ReadLine();
+                    if (productName == null)
+                    {
+                        DisplayErrorMessage.ErrorMessage("The product must have a name.");
+                        continue;
+                    }
 
-                    Console.SetCursorPosition(60, 19);
+                        Console.SetCursorPosition(60, 19);
                     Console.WriteLine("Enter the price.");
                     Console.SetCursorPosition(60, 20);
                     Console.Write(": ");
