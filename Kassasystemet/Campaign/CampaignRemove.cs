@@ -48,7 +48,6 @@ namespace Kassasystemet.Campaign
                     Console.Write(": ");
                     DateTime startDate = DateTime.Parse(Console.ReadLine());
 
-                    // Call the RemoveCampaign method on the newly created instance
                     bool removed = campaignManager.RemoveCampaign(PLUCode, startDate);
                     if (removed)
                     {
