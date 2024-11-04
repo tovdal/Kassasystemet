@@ -29,6 +29,8 @@ namespace Kassasystemet.Admin
                     Message.MessageString("-:Add new product:-", 75, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
+                    Message.MessageString("Enter the PLU of the product.", 60, 15);
+                    Message.MessageString(": ", 60, 16);
                     int PLUCode = inputPLU.InputPLUCode();
                     string productName = inputName.InputName();
                     decimal price = inputPrice.InputPrice();
