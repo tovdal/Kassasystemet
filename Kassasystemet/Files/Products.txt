@@ -5,11 +5,10 @@
 308:Salmon:250:kg
 401:Minced Meat:105:kg
 402:Meatballs:55,95:pc
-501:Pork:86,50:kg
 601:Candy:88,80:kg
 399:Lemon:10,19:pc
 398:Lime:18,99:pc
 247:Berries:95,99:pc
 666:Devil curry:6,66:pc
-105:Yogurt:31,95:pc
 701:50 Nuggets:79,59:pc
+404:FooDNotFount:404:pc

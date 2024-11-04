@@ -13,7 +13,7 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
 
-            var inputPLU = new AdminPLUInput(productManager);
+            var inputPLUCode = new CampaignPLUCodeInput(productManager);
             var inputStartDate = new CampaignDateInput();
 
             bool IsValidInput = false;
@@ -27,7 +27,7 @@ namespace Kassasystemet.Campaign
                     Message.MessageString("-: Remove Campaign :-", 44, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    int PLUCode = inputPLU.InputPLUCode();
+                    int PLUCode = inputPLUCode.InputPLUCode();
                     DateTime startDate = inputStartDate.InputStartDate();
 
                     bool removed = campaignManager.RemoveCampaign(PLUCode, startDate);

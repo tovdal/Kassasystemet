@@ -13,7 +13,7 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
             var inputDate = new CampaignDateInput();
-            var inputPLU = new AdminPLUInput(productManager);
+            var inputPLUCode = new CampaignPLUCodeInput(productManager);
             var inputDiscountedPrice = new CampaignPriceInput(productManager);
 
             bool IsValidInput = false;
@@ -27,16 +27,14 @@ namespace Kassasystemet.Campaign
                     Message.MessageString("-: Add Campaign :-", 44, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    Message.MessageString("Enter PLU code for the product.", 32, 12);
-                    Message.MessageString(": ", 32, 12);
-                    int PLUCode = inputPLU.InputPLUCode();
+                    int PLUCode = inputPLUCode.InputPLUCode();
                     DateTime startDate = inputDate.InputStartDate();
                     DateTime endDate = inputDate.InputEndDate(startDate);
                     decimal discountedPrice = inputDiscountedPrice.InputDiscountPrice(PLUCode);
 
                     Campaign newCampaign = new Campaign(startDate, endDate, discountedPrice, PLUCode);
                     campaignManager.AddCampaign(newCampaign);
-                    DisplaySuccessMessage.SuccessMessage("Campaign added successfully.");
+                    DisplaySuccessMessage.SuccessMessage("Campaign has been added successfully.");
                     IsValidInput = true;
                 }
                 catch (ArgumentNullException e)

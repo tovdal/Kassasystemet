@@ -27,7 +27,7 @@ namespace Kassasystemet.Admin
                 Product productToChange = adminPLUFinder.FindPLUCode(productManager);
                 if (productToChange == null)
                 {
-                    DisplayErrorMessage.ErrorMessage("Product not found.");
+                    DisplayErrorMessage.ErrorMessage("Product was not found. Try again.");
                     continue;
                 }
 

@@ -14,7 +14,7 @@ namespace Kassasystemet.Campaign.CampaignInput
                 string startDateInput = Console.ReadLine();
                 if (!DateTime.TryParse(startDateInput, out startDate))
                 {
-                    DisplayErrorMessage.ErrorMessage("Invalid date format. Erase and please enter a date in the format yyyy-mm-dd.");
+                    DisplayErrorMessage.ErrorMessage("Invalid date format. Erase and enter in yyyy-mm-dd.");
                     continue;
                 }
                 if (startDate < DateTime.Now.Date)
@@ -35,12 +35,12 @@ namespace Kassasystemet.Campaign.CampaignInput
                 string endDateInput = Console.ReadLine();
                 if (!DateTime.TryParse(endDateInput, out endDate))
                 {
-                    DisplayErrorMessage.ErrorMessage("Invalid date format. Erase and please enter a date in the format yyyy-mm-dd.");
+                    DisplayErrorMessage.ErrorMessage("Invalid date format. Erase and enter in yyyy-mm-dd.");
                     continue;
                 }
                 if (endDate < startDate)
                 {
-                    DisplayErrorMessage.ErrorMessage("End date must be tomorrow or later. Erase and please enter a new date");
+                    DisplayErrorMessage.ErrorMessage("End date must be tomorrow or later. Erase and enter a new date");
                     continue;
                 }
                 return endDate;

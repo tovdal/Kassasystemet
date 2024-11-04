@@ -11,7 +11,7 @@ namespace Kassasystemet.Messages
         public static void SuccessMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(84, 38);
+            Console.SetCursorPosition(80, 38);
             Console.Write(message);
             Console.ResetColor();
             Console.Write(new string(' ', message.Length));

@@ -10,6 +10,8 @@ namespace Kassasystemet.Admin.AdminAddInput
             int PLUCode;
             while (true)
             {
+                Message.MessageString("Enter the PLU of the new product.", 60, 15);
+                Message.MessageString(": ", 60, 16);
                 string PLUInput = Console.ReadLine();
                 if (!int.TryParse(PLUInput, out PLUCode) || PLUInput.Length != 3)
                 {
