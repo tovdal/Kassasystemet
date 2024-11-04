@@ -48,7 +48,12 @@ namespace Kassasystemet.Campaign
                     {
                         DisplayErrorMessage.ErrorMessage("Invalid date format. " +
                             "Please enter a date in the format yyyy-mm-dd.");
-                        continue; 
+                        continue;
+                    }
+                    if (startDate < DateTime.Now.Date)
+                    {
+                        DisplayErrorMessage.ErrorMessage("The start date must be today or in the future.");
+                        continue;
                     }
 
                     Console.SetCursorPosition(32, 16);
@@ -60,7 +65,11 @@ namespace Kassasystemet.Campaign
                     {
                         DisplayErrorMessage.ErrorMessage("Invalid date format. " +
                             "Please enter a date in the format yyyy-mm-dd.");
-                        continue; 
+                        continue;
+                    }
+                    if (endDate < startDate)
+                    {
+                        DisplayErrorMessage.ErrorMessage("The end date must be the day after the start date or in the future..");
                     }
 
                     Console.SetCursorPosition(32, 18);
@@ -83,7 +92,6 @@ namespace Kassasystemet.Campaign
                     campaignManager.AddCampaign(newCampaign);
                     DisplaySuccessMessage.SuccessMessage("Campaign added successfully.");
                     IsValidInput = true;
-                    Console.ReadKey();
                 }
                 catch (ArgumentNullException e)
                 {
