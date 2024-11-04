@@ -9,7 +9,9 @@ namespace Kassasystemet.Admin
         {
             int PLUCode = 0;
             Console.SetCursorPosition(52, 15);
-            Console.Write("Enter the PLUCode of the product you want to change:");
+            Console.WriteLine("Enter the PLUCode of the product you want to change");
+            Console.SetCursorPosition(52, 16);
+            Console.Write(": ");
             try
             {
                 PLUCode = Convert.ToInt32(Console.ReadLine());

@@ -26,12 +26,14 @@ namespace Kassasystemet.Admin
             {
                 return;
             }
-            Console.SetCursorPosition(52, 16);
-            Console.WriteLine($"Current product Name: {productToChange.ProductName}");
+
             Console.SetCursorPosition(52, 17);
-            Console.WriteLine($"Enter new Name");
+            Console.WriteLine($"Current product Name: {productToChange.ProductName}");
             Console.SetCursorPosition(52, 18);
-            Console.Write("(or press enter if you whant to keep current name):");
+            Console.WriteLine("Enter new name (or press 'enter key' to keep current)");
+            Console.SetCursorPosition(52, 19);
+            Console.Write(": ");
+
             string newProductName = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(newProductName))

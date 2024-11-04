@@ -27,12 +27,12 @@ namespace Kassasystemet.Admin
                 return;
             }
 
-            Console.SetCursorPosition(52, 16);
-            Console.WriteLine($"Current Price: {productToChange.Price}");
             Console.SetCursorPosition(52, 17);
-            Console.WriteLine("Enter new Price");
+            Console.WriteLine($"Current Price: {productToChange.Price}");
             Console.SetCursorPosition(52, 18);
-            Console.Write("(or press enter if you whant to keep current price):");
+            Console.WriteLine("Enter new Price (or press 'enter key' to keep current)");
+            Console.SetCursorPosition(52, 19);
+            Console.Write(": ");
             string newPriceString = Console.ReadLine();
 
             if (decimal.TryParse(newPriceString, out decimal newPrice))
