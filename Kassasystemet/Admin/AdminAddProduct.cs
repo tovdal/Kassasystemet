@@ -3,7 +3,6 @@ using Kassasystemet.Admin.Display;
 using Kassasystemet.Customer;
 using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System.Runtime.InteropServices;
 
 namespace Kassasystemet.Admin
 {
@@ -26,9 +25,8 @@ namespace Kassasystemet.Admin
                 availiableProductsDisplay.DisplayAvailableProducts(productManager);
                 try
                 {
-                    Console.SetCursorPosition(75, 7);
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("-:Add new product:-");
+                    Message.MessageString("-:Add new product:-", 75, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     int PLUCode = inputPLU.InputPLUCode();

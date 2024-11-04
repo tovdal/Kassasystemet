@@ -1,12 +1,7 @@
 ﻿using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Kassasystemet.Campaign.CampaignAddInput
+namespace Kassasystemet.Campaign.CampaignInput
 {
     public class CampaignPriceInput(ProductManager productManager)
     {
@@ -15,10 +10,8 @@ namespace Kassasystemet.Campaign.CampaignAddInput
             decimal discountedPrice;
             while (true)
             {
-                Console.SetCursorPosition(32, 18);
-                Console.WriteLine("Enter discounted price.");
-                Console.SetCursorPosition(32, 19);
-                Console.Write(": ");
+                Message.MessageString("Enter discounted price.",32, 18);
+                Message.MessageString(": ", 32, 19);
                 if (!decimal.TryParse(Console.ReadLine(), out discountedPrice))
                 {
                     DisplayErrorMessage.ErrorMessage("invalid price. Erase and please enter a valid number.");

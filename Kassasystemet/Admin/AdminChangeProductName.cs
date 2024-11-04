@@ -9,41 +9,48 @@ namespace Kassasystemet.Admin
     {
         public void ChangeNameProduct(ProductManager productManager, AdminPLUFinder adminPLUFinder)
         {
-            Console.Clear();
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var addProductBorder = new AdminDisplayBorder();
 
-            addProductBorder.ProductBorder();
-            availiableProductsDisplay.DisplayAvailableProducts(productManager);
-
-            Console.SetCursorPosition(72, 7);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("-:Change product name:-");
-            Console.ForegroundColor = ConsoleColor.Gray;
-
-            Product productToChange = adminPLUFinder.FindPLUCode(productManager);
-            if (productToChange == null)
+            bool isValidInput = false;
+            while (!isValidInput)
             {
-                return;
-            }
+                Console.Clear();
+                addProductBorder.ProductBorder();
+                availiableProductsDisplay.DisplayAvailableProducts(productManager);
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Message.MessageString("-:Change product name:-",72, 7);
+                    Console.ForegroundColor = ConsoleColor.Gray;
 
-            Console.SetCursorPosition(52, 17);
-            Console.WriteLine($"Current product Name: {productToChange.ProductName}");
-            Console.SetCursorPosition(52, 18);
-            Console.WriteLine("Enter new name (or press 'enter key' to keep current)");
-            Console.SetCursorPosition(52, 19);
-            Console.Write(": ");
+                    Product productToChange = adminPLUFinder.FindPLUCode(productManager);
+                    if (productToChange == null)
+                    {
+                        continue;
+                    }
 
-            string newProductName = Console.ReadLine();
+                    Message.MessageString($"Current product Name: {productToChange.ProductName}", 52, 17);
+                    Message.MessageString("Enter new name.", 52, 18);
+                    Message.MessageString(": ",52, 19);
 
-            if (!string.IsNullOrWhiteSpace(newProductName))
-            {
-                productToChange.ProductName = newProductName;
-                DisplaySuccessMessage.SuccessMessage("Product name updated successfully.");
-            }
-            if(string.IsNullOrWhiteSpace(newProductName))
-            {
-                DisplayErrorMessage.ErrorMessage("No update to name was made.");
+                    string newProductName = Console.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(newProductName))
+                    {
+                        productToChange.ProductName = newProductName;
+                        DisplaySuccessMessage.SuccessMessage("Product name updated successfully.");
+                        break;
+                    }
+                    if (string.IsNullOrWhiteSpace(newProductName))
+                    {
+                        DisplayErrorMessage.ErrorMessage("No update to name was made.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DisplayErrorMessage.ErrorMessage($"An unexpected error occurred: {ex.Message}");
+                }
             }
         }
     }

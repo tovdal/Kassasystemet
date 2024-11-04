@@ -1,4 +1,4 @@
-﻿using Kassasystemet.Campaign.CampaignAddInput;
+﻿using Kassasystemet.Campaign.CampaignInput;
 using Kassasystemet.Campaign.Visual;
 using Kassasystemet.Messages;
 using Kassasystemet.Products;
@@ -22,9 +22,8 @@ namespace Kassasystemet.Campaign
                 campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
                 try
                 {
-                    Console.SetCursorPosition(44, 7);
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("-: Add Campaign :-");
+                    Message.MessageString("-: Add Campaign :-", 44, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     int PLUCode = inputPLUCode.InputPLUCode();

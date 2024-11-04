@@ -10,44 +10,48 @@ namespace Kassasystemet.Admin
     {
         public void ChangePriceProduct(ProductManager productManager, AdminPLUFinder adminPLUFinder)
         {
-            Console.Clear();
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var addProductBorder = new AdminDisplayBorder();
 
-
-            addProductBorder.ProductBorder();
-            availiableProductsDisplay.DisplayAvailableProducts(productManager);
-
-
-            Console.SetCursorPosition(72, 7);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("-:Change product price:-");
-            Console.ForegroundColor = ConsoleColor.Gray;
-
-            Product productToChange = adminPLUFinder.FindPLUCode(productManager);
-            if (productToChange == null)
+            bool isValidInput = false;
+            while (!isValidInput)
             {
-                return;
-            }
+                Console.Clear();
+                addProductBorder.ProductBorder();
+                availiableProductsDisplay.DisplayAvailableProducts(productManager);
 
-            Console.SetCursorPosition(52, 17);
-            Console.WriteLine($"Current Price: {productToChange.Price}");
-            Console.SetCursorPosition(52, 18);
-            Console.WriteLine("Enter new Price (or press 'enter key' to keep current)");
-            Console.SetCursorPosition(52, 19);
-            Console.Write(": ");
-            string newPriceString = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Message.MessageString("-:Change product price:-",72, 7);
+                Console.ForegroundColor = ConsoleColor.Gray;
 
-            if (decimal.TryParse(newPriceString, out decimal newPrice))
-            {
-                productToChange.Price = newPrice;
-                DisplaySuccessMessage.SuccessMessage("Product price has updated successfully.");
-            }
-            if (string.IsNullOrWhiteSpace(newPriceString))
-            {
-                DisplayErrorMessage.ErrorMessage("No update to price was made.");
-            }
+                Product productToChange = adminPLUFinder.FindPLUCode(productManager);
+                if (productToChange == null)
+                {
+                    DisplayErrorMessage.ErrorMessage("Product not found.");
+                    continue;
+                }
 
+                Message.MessageString($"Current Price: {productToChange.Price}", 52, 17);
+                Message.MessageString("Enter new price.", 52, 18);
+                Message.MessageString(": ",52, 19);
+
+                string newPriceString = Console.ReadLine();
+
+                if (!string.IsNullOrWhiteSpace(newPriceString) && decimal.TryParse(newPriceString, out decimal newPrice))
+                {
+                    productToChange.Price = newPrice;
+                    DisplaySuccessMessage.SuccessMessage("Product price updated successfully.");
+                    break;
+                }
+                else if (string.IsNullOrWhiteSpace(newPriceString))
+                {
+                    DisplayErrorMessage.ErrorMessage("No update to price was made.");
+                }
+                else
+                {
+                    DisplayErrorMessage.ErrorMessage("Invalid price entered. Try again.");
+                }
+            }
         }
     }
 }

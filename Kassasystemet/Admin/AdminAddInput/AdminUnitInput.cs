@@ -1,10 +1,5 @@
 ﻿using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kassasystemet.Admin.AdminAddInput
 {
@@ -15,10 +10,8 @@ namespace Kassasystemet.Admin.AdminAddInput
             UnitType unit;
             while (true)
             {
-                Console.SetCursorPosition(60, 21);
-                Console.Write("Is the product in 'kg' or 'pc'?");
-                Console.SetCursorPosition(60, 22);
-                Console.Write(": ");
+                Message.MessageString("Is the product in 'kg' or 'pc'?", 60, 21);
+                Message.MessageString(": ", 60, 22);
                 string unitInput = Console.ReadLine();
                 if (!Enum.TryParse(unitInput, true, out unit) || !Enum.IsDefined(typeof(UnitType), unit))
                 {

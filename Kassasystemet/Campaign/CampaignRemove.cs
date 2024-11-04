@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Campaign.Visual;
+﻿using Kassasystemet.Campaign.CampaignInput;
+using Kassasystemet.Campaign.Visual;
 using Kassasystemet.Messages;
 using Kassasystemet.Products;
 using System.ComponentModel;
@@ -12,6 +13,9 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
 
+            var inputPLU = new CampaignPLUCodeInput(productManager);
+            var inputStartDate = new CampaignDateInput();
+
             bool IsValidInput = false;
             while (!IsValidInput)
             {
@@ -19,34 +23,12 @@ namespace Kassasystemet.Campaign
                 campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
                 try
                 {
-                    Console.SetCursorPosition(44, 7);
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("-: Remove Campaign :-");
+                    Message.MessageString("-: Remove Campaign :-", 44, 7);
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    Console.SetCursorPosition(32, 12);
-                    Console.WriteLine("Enter PLU code for the campaign to remove.");
-                    Console.SetCursorPosition(32, 13);
-                    Console.Write(": ");
-                    string PLUInput = Console.ReadLine();
-                    if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length != 3)
-                    {
-                        DisplayErrorMessage.ErrorMessage("invalid PLU. Please enter a valid 3-digit number");
-                        continue;
-                    }
-                    if(!productManager.IsPLUTaken(PLUCode))
-                    {
-                        DisplayErrorMessage.ErrorMessage("PLU does not exist. Please enter a valid PLU.");
-                        continue;
-                    }
-
-                    Console.SetCursorPosition(32, 14);
-                    Console.WriteLine("Enter start date of the campaign");
-                    Console.SetCursorPosition(32, 15);
-                    Console.WriteLine("to remove(yyyy - mm - dd)");
-                    Console.SetCursorPosition(32, 16);
-                    Console.Write(": ");
-                    DateTime startDate = DateTime.Parse(Console.ReadLine());
+                    int PLUCode = inputPLU.InputPLUCode();
+                    DateTime startDate = inputStartDate.InputStartDate();
 
                     bool removed = campaignManager.RemoveCampaign(PLUCode, startDate);
                     if (removed)

@@ -1,12 +1,7 @@
 ﻿using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Kassasystemet.Campaign.CampaignAddInput
+namespace Kassasystemet.Campaign.CampaignInput
 {
     public class CampaignPLUCodeInput(ProductManager productManager)
     {
@@ -15,10 +10,8 @@ namespace Kassasystemet.Campaign.CampaignAddInput
             int PLUCode;
             while (true)
             {
-                Console.SetCursorPosition(32, 12);
-                Console.WriteLine("Enter PLU code for the product.");
-                Console.SetCursorPosition(32, 13);
-                Console.Write(": ");
+                Message.MessageString("Enter PLU code for the product.", 32, 12);
+                Message.MessageString(": ", 32, 12);
                 string PLUInput = Console.ReadLine();
                 if (!int.TryParse(PLUInput, out PLUCode) || PLUInput.Length != 3)
                 {

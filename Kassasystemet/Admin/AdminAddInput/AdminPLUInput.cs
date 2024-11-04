@@ -1,10 +1,5 @@
 ﻿using Kassasystemet.Messages;
 using Kassasystemet.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kassasystemet.Admin.AdminAddInput
 {
@@ -15,10 +10,9 @@ namespace Kassasystemet.Admin.AdminAddInput
             int PLUCode;
             while (true)
             {
-                Console.SetCursorPosition(60, 15);
-                Console.WriteLine("Enter the PLU of the product.");
-                Console.SetCursorPosition(60, 16);
-                Console.Write(": ");
+                Message.MessageString("Enter the PLU of the product.", 60, 15);
+                Message.MessageString(": ", 60, 16);
+    
                 string PLUInput = Console.ReadLine();
                 if (!int.TryParse(PLUInput, out PLUCode) || PLUInput.Length != 3)
                 {

@@ -31,9 +31,9 @@ namespace Kassasystemet.Customer
                     Console.ReadKey();
                 }
             }
-            catch (OverflowException e)
+            catch (OverflowException)
             {
-                Console.WriteLine(e.Message);
+                DisplayErrorMessage.ErrorMessage("To big <PLU> or <amount>. Please enter less numbers");
             }
             catch (IndexOutOfRangeException e)
             {

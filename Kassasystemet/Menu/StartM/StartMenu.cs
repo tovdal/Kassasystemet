@@ -3,6 +3,7 @@ using Kassasystemet.Menu.CampaignM;
 using Kassasystemet.Customer;
 using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
+using Kassasystemet.Messages;
 
 namespace Kassasystemet.Menu.StartM
 {
@@ -48,17 +49,14 @@ namespace Kassasystemet.Menu.StartM
 
                     case "4":
                         Console.Clear();
-                        Console.SetCursorPosition(85, 20);
-                        Console.WriteLine("Closing down the system...");
-                        Console.SetCursorPosition(77, 21);
-                        Console.WriteLine("Thank you for using Cashier System 1.0!");
+                        Message.MessageString("Closing down the system...", 85, 20);
+                        Message.MessageString("Thank you for using Cashier System 1.0!", 77, 21);
                         Console.ReadKey();
                         IsRunning = false;
                         break;
 
                     default:
-                        Console.SetCursorPosition(92, 25);
-                        Console.WriteLine("Invalid choice");
+                        Message.MessageString("Invalid choice",92, 25);
                         break;
                 }
             }

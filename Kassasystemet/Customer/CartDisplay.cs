@@ -1,4 +1,5 @@
 ﻿using Kassasystemet.Campaign;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.VisualChanges;
@@ -13,11 +14,9 @@ namespace Kassasystemet.Customer
             var campaignManager = new CampaignManager();
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(68, 7);
-            Console.WriteLine("Cash Register - New Customer\n");
+            Message.MessageString("Cash Register - New Customer", 68, 7);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.SetCursorPosition(66, 10);
-            Console.WriteLine($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
+            Message.MessageString($"Receipt     {DateTime.Now:yyyy-MM-dd HH:mm:ss}", 66, 10);
             Console.ForegroundColor = ConsoleColor.Gray;
 
             // starting row for products
@@ -48,17 +47,12 @@ namespace Kassasystemet.Customer
             Console.WriteLine("Commands: <PLU> <amount> or type 'PAY' to complete");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.SetCursorPosition(51, currentRow + 5);
-            Console.SetCursorPosition(51, 31);
-            Console.WriteLine("Total:");
-            Console.SetCursorPosition(99, 31);
-            Console.WriteLine($"{salesReceiptCalculate.CalculateTotal(shoppingCart):C}");
-            Console.SetCursorPosition(51, 32);
-            Console.WriteLine("Taxes:");
-            Console.SetCursorPosition(99, 32);
-            Console.WriteLine($"{salesReceiptCalculate.CalculateTax(shoppingCart):C}");
+            Message.MessageString("Total:", 51, 31);
+            Message.MessageString($"{salesReceiptCalculate.CalculateTotal(shoppingCart):C}",99, 31);
+            Message.MessageString("Taxes:", 51, 32);
+            Message.MessageString($"{salesReceiptCalculate.CalculateTax(shoppingCart):C}",99,32);
 
-            Console.SetCursorPosition(51, 35);
-            Console.Write("Command: ");
+            Message.MessageString("Command: ",51, 35);
         }
     }
 }

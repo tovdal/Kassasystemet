@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Products;
+﻿using Kassasystemet.Messages;
+using Kassasystemet.Products;
 
 namespace Kassasystemet.Campaign
 {
@@ -6,8 +7,7 @@ namespace Kassasystemet.Campaign
     {
         public void DisplayAvailableCampaign(CampaignManager campaignManager)
         {
-            Console.SetCursorPosition(89, 7);
-            Console.WriteLine("Available Campaigns:");
+            Message.MessageString("Available Campaigns:", 89, 7);
 
             int currentRow = 10;
 
@@ -28,8 +28,7 @@ namespace Kassasystemet.Campaign
 
         public void DisplayAvailableCampaignProducts(ProductManager productManager)
         {
-            Console.SetCursorPosition(138, 7);
-            Console.WriteLine("Available Products:");
+            Message.MessageString("Available Products:", 138, 7);
 
             int currentRow = 10;
 

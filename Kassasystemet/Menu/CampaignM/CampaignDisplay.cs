@@ -1,4 +1,5 @@
-﻿using Kassasystemet.VisualChanges;
+﻿using Kassasystemet.Messages;
+using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Menu.CampaignM
 {
@@ -17,20 +18,15 @@ namespace Kassasystemet.Menu.CampaignM
             createBorder.DrawBorder(23, 80, 34, 10);
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(92, 24);
-            Console.WriteLine("-:Campaign:-");
+            Message.MessageString("-:Campaign:-", 92, 24);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.SetCursorPosition(83, 26);
-            Console.WriteLine("[1] Add new Campaign");
-            Console.SetCursorPosition(83, 27);
-            Console.WriteLine("[2] Remove Campaign");
-            Console.SetCursorPosition(83, 28);
-            Console.WriteLine("[3] Back to menu");
+            Message.MessageString("[1] Add new Campaign", 83, 26);
+            Message.MessageString("[2] Remove Campaign", 83, 27);
+            Message.MessageString("[3] Back to menu", 83, 28);
 
             createBorder.DrawBorder(33, 82, 30, 5);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(87, 35);
-            Console.Write("Pick selection: ");
+            Message.MessageString("Pick selection: ", 87, 35);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
     }

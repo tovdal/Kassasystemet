@@ -1,6 +1,6 @@
 ﻿using Kassasystemet.Messages;
 
-namespace Kassasystemet.Campaign.CampaignAddInput
+namespace Kassasystemet.Campaign.CampaignInput
 {
     public class CampaignDateInput()
     {
@@ -9,10 +9,8 @@ namespace Kassasystemet.Campaign.CampaignAddInput
             DateTime startDate;
             while (true)
             {
-                Console.SetCursorPosition(32, 14);
-                Console.WriteLine("Enter start date (yyyy-mm-dd).");
-                Console.SetCursorPosition(32, 15);
-                Console.Write(": ");
+                Message.MessageString("Enter start date(yyyy-mm-dd or yyyy.mm.dd)", 32, 14);
+                Message.MessageString(": ", 32, 15);
                 string startDateInput = Console.ReadLine();
                 if (!DateTime.TryParse(startDateInput, out startDate))
                 {
@@ -32,10 +30,8 @@ namespace Kassasystemet.Campaign.CampaignAddInput
             DateTime endDate;
             while (true)
             {
-                Console.SetCursorPosition(32, 16);
-                Console.WriteLine("Enter end date (yyyy-mm-dd).");
-                Console.SetCursorPosition(32, 17);
-                Console.Write(": ");
+                Message.MessageString("Enter end date(yyyy-mm-dd or yyyy.mm.dd)",32, 16);
+                Message.MessageString(": ",32, 17);
                 string endDateInput = Console.ReadLine();
                 if (!DateTime.TryParse(endDateInput, out endDate))
                 {
@@ -44,9 +40,8 @@ namespace Kassasystemet.Campaign.CampaignAddInput
                 }
                 if (endDate < startDate)
                 {
-                    DisplayErrorMessage.ErrorMessage("The end date must be the day after the start date or in the future. Erase and please enter a date..");
+                    DisplayErrorMessage.ErrorMessage("End date must be tomorrow or later. Erase and please enter a new date");
                     continue;
-
                 }
                 return endDate;
             }

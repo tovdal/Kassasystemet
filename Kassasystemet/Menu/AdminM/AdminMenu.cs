@@ -1,4 +1,5 @@
 ﻿using Kassasystemet.Admin;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 using Kassasystemet.Products.Interface;
 
@@ -42,8 +43,7 @@ namespace Kassasystemet.Menu.AdminM
                         break;
 
                     default:
-                        Console.SetCursorPosition(92, 25);
-                        Console.WriteLine("Invalid choice");
+                        Message.MessageString("Invalid choice", 92, 25);
                         break;
                 }
             }

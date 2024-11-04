@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Products;
+﻿using Kassasystemet.Messages;
+using Kassasystemet.Products;
 
 namespace Kassasystemet.Customer
 {
@@ -6,9 +7,7 @@ namespace Kassasystemet.Customer
     {
         public void DisplayAvailableProducts(ProductManager productManager)
         {
-            Console.SetCursorPosition(119, 8);
-            Console.WriteLine("Available Products:");
-
+            Message.MessageString("Available Products:",119, 8);
 
             int currentRow = 10;
 

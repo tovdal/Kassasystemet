@@ -3,6 +3,7 @@ using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.Products.Interface;
 using Kassasystemet.Customer.Visual;
+using Kassasystemet.Messages;
 
 namespace Kassasystemet.Customer
 {
@@ -54,10 +55,9 @@ namespace Kassasystemet.Customer
 
             salesReceiptPrint.SaveReceipt(shoppingCart, salesReceiptCalculate);
 
-            Console.SetCursorPosition(85, 20);
-            Console.WriteLine("Receipt saved and printed out.");
-            Console.SetCursorPosition(85, 21);
-            Console.Write("Press any key to continue");
+
+            Message.MessageString("Receipt saved and printed out.", 85, 20);
+            Message.MessageString("Press any key to continue", 85, 21);
             Console.ReadKey();
         }
     }

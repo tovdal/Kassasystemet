@@ -1,6 +1,4 @@
-﻿using Kassasystemet.Admin.Display;
-using Kassasystemet.Customer;
-using Kassasystemet.Products;
+﻿using Kassasystemet.Products;
 
 namespace Kassasystemet.Admin
 {

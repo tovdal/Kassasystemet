@@ -8,10 +8,8 @@ namespace Kassasystemet.Admin
         public Product FindPLUCode(ProductManager productManager)
         {
             int PLUCode = 0;
-            Console.SetCursorPosition(52, 15);
-            Console.WriteLine("Enter the PLUCode of the product you want to change");
-            Console.SetCursorPosition(52, 16);
-            Console.Write(": ");
+            Message.MessageString("Enter the PLUCode of the product you want to change", 52, 15);
+            Message.MessageString(": ", 52, 16);
             try
             {
                 PLUCode = Convert.ToInt32(Console.ReadLine());
