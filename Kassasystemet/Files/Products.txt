@@ -12,3 +12,5 @@
 399:Lemon:10,19:pc
 398:Lime:18,99:pc
 247:Berries:95,99:pc
+666:Devil curry:666:pc
+123:lol:4:pc
