@@ -26,7 +26,7 @@ namespace Kassasystemet.Admin
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     Console.SetCursorPosition(60, 15);
-                    Console.WriteLine("Enter the PLU of the product: ");
+                    Console.WriteLine("Enter the PLU of the product.");
                     Console.SetCursorPosition(60, 16);
                     Console.Write(": ");
                     string PLUInput = Console.ReadLine();
@@ -42,11 +42,11 @@ namespace Kassasystemet.Admin
                     }
 
                     Console.SetCursorPosition(60, 17);
-                    Console.WriteLine("Enter the name of the product: ");
+                    Console.WriteLine("Enter the name of the product.");
                     Console.SetCursorPosition(60, 18);
                     Console.Write(": ");
                     string productName = Console.ReadLine();
-                    if (productName == null)
+                    if (productName == string.Empty)
                     {
                         DisplayErrorMessage.ErrorMessage("The product must have a name.");
                         continue;
