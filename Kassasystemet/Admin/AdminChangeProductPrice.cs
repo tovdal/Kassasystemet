@@ -40,6 +40,10 @@ namespace Kassasystemet.Admin
                 productToChange.Price = newPrice;
                 DisplaySuccessMessage.SuccessMessage("Product price updated successfully.");
             }
+            if (string.IsNullOrWhiteSpace(newPriceString))
+            {
+                DisplayErrorMessage.ErrorMessage("No update to price was made.");
+            }
         }
     }
 }

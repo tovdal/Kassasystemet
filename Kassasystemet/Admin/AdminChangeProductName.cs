@@ -43,7 +43,7 @@ namespace Kassasystemet.Admin
             }
             if(string.IsNullOrWhiteSpace(newProductName))
             {
-                DisplayErrorMessage.ErrorMessage("No update to name made.");
+                DisplayErrorMessage.ErrorMessage("No update to name was made.");
             }
         }
     }

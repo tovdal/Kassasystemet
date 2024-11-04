@@ -24,7 +24,7 @@ namespace Kassasystemet.Admin
             Product productToChange = productManager.GetProductByPLU(PLUCode);
             if (productToChange == null)
             {
-                DisplayErrorMessage.ErrorMessage("Product not found");
+                Console.WriteLine("Product not found");
                 return null;
             }
             return productToChange;
