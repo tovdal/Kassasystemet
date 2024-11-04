@@ -35,6 +35,10 @@ namespace Kassasystemet.Customer
             {
                 DisplayErrorMessage.ErrorMessage(e.Message);
             }
+            catch (IndexOutOfRangeException e)
+            {
+                DisplayErrorMessage.ErrorMessage(e.Message);
+            }
             catch (FormatException e)
             {
                 DisplayErrorMessage.ErrorMessage(e.Message);
