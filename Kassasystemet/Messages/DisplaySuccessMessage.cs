@@ -12,7 +12,7 @@ namespace Kassasystemet.Messages
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(80, 38);
-            Console.WriteLine(message);
+            Console.Write(message);
             Console.ResetColor();
             Console.ReadKey();
         }
