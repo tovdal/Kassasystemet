@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Products;
+﻿using Kassasystemet.Messages;
+using Kassasystemet.Products;
 using Kassasystemet.VisualChanges;
 
 namespace Kassasystemet.Customer
@@ -12,11 +13,7 @@ namespace Kassasystemet.Customer
                 string[] parts = input.Split(' ');
                 if (parts.Length != 2)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(80, 38);
-                    Console.WriteLine("Please enter in the format: <PLU> <amount>");
-                    Console.ResetColor();
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage("Please enter in the format: <PLU> <amount>");
                 }
                 int pluCode = int.Parse(parts[0]);
                 int amount = int.Parse(parts[1]);
@@ -36,15 +33,15 @@ namespace Kassasystemet.Customer
             }
             catch (OverflowException e)
             {
-                Console.WriteLine($"{e.Message}");
+                DisplayErrorMessage.ErrorMessage(e.Message);
             }
             catch (IndexOutOfRangeException e)
             {
-                Console.WriteLine($"{e.Message}");
+                DisplayErrorMessage.ErrorMessage(e.Message);
             }
             catch (FormatException e)
             {
-                Console.WriteLine($"{e.Message}");
+                DisplayErrorMessage.ErrorMessage(e.Message);
             }
         }
     }

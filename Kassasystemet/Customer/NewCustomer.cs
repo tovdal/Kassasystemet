@@ -2,7 +2,7 @@
 using Kassasystemet.Products;
 using Kassasystemet.Receipts;
 using Kassasystemet.Products.Interface;
-using Kassasystemet.Customer.DisplayBorder;
+using Kassasystemet.Customer.Visual;
 
 namespace Kassasystemet.Customer
 {
@@ -21,7 +21,7 @@ namespace Kassasystemet.Customer
             var availiableProductsDisplay = new AvailableProductsDisplay();
             var cartDisplay = new CartDisplay();
 
-            string productFilePath = "../../../Files/Products.txt"; //Filvägen till produkterna
+            string productFilePath = "../../../Files/Products.txt";
 
             IProductLoader productLoader = new ProductLoader();
             ProductManager productManager = new ProductManager(productLoader, productFilePath);
@@ -35,7 +35,7 @@ namespace Kassasystemet.Customer
             do
             {
                 Console.Clear();
-                CustomerBorderDisplay.CustomerDrawBorder(createBorder);
+                CustomerDisplayBorder.CustomerDrawBorder(createBorder);
                 availiableProductsDisplay.DisplayAvailableProducts(productManager);
                 cartDisplay.DisplayCustomerCart(salesReceiptCalculate, createBorder, shoppingCart);
 
@@ -52,7 +52,7 @@ namespace Kassasystemet.Customer
             }
             while (!IsPaymentCompleted);
 
-            salesReceiptPrint.SaveReceipt(shoppingCart, salesReceiptCalculate); //När betalningen är klart, kvittot sparas.
+            salesReceiptPrint.SaveReceipt(shoppingCart, salesReceiptCalculate);
 
             Console.SetCursorPosition(85, 20);
             Console.WriteLine("Receipt saved and printed out.");

@@ -1,4 +1,5 @@
 ﻿using Kassasystemet.Campaign.Visual;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 
 namespace Kassasystemet.Campaign
@@ -10,11 +11,11 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
 
-            campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
-
             bool IsValidInput = false;
             while (!IsValidInput)
             {
+                Console.Clear();
+                campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
                 try
                 {
                     Console.SetCursorPosition(44, 7);
@@ -23,93 +24,78 @@ namespace Kassasystemet.Campaign
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     Console.SetCursorPosition(32, 12);
-                    Console.Write("Enter PLU code for the product: ");
+                    Console.WriteLine("Enter PLU code for the product.");
+                    Console.SetCursorPosition(32, 13);
+                    Console.Write(": ");
                     string PLUInput = Console.ReadLine();
                     if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length != 3)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(80, 38);
-                        Console.WriteLine("invalid PLU. Please enter a valid 3-digit number");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
-
+                        DisplayErrorMessage.ErrorMessage("invalid PLU. Please enter a valid 3-digit number");
                         continue;
                     }
-                    else
+                    if (!productManager.IsPLUTaken(PLUCode))
                     {
-                        Console.ReadKey();
-                    }
-
-                    Console.SetCursorPosition(32, 13);
-                    Console.Write("Enter start date (yyyy-mm-dd): ");
-                    string startDateInput = Console.ReadLine();
-                    if (!DateTime.TryParse(startDateInput, out DateTime startDate))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(80, 38);
-                        Console.WriteLine("Invalid date format. Please enter a date in the format yyyy-mm-dd.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
-
-                        continue; // Go back to the beginning of the loop or re-prompt
+                        DisplayErrorMessage.ErrorMessage("PLU does not exist. Please enter a valid PLU.");
+                        continue;
                     }
 
                     Console.SetCursorPosition(32, 14);
-                    Console.Write("Enter end date (yyyy-mm-dd): ");
+                    Console.WriteLine("Enter start date (yyyy-mm-dd).");
+                    Console.SetCursorPosition(32, 15);
+                    Console.Write(": ");
+                    string startDateInput = Console.ReadLine();
+                    if (!DateTime.TryParse(startDateInput, out DateTime startDate))
+                    {
+                        DisplayErrorMessage.ErrorMessage("Invalid date format. " +
+                            "Please enter a date in the format yyyy-mm-dd.");
+                        continue; 
+                    }
+
+                    Console.SetCursorPosition(32, 16);
+                    Console.WriteLine("Enter end date (yyyy-mm-dd).");
+                    Console.SetCursorPosition(32, 17);
+                    Console.Write(": ");
                     string endDateInput = Console.ReadLine();
                     if (!DateTime.TryParse(endDateInput, out DateTime endDate))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(80, 38);
-                        Console.WriteLine("Invalid date format. Please enter a date in the format yyyy-mm-dd.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
-                        continue; // Go back to the beginning of the loop or re-prompt
+                        DisplayErrorMessage.ErrorMessage("Invalid date format. " +
+                            "Please enter a date in the format yyyy-mm-dd.");
+                        continue; 
                     }
 
-                    Console.SetCursorPosition(32, 15);
-                    Console.Write("Enter discounted price: ");
+                    Console.SetCursorPosition(32, 18);
+                    Console.WriteLine("Enter discounted price.");
+                    Console.SetCursorPosition(32, 19);
+                    Console.Write(": ");
                     if (!decimal.TryParse(Console.ReadLine(), out decimal discountedPrice))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(80, 38);
-                        Console.WriteLine("invalid price. Please enter a valid number.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("invalid price. Please enter a valid number.");
+                        continue;
+                    }
+                    if (discountedPrice >= pr
+                    {
+                        DisplayErrorMessage.ErrorMessage("Discounted price cannot be equal to" +
+                            " or greater than the original price.");
                         continue;
                     }
 
                     Campaign newCampaign = new Campaign(startDate, endDate, discountedPrice, PLUCode);
                     campaignManager.AddCampaign(newCampaign);
-                    Console.SetCursorPosition(80, 38);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Campaign added successfully.");
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    DisplaySuccessMessage.SuccessMessage("Campaign added successfully.");
+                    IsValidInput = true;
                     Console.ReadKey();
                 }
                 catch (ArgumentNullException e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage(e.Message);
                 }
                 catch (OverflowException e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage(e.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage($"An unexpected error occurred: {ex.Message}");
                 }
             }
         }

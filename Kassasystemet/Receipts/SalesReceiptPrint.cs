@@ -4,7 +4,6 @@ using Kassasystemet.Products;
 
 namespace Kassasystemet.Receipts
 {
-    // Hanterar produkter som köpts och ansvarar för att beräkna totalsumman samt skriva ut kvittot.
     public class SalesReceiptPrint
     {
         public void SaveReceipt(List<Product> shoppingCart, SalesReceiptCalculate salesReceiptCalculate)

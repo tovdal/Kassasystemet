@@ -36,7 +36,7 @@ namespace Kassasystemet.Campaign
             foreach (var product in productManager.GetProducts())
             {
                 Console.SetCursorPosition(125, currentRow);
-                Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName} - {product.Unit}");
+                Console.WriteLine($"PLU: {product.PLUCode} - {product.ProductName} - {product.Price:C} - {product.Unit}");
                 currentRow++;
             }
         }

@@ -16,6 +16,38 @@ namespace Kassasystemet.Campaign
             campaigns.Add(campaign);
             SaveCampaignsToFile();
         }
+        public decimal GetPriceWithCampaigns(Product product, DateTime date)
+        {
+            decimal discountedPrice = product.Price;
+
+            foreach (var campaign in campaigns)
+            {
+                if (campaign.PLUCode == product.PLUCode && campaign.StartDate <= date && campaign.EndDate >= date)
+                {
+                    discountedPrice = campaign.DiscountedPrice;
+                    break;
+                }
+            }
+
+            return discountedPrice;
+        }
+        public List<Campaign> GetCampaigns(int pluCode)
+        {
+            List<Campaign> result = new List<Campaign>();
+            foreach (var campaign in campaigns)
+            {
+                if (campaign.PLUCode == pluCode)
+                {
+                    result.Add(campaign);
+                }
+            }
+            return result;
+        }
+
+        public List<Campaign> GetCampaigns()
+        {
+            return campaigns;
+        }
 
         public bool RemoveCampaign(int pluCode, DateTime startDate)
         {
@@ -29,19 +61,6 @@ namespace Kassasystemet.Campaign
                 }
             }
             return false;
-        }
-
-        public List<Campaign> GetCampaigns(int pluCode)
-        {
-            List<Campaign> result = new List<Campaign>();
-            foreach (var campaign in campaigns)
-            {
-                if (campaign.PLUCode == pluCode)
-                {
-                    result.Add(campaign);
-                }
-            }
-            return result;
         }
 
         public void LoadCampaignsFromFile()
@@ -74,25 +93,6 @@ namespace Kassasystemet.Campaign
                         $"{campaign.PLUCode}");
                 }
             }
-        }
-        public decimal GetPriceWithCampaigns(Product product, DateTime date)
-        {
-            decimal discountedPrice = product.Price;
-
-            foreach (var campaign in campaigns)
-            {
-                if (campaign.PLUCode == product.PLUCode && campaign.StartDate <= date && campaign.EndDate >= date)
-                {
-                    discountedPrice = campaign.DiscountedPrice; 
-                    break;
-                }
-            }
-
-            return discountedPrice;
-        }
-        public List<Campaign> GetCampaigns()
-        {
-            return campaigns;
         }
     }
 }

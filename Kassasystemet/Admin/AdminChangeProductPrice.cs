@@ -1,5 +1,6 @@
 ﻿using Kassasystemet.Admin.Display;
 using Kassasystemet.Customer;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 
 namespace Kassasystemet.Admin
@@ -37,8 +38,7 @@ namespace Kassasystemet.Admin
             if (decimal.TryParse(newPriceString, out decimal newPrice))
             {
                 productToChange.Price = newPrice;
-                Console.SetCursorPosition(52, 19);
-                Console.WriteLine("Product price updated successfully.");
+                DisplaySuccessMessage.SuccessMessage("Product price updated successfully.");
             }
         }
     }

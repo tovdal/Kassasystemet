@@ -1,5 +1,7 @@
 ﻿using Kassasystemet.Campaign.Visual;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
+using System.ComponentModel;
 
 namespace Kassasystemet.Campaign
 {
@@ -10,11 +12,11 @@ namespace Kassasystemet.Campaign
             var campaignManager = new CampaignManager();
             var campaignVisual = new CampaignVisual();
 
-            campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
-
             bool IsValidInput = false;
             while (!IsValidInput)
             {
+                Console.Clear();
+                campaignVisual.DisplayVisualCampaign(campaignManager, productManager);
                 try
                 {
                     Console.SetCursorPosition(44, 7);
@@ -23,67 +25,56 @@ namespace Kassasystemet.Campaign
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     Console.SetCursorPosition(32, 12);
-                    Console.Write("Enter PLU code for the campaign to remove: ");
+                    Console.WriteLine("Enter PLU code for the campaign to remove.");
+                    Console.SetCursorPosition(32, 13);
+                    Console.Write(": ");
                     string PLUInput = Console.ReadLine();
                     if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length != 3)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(80, 38);
-                        Console.WriteLine("invalid PLU. Please enter a valid 3-digit number");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("invalid PLU. Please enter a valid 3-digit number");
+                        continue;
+                    }
+                    if(!productManager.IsPLUTaken(PLUCode))
+                    {
+                        DisplayErrorMessage.ErrorMessage("PLU does not exist. Please enter a valid PLU.");
                         continue;
                     }
 
-                    Console.SetCursorPosition(32, 13);
-                    Console.Write("Enter start date of the campaign to remove (yyyy-mm-dd): ");
+                    Console.SetCursorPosition(32, 14);
+                    Console.WriteLine("Enter start date of the campaign");
+                    Console.SetCursorPosition(32, 15);
+                    Console.WriteLine("to remove(yyyy - mm - dd)");
+                    Console.SetCursorPosition(32, 16);
+                    Console.Write(": ");
                     DateTime startDate = DateTime.Parse(Console.ReadLine());
 
                     // Call the RemoveCampaign method on the newly created instance
                     bool removed = campaignManager.RemoveCampaign(PLUCode, startDate);
                     if (removed)
                     {
-                        Console.SetCursorPosition(80, 38);
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Campaign found and removed. Campaign removed successfully.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        DisplaySuccessMessage.SuccessMessage("Campaign found and removed. Campaign removed successfully.");
                     }
                     else
                     {
-                        Console.SetCursorPosition(80, 38);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Campaign not found. Campaign not found" +
+                        DisplayErrorMessage.ErrorMessage("Campaign not found. Campaign not found" +
                             " with the given PLU and/or start date.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
+                    IsValidInput = true;
                     Console.ReadKey();
                 }
                 catch (ArgumentNullException e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage(e.Message);
                 }
                 catch (OverflowException e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage(e.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
-                }  
+                    DisplayErrorMessage.ErrorMessage($"An unexpected error occurred: {ex.Message}");
+                }
             }
         }
-
     }
 }

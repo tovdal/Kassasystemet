@@ -1,8 +1,8 @@
 ﻿using Kassasystemet.VisualChanges;
 
-namespace Kassasystemet.Customer.DisplayBorder
+namespace Kassasystemet.Customer.Visual
 {
-    public class CustomerBorderDisplay
+    public class CustomerDisplayBorder
     {
         public static void CustomerDrawBorder(CreateBorder createBorder)
         {

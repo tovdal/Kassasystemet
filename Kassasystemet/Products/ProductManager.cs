@@ -1,4 +1,5 @@
-﻿using Kassasystemet.Products.Interface;
+﻿using Kassasystemet.Messages;
+using Kassasystemet.Products.Interface;
 
 namespace Kassasystemet.Products
 {
@@ -25,12 +26,7 @@ namespace Kassasystemet.Products
                     return product;
                 }
             }
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(83, 38);
-            Console.WriteLine("Product with that PLU could not be found.");
-            Console.ResetColor();
-            Console.ReadKey();
+            DisplayErrorMessage.ErrorMessage("Product with that PLU could not be found.");
             return null;
         }
 
@@ -39,7 +35,6 @@ namespace Kassasystemet.Products
             products.Add(newProduct);
             SaveNewProductToFile(filePath, newProduct);
         }
-
 
         public bool IsPLUTaken(int PLUCode)
         {
@@ -71,8 +66,5 @@ namespace Kassasystemet.Products
             //https://www.webdevtutor.net/blog/c-sharp-lambda-on-list
             return products;
         }
-
     }
 }
-
-

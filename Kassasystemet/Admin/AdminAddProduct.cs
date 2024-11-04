@@ -1,5 +1,6 @@
 ﻿using Kassasystemet.Admin.Display;
 using Kassasystemet.Customer;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 
 namespace Kassasystemet.Admin
@@ -25,73 +26,58 @@ namespace Kassasystemet.Admin
                     Console.ForegroundColor = ConsoleColor.Gray;
 
                     Console.SetCursorPosition(60, 15);
-                    Console.Write("Enter the PLU of the product: ");
+                    Console.WriteLine("Enter the PLU of the product: ");
+                    Console.SetCursorPosition(60, 16);
+                    Console.Write(": ");
                     string PLUInput = Console.ReadLine();
                     if (!int.TryParse(PLUInput, out int PLUCode) || PLUInput.Length != 3)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(83, 38);
-                        Console.WriteLine("invalid PLU. Please enter a valid 3-digit number");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("invalid PLU. Please enter a valid 3-digit number");
                         continue;
                     }
                     if (productManager.IsPLUTaken(PLUCode))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(83, 38);
-                        Console.WriteLine("This PLU code is already taken. Please enter a different PLU.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("This PLU code is already taken. Please enter a different PLU.");
                         continue;
                     }
-
-                    Console.SetCursorPosition(60, 16);
-                    Console.Write("Enter the name of the product: ");
-                    string productName = Console.ReadLine();
 
                     Console.SetCursorPosition(60, 17);
-                    Console.Write("Enter the price: ");
+                    Console.WriteLine("Enter the name of the product: ");
+                    Console.SetCursorPosition(60, 18);
+                    Console.Write(": ");
+                    string productName = Console.ReadLine();
+
+                    Console.SetCursorPosition(60, 19);
+                    Console.WriteLine("Enter the price.");
+                    Console.SetCursorPosition(60, 20);
+                    Console.Write(": ");
                     if (!decimal.TryParse(Console.ReadLine(), out decimal price))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(83, 38);
-                        Console.WriteLine("invalid price. Please enter a valid number.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("invalid price. Please enter a valid number.");
                         continue;
                     }
 
-                    Console.SetCursorPosition(60, 18);
-                    Console.Write("Is the product in 'kg' or 'pc'?: ");
+                    Console.SetCursorPosition(60, 21);
+                    Console.Write("Is the product in 'kg' or 'pc'?");
+                    Console.SetCursorPosition(60, 22);
+                    Console.Write(": ");
                     string unitInput = Console.ReadLine();
                     if (!Enum.TryParse(unitInput, true ,out UnitType unit) || !Enum.IsDefined(typeof(UnitType), unit)) //https://zetcode.com/csharp/enum/
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(83, 38);
-                        Console.WriteLine("Invalid unit type. Please enter either 'kg' or 'pc'.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.ReadKey();
+                        DisplayErrorMessage.ErrorMessage("Invalid unit type. Please enter either 'kg' or 'pc'.");
                         continue;
                     }
-                   
 
                     Product product = new Product(PLUCode, productName, price, unit);
-
                     productManager.AddProduct(product, filePath);
 
-                    Console.SetCursorPosition(60, 19);
-                    Console.WriteLine("Product added successfully.");
+                    DisplaySuccessMessage.SuccessMessage("Product added successfully.");
                     IsValidInput = true;
-                    Console.ReadKey();
+
                 }
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(83, 38);
-                    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.ReadKey();
+                    DisplayErrorMessage.ErrorMessage($"An unexpected error occurred: {ex.Message}");
                 }
             }
         }

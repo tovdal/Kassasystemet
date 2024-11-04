@@ -39,7 +39,6 @@ namespace Kassasystemet.Menu.StartM
                         break;
 
                     case "2":
-                        // Admin verktyg? om jag kommer så långt,
                         adminMenu.MenuAdmin(productLoader, productFilePath);
                         break;
 

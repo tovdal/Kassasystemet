@@ -1,5 +1,6 @@
 ﻿using Kassasystemet.Admin.Display;
 using Kassasystemet.Customer;
+using Kassasystemet.Messages;
 using Kassasystemet.Products;
 
 namespace Kassasystemet.Admin
@@ -24,7 +25,6 @@ namespace Kassasystemet.Admin
             if (productToChange == null)
             {
                 return;
-
             }
             Console.SetCursorPosition(52, 16);
             Console.WriteLine($"Current product Name: {productToChange.ProductName}");
@@ -37,8 +37,7 @@ namespace Kassasystemet.Admin
             if (!string.IsNullOrWhiteSpace(newProductName))
             {
                 productToChange.ProductName = newProductName;
-                Console.SetCursorPosition(52, 19);
-                Console.WriteLine("Product name updated successfully.");
+                DisplaySuccessMessage.SuccessMessage("Product name updated successfully.");
             }
         }
     }

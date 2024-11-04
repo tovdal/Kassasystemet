@@ -14,3 +14,4 @@
 247:Berries:95,99:pc
 666:Devil curry:666:pc
 123:lol:4:pc
+105:Yogurt:31,95:pc
