@@ -41,6 +41,10 @@ namespace Kassasystemet.Admin
                 productToChange.ProductName = newProductName;
                 DisplaySuccessMessage.SuccessMessage("Product name updated successfully.");
             }
+            if(string.IsNullOrWhiteSpace(newProductName))
+            {
+                DisplayErrorMessage.ErrorMessage("No update to name made.");
+            }
         }
     }
 }

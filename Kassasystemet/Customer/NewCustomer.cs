@@ -57,7 +57,7 @@ namespace Kassasystemet.Customer
             Console.SetCursorPosition(85, 20);
             Console.WriteLine("Receipt saved and printed out.");
             Console.SetCursorPosition(85, 21);
-            Console.WriteLine("Press any key to continue");
+            Console.Write("Press any key to continue");
             Console.ReadKey();
         }
     }
